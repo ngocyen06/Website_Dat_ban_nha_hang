@@ -1,11 +1,12 @@
+"use client";
 import { useEffect, useState } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { Menu, MenuCategory } from "@prisma/client";
-import Layout from "@/components/layout/Layout";
-import { useGetMenu } from "@/hooks/useGetMenu";
-import { useGetCategories } from "@/hooks/useGetCategories";
+import Layout from "../../components/layout/Layout";
+import { useGetMenu } from "../../hooks/useGetMenu";
+import { useGetCategories } from "../../hooks/useGetCategories";
 import { playfair } from "../_app";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -36,7 +37,7 @@ const MenuPage: NextPage = () => {
     const paginatedMenuItems = filteredMenuItems?.slice(
         (currentPage - 1) * menuPerPage,
         currentPage * menuPerPage
-    );
+    )??[];
 
     useEffect(() => {
         setCurrentPage(1);
