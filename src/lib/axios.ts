@@ -11,18 +11,18 @@ axiosInstance.interceptors.request.use((config) => {
     const token = useAuthStore.getState().token;
 
     if (token) {
-        // Cek apakah token sudah kedaluwarsa
+        // Kiểm tra xem token đã hết hạn chưa
         try {
             const decodedToken = jwtDecode(token) as { exp: number };
             const currentTime = Date.now() / 1000;
 
             if (decodedToken.exp < currentTime) {
-                // Token sudah kedaluwarsa, logout user
+                // Token đã hết hạn, đăng xuất user
                 useAuthStore.getState().logout();
                 return config;
             }
         } catch (error) {
-            // Token tidak valid, logout user
+            // Token không hợp lệ, đăng xuất user
             console.log(error);
             useAuthStore.getState().logout();
             return config;
@@ -38,7 +38,7 @@ axiosInstance.interceptors.request.use((config) => {
 axiosInstance.interceptors.response.use(
     (response) => response,
     (error: AxiosError) => {
-        // Jika error 401 (Unauthorized), logout user
+        // Nếu lỗi 401 (Unauthorized), đăng xuất user
         if (error.response?.status === 401) {
             useAuthStore.getState().logout();
         }

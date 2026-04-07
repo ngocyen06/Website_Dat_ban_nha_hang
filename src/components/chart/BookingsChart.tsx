@@ -16,7 +16,7 @@ interface BookingsChartProps {
 }
 
 const BookingsChart: React.FC<BookingsChartProps> = ({ data }) => {
-    // Format data untuk chart
+    // Định dạng dữ liệu cho biểu đồ
     const chartData = data.map((item) => ({
         date: format(parseISO(item.date), "dd MMM", { locale: localeId }),
         count: item.count,
@@ -36,8 +36,8 @@ const BookingsChart: React.FC<BookingsChartProps> = ({ data }) => {
                     tickMargin={8}
                 />
                 <Tooltip
-                    formatter={(value) => [`${value} reservasi`, "Jumlah"]}
-                    labelFormatter={(label) => `Tanggal: ${label}`}
+                    formatter={(value) => [`${value} đặt chỗ`, "Số lượng"]}
+                    labelFormatter={(label) => `Ngày: ${label}`}
                     contentStyle={{
                         backgroundColor: "white",
                         border: "1px solid #f0f0f0",

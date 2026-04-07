@@ -27,7 +27,7 @@ const RecentBooking = ({
                 <div className="ml-3">
                     <p className="text-sm font-medium text-gray-900">{name}</p>
                     <p className="text-xs text-gray-500">
-                        {date} • {time} • {guests} orang
+                        {date} • {time} • {guests} người
                     </p>
                 </div>
             </div>
@@ -35,12 +35,12 @@ const RecentBooking = ({
                 className={`px-2 py-1 rounded-full text-xs font-medium ${statusColors[status]}`}
             >
                 {status === "PENDING"
-                    ? "Menunggu"
+                    ? "Đang chờ"
                     : status === "CONFIRMED"
-                    ? "Terkonfirmasi"
+                    ? "Đã xác nhận"
                     : status === "CANCELLED"
-                    ? "Dibatalkan"
-                    : "Selesai"}
+                    ? "Đã hủy"
+                    : "Hoàn thành"}
             </span>
         </div>
     );

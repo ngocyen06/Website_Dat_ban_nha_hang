@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useAuthStore } from "../../store/authStore";
 import { User, LogOut, Menu, X } from "lucide-react";
-import { playfair } from "@/pages/_app";
+import { playfair } from "../../pages/_app";
 import toast from "react-hot-toast";
 
 const Header: React.FC = () => {
@@ -11,12 +11,12 @@ const Header: React.FC = () => {
     const router = useRouter();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    // Cek autentikasi setiap kali komponen di-render
+    // Kiểm tra xác thực mỗi khi component được render
     useEffect(() => {
-        // Validasi token saat komponen dimuat
+        // Xác thực token khi component được tải
         const isValid = checkAuth();
         if (!isValid && isAuthenticated) {
-            toast.error("Sesi anda telah berakhir. Silakan login kembali.");
+            toast.error("Phiên của bạn đã hết hạn. Vui lòng đăng nhập lại.");
             logout();
 
             // Redirect ke halaman login jika di halaman yang memerlukan autentikasi
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
     const handleLogout = () => {
         logout();
         router.push("/");
-        toast.success("Logout sukses");
+        toast.success("Đăng xuất thành công");
     };
 
     const toggleMobileMenu = () => {
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
                                     : ""
                             }`}
                         >
-                            Beranda
+                            Trang chủ
                         </Link>
                         <Link
                             href="/menu"
@@ -86,7 +86,7 @@ const Header: React.FC = () => {
                                     : ""
                             }`}
                         >
-                            Reservasi
+                            Đặt chỗ
                         </Link>
                         <Link
                             href="/about"
@@ -96,7 +96,7 @@ const Header: React.FC = () => {
                                     : ""
                             }`}
                         >
-                            Tentang Kami
+                            Về chúng tôi
                         </Link>
                         <Link
                             href="/contact"
@@ -106,7 +106,7 @@ const Header: React.FC = () => {
                                     : ""
                             }`}
                         >
-                            Kontak
+                            Liên hệ
                         </Link>
                     </nav>
 
@@ -176,7 +176,7 @@ const Header: React.FC = () => {
                                         : ""
                                 }`}
                             >
-                                Beranda
+                                Trang chủ
                             </Link>
                             <Link
                                 href="/menu"
@@ -199,7 +199,7 @@ const Header: React.FC = () => {
                                         : ""
                                 }`}
                             >
-                                Reservasi
+                                Đặt chỗ
                             </Link>
                             <Link
                                 href="/about"
@@ -210,7 +210,7 @@ const Header: React.FC = () => {
                                         : ""
                                 }`}
                             >
-                                Tentang Kami
+                                Về chúng tôi
                             </Link>
                             <Link
                                 href="/contact"
@@ -221,7 +221,7 @@ const Header: React.FC = () => {
                                         : ""
                                 }`}
                             >
-                                Kontak
+                                Liên hệ
                             </Link>
                         </nav>
 

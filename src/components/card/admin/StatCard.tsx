@@ -27,7 +27,7 @@ const StatCard = ({
                 <div className={`p-3 rounded-full ${iconBg}`}>{icon}</div>
             </div>
             <div className="mt-4 flex items-center text-sm text-amber-600 font-medium">
-                <span>Lihat detail</span>
+                <span>Xem chi tiết</span>
                 <ChevronRight className="ml-1 h-4 w-4" />
             </div>
         </div>

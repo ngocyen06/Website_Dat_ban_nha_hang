@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/store/authStore";
+import { useAuthStore } from "../../store/authStore";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -7,13 +7,13 @@ export function useAuth(redirectTo = "/auth/login") {
     const { isAuthenticated } = useAuthStore();
     const [isHydrated, setIsHydrated] = useState(false);
 
-    // Efek untuk menandai bahwa hydration sudah selesai
+    // Hiệu ứng để đánh dấu rằng hydration đã hoàn thành
     useEffect(() => {
         setIsHydrated(true);
     }, []);
 
     useEffect(() => {
-        // Hanya lakukan redirect jika hydration sudah selesai
+        // Chỉ thực hiện redirect nếu hydration đã hoàn thành
         if (isHydrated && !isAuthenticated) {
             router.push(redirectTo);
         }
@@ -27,13 +27,13 @@ export function useAdmin(redirectTo = "/") {
     const { isAuthenticated, user } = useAuthStore();
     const [isHydrated, setIsHydrated] = useState(false);
 
-    // Efek untuk menandai bahwa hydration sudah selesai
+    // Hiệu ứng để đánh dấu rằng hydration đã hoàn thành
     useEffect(() => {
         setIsHydrated(true);
     }, []);
 
     useEffect(() => {
-        // Hanya lakukan redirect jika hydration sudah selesai
+        // Chỉ thực hiện redirect nếu hydration đã hoàn thành
         if (!isHydrated) return;
 
         if (!isAuthenticated) {

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-// Animasi container untuk efek stagger
+// Hoạt ảnh container cho hiệu ứng phân lớp (stagger)
 // const staggerContainer = {
 //     hidden: { opacity: 0 },
 //     show: {
@@ -13,7 +13,7 @@ import { useState } from "react";
 //     },
 // };
 
-// Animasi untuk masing-masing card
+// Hoạt ảnh cho từng card
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     show: {
@@ -25,7 +25,7 @@ const cardVariants = {
     },
 };
 
-// Animasi untuk konten yang muncul saat hover
+// Hoạt ảnh cho nội dung xuất hiện khi hover
 const infoVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -51,7 +51,7 @@ const TeamMemberCard = ({ member }: { member: Record<string, string> }) => {
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
         >
-            {/* Container untuk image yang selalu memenuhi card */}
+            {/* Container cho hình ảnh luôn phủ kín card */}
             <div className="absolute inset-0 w-full h-full">
                 <Image
                     src={`/images/team/${member.image}`}
@@ -65,7 +65,7 @@ const TeamMemberCard = ({ member }: { member: Record<string, string> }) => {
                 />
             </div>
 
-            {/* Overlay gelap yang muncul saat hover */}
+            {/* Lớp phủ tối xuất hiện khi hover */}
             <motion.div
                 className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30"
                 initial={{ opacity: 0 }}
@@ -73,7 +73,7 @@ const TeamMemberCard = ({ member }: { member: Record<string, string> }) => {
                 transition={{ duration: 0.3 }}
             />
 
-            {/* Info yang muncul saat hover */}
+            {/* Thông tin xuất hiện khi hover */}
             <motion.div
                 className="absolute bottom-0 left-0 right-0 p-5 flex flex-col justify-end h-full"
                 variants={infoVariants}

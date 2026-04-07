@@ -16,7 +16,7 @@ interface OrdersChartProps {
 }
 
 const OrdersChart: React.FC<OrdersChartProps> = ({ data }) => {
-    // Format data untuk chart
+    // Định dạng dữ liệu cho biểu đồ
     const chartData = data.map((item) => ({
         date: format(parseISO(item.date), "dd MMM", { locale: localeId }),
         count: item.count,
@@ -36,8 +36,8 @@ const OrdersChart: React.FC<OrdersChartProps> = ({ data }) => {
                     tickMargin={8}
                 />
                 <Tooltip
-                    formatter={(value) => [`${value} pesanan`, "Jumlah"]}
-                    labelFormatter={(label) => `Tanggal: ${label}`}
+                    formatter={(value) => [`${value} đơn hàng`, "Số lượng"]}
+                    labelFormatter={(label) => `Ngày: ${label}`}
                     contentStyle={{
                         backgroundColor: "white",
                         border: "1px solid #f0f0f0",
@@ -47,7 +47,7 @@ const OrdersChart: React.FC<OrdersChartProps> = ({ data }) => {
                 />
                 <Bar
                     dataKey="count"
-                    name="Pesanan"
+                    name="Đơn hàng"
                     fill="#10B981"
                     radius={[4, 4, 0, 0]}
                     barSize={30}

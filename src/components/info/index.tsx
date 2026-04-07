@@ -1,4 +1,4 @@
-import { Booking } from "@/types";
+import { Booking } from "../../types";
 
 const BookingInfo = ({
     bookings,
@@ -27,28 +27,29 @@ const BookingInfo = ({
                         <li className="flex items-start">
                             <span className="text-amber-600 mr-2">•</span>
                             <span>
-                                Silahkan melakukan check-in terlebih dahulu
-                                menggunakan ID reservasi Anda yang kami kirimkan
-                                lewat email.
+                                Vui lòng thực hiện check-in trước
+                                bằng cách sử dụng ID đặt chỗ của bạn 
+                                mà chúng tôi đã gửi qua email.
                             </span>
                         </li>
                     )}
                 <li className="flex items-start">
                     <span className="text-amber-600 mr-2">•</span>
                     <span>
-                        Saat check-in, Anda dapat langsung melakukan pemesanan
-                        menu melalui staff kami.
+                        Khi check-in, bạn có thể đặt món trực tiếp 
+                        qua nhân viên của chúng tôi.
                     </span>
                 </li>
                 <li className="flex items-start">
                     <span className="text-amber-600 mr-2">•</span>
-                    <span>Mohon datang 10 menit sebelum waktu reservasi.</span>
+                    <span>Vui lòng đến sớm 10 phút trước giờ đặt chỗ.</span>
                 </li>
                 <li className="flex items-start">
                     <span className="text-amber-600 mr-2">•</span>
                     <span>
-                        Jika Anda ingin membatalkan atau mengubah reservasi,
-                        silakan lakukan minimal 3 jam sebelum waktu reservasi.
+                        Nếu bạn muốn hủy hoặc thay đổi đặt chỗ, 
+                        vui lòng thực hiện trước ít nhất 3 giờ.
+
                     </span>
                 </li>
             </ul>

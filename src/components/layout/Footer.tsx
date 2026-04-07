@@ -11,8 +11,7 @@ const Footer: React.FC = () => {
                             Cita Nusa Resto
                         </h3>
                         <p className="mb-4">
-                            Sajian autentik Indonesia dengan cita rasa nusantara
-                            yang menggugah selera.
+                            Món ăn truyền thống Indonesia với hương vị vùng miền kích thích vị giác.
                         </p>
                         <div className="flex space-x-4">
                             <a href="#" className="hover:text-amber-200">
@@ -39,17 +38,17 @@ const Footer: React.FC = () => {
                     </div>
 
                     <div>
-                        <h3 className="text-xl font-bold mb-4">Jam Buka</h3>
-                        <p className="mb-2">Senin - Jumat: 11:00 - 22:00</p>
-                        <p className="mb-2">Sabtu - Minggu: 10:00 - 23:00</p>
-                        <p className="mb-2">Hari Libur: 10:00 - 22:00</p>
+                        <h3 className="text-xl font-bold mb-4">Giờ mở cửa</h3>
+                        <p className="mb-2">Thứ Hai - Thứ Sáu: 11:00 - 22:00</p>
+                        <p className="mb-2">Thứ Bảy - Chủ Nhật: 10:00 - 23:00</p>
+                        <p className="mb-2">Ngày lễ: 10:00 - 22:00</p>
                     </div>
 
                     <div>
-                        <h3 className="text-xl font-bold mb-4">Kontak</h3>
-                        <p className="mb-2">Jl. Raya Cita Nusa No. 123</p>
+                        <h3 className="text-xl font-bold mb-4">Liên hệ</h3>
+                        <p className="mb-2">Đường Raya Cita Nusa số 123</p>
                         <p className="mb-2">Denpasar, Bali</p>
-                        <p className="mb-2">Telepon: (0361) 123456</p>
+                        <p className="mb-2">Điện thoại: (0361) 123456</p>
                         <p className="mb-2">Email: info@citanusaresto.com</p>
                     </div>
                 </div>

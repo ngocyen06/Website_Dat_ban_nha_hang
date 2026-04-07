@@ -1,4 +1,4 @@
-import axiosInstance from "@/lib/axios";
+import axiosInstance from "../../lib/axios";
 import { Table } from "@/pages/admin/tables";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -10,8 +10,8 @@ import { z } from "zod";
 
 // Form schema for table creation and editing
 const tableSchema = z.object({
-    tableNumber: z.coerce.number().positive("Nomor meja harus positif"),
-    capacity: z.coerce.number().positive("Kapasitas harus positif"),
+    tableNumber: z.coerce.number().positive("Số bàn phải dương"),
+    capacity: z.coerce.number().positive("Sức chứa phải dương"),
     isAvailable: z.boolean(),
 });
 
@@ -77,12 +77,12 @@ const TableFormModal = ({
             return response.data;
         },
         onSuccess: () => {
-            toast.success("Meja berhasil ditambahkan");
+            toast.success("Bàn đã được thêm thành công");
             refetch();
             onClose();
         },
         onError: () => {
-            toast.error("Gagal menambahkan meja");
+            toast.error("Thêm bàn thất bại");
         },
     });
 
@@ -96,12 +96,12 @@ const TableFormModal = ({
             return response.data;
         },
         onSuccess: () => {
-            toast.success("Meja berhasil diperbarui");
+            toast.success("Bàn đã được cập nhật thành công");
             refetch();
             onClose();
         },
         onError: () => {
-            toast.error("Gagal memperbarui meja");
+            toast.error("Cập nhật bàn thất bại");
         },
     });
 
@@ -121,7 +121,7 @@ const TableFormModal = ({
                 <div className="p-6">
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-xl font-bold text-amber-900">
-                            {isEditing ? "Edit Meja" : "Tambah Meja Baru"}
+                            {isEditing ? "Chỉnh sửa bàn" : "Thêm bàn mới"}
                         </h2>
                         <button
                             onClick={onClose}
@@ -134,13 +134,13 @@ const TableFormModal = ({
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Nomor Meja
+                                Số bàn
                             </label>
                             <input
                                 type="number"
                                 {...register("tableNumber")}
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-                                placeholder="Masukkan nomor meja"
+                                placeholder="Nhập số bàn"
                             />
                             {errors.tableNumber && (
                                 <p className="mt-1 text-sm text-red-600">
@@ -151,13 +151,13 @@ const TableFormModal = ({
 
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Kapasitas
+                                Sức chứa
                             </label>
                             <input
                                 type="number"
                                 {...register("capacity")}
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-                                placeholder="Masukkan kapasitas meja"
+                                placeholder="Nhập sức chứa bàn"
                             />
                             {errors.capacity && (
                                 <p className="mt-1 text-sm text-red-600">
@@ -177,7 +177,7 @@ const TableFormModal = ({
                                 htmlFor="isAvailable"
                                 className="ml-2 block text-sm text-gray-700"
                             >
-                                Meja tersedia
+                                Bàn có sẵn
                             </label>
                         </div>
 
@@ -187,7 +187,7 @@ const TableFormModal = ({
                                 onClick={onClose}
                                 className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200"
                             >
-                                Batal
+                                Hủy
                             </button>
                             <button
                                 type="submit"
@@ -198,11 +198,11 @@ const TableFormModal = ({
                                 updateTableMutation.isPending ? (
                                     <Loader2 className="h-4 w-4 animate-spin mr-2" />
                                 ) : isEditing ? (
-                                    "Perbarui"
+                                    "Cập nhật"
                                 ) : (
                                     "Edit"
                                 )}{" "}
-                                Meja
+                                Bàn
                             </button>
                         </div>
                     </form>

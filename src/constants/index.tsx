@@ -15,19 +15,19 @@ const statusColors: Record<string, string> = {
 };
 
 const statusLabels: Record<string, string> = {
-    PENDING: "Menunggu Konfirmasi",
-    CONFIRMED: "Dikonfirmasi",
-    CANCELLED: "Dibatalkan",
-    COMPLETED: "Selesai",
+    PENDING: "Đang chờ xác nhận",
+    CONFIRMED: "Đã xác nhận",
+    CANCELLED: "Đã hủy",
+    COMPLETED: "Hoàn thành",
 };
 
 // Filter for booking status
 const statusFilters = [
-    { value: "", label: "Semua" },
-    { value: "PENDING", label: "Menunggu Konfirmasi" },
-    { value: "CONFIRMED", label: "Dikonfirmasi" },
-    { value: "CANCELLED", label: "Dibatalkan" },
-    { value: "COMPLETED", label: "Selesai" },
+    { value: "", label: "Tất cả" },
+    { value: "PENDING", label: "Đang chờ xác nhận" },
+    { value: "CONFIRMED", label: "Đã xác nhận" },
+    { value: "CANCELLED", label: "Đã hủy" },
+    { value: "COMPLETED", label: "Hoàn thành" },
 ];
 
 const dashboardNavItems = [
@@ -37,7 +37,7 @@ const dashboardNavItems = [
         icon: <LayoutDashboard className="h-5 w-5" />,
     },
     {
-        title: "Pengguna",
+        title: "Người dùng",
         href: "/admin/users",
         icon: <Users className="h-5 w-5" />,
     },
@@ -47,17 +47,17 @@ const dashboardNavItems = [
         icon: <BookOpen className="h-5 w-5" />,
     },
     {
-        title: "Reservasi",
+        title: "Đặt chỗ",
         href: "/admin/bookings",
         icon: <CalendarClock className="h-5 w-5" />,
     },
     {
-        title: "Pesanan",
+        title: "Đơn hàng",
         href: "/admin/orders",
         icon: <ShoppingCart className="h-5 w-5" />,
     },
     {
-        title: "Meja",
+        title: "Bàn",
         href: "/admin/tables",
         icon: <Table2 className="h-5 w-5" />,
     },
@@ -68,7 +68,7 @@ const bestSellerMenu = [
         id: "dummy-rendang-sapi",
         name: "Rendang Sapi",
         description:
-            "Daging sapi yang dimasak dengan santan dan bumbu rendang khas Padang",
+            "Thịt bò nấu với nước cốt dừa và gia vị rendang đặc trưng của Padang",
         price: 70000,
         image: "rendang-sapi.jpg",
         categoryId: "e5f8bae5-4273-44cf-a446-11f129d7a7f0",
@@ -77,7 +77,7 @@ const bestSellerMenu = [
         updatedAt: "2025-04-21T03:23:44.893Z",
         category: {
             id: "e5f8bae5-4273-44cf-a446-11f129d7a7f0",
-            name: "Hidangan Nusantara",
+            name: "Món ăn vùng miền",
             createdAt: "2025-04-21T03:23:44.623Z",
             updatedAt: "2025-04-21T03:23:44.623Z",
         },
@@ -85,7 +85,7 @@ const bestSellerMenu = [
     {
         id: "dummy-kakap-bakar-jimbaran",
         name: "Kakap Bakar Jimbaran",
-        description: "Ikan kakap segar dibakar dengan bumbu Jimbaran khas Bali",
+        description: "Cá hồng tươi nướng với gia vị Jimbaran đặc trưng của Bali",
         price: 95000,
         image: "kakap-bakar.jpg",
         categoryId: "e951732e-bf99-4455-83a9-5017e945684a",
@@ -94,7 +94,7 @@ const bestSellerMenu = [
         updatedAt: "2025-04-21T03:23:44.977Z",
         category: {
             id: "e951732e-bf99-4455-83a9-5017e945684a",
-            name: "Hidangan Laut",
+            name: "Món hải sản",
             createdAt: "2025-04-21T03:23:44.623Z",
             updatedAt: "2025-04-21T03:23:44.623Z",
         },
@@ -103,7 +103,7 @@ const bestSellerMenu = [
         id: "dummy-bebek-betutu",
         name: "Bebek Betutu",
         description:
-            "Bebek yang dimasak dengan bumbu betutu dan dibungkus daun pisang",
+            "Vịt nấu với gia vị betutu và gói lá chuối",
         price: 90000,
         image: "bebek-betutu.jpg",
         categoryId: "f1657a12-55a3-4ee6-be27-c610cb8bd786",
@@ -112,7 +112,7 @@ const bestSellerMenu = [
         updatedAt: "2025-04-21T03:23:44.940Z",
         category: {
             id: "f1657a12-55a3-4ee6-be27-c610cb8bd786",
-            name: "Hidangan Bali",
+            name: "Món ăn Bali",
             createdAt: "2025-04-21T03:23:44.623Z",
             updatedAt: "2025-04-21T03:23:44.623Z",
         },
@@ -125,67 +125,67 @@ const teamMembers = [
         name: "Budi Santoso",
         position: "Head Chef",
         image: "chef-1.jpg",
-        bio: "Chef Budi memiliki pengalaman lebih dari 15 tahun dalam dunia kuliner Indonesia. Dia telah memasak untuk berbagai acara penting dan memenangkan beberapa penghargaan kuliner nasional.",
+        bio: "Đầu bếp Budi có hơn 15 năm kinh nghiệm trong lĩnh vực ẩm thực Indonesia. Anh ấy đã nấu ăn cho nhiều sự kiện quan trọng và giành được một số giải thưởng ẩm thực quốc gia.",
     },
     {
         id: 2,
         name: "Siti Rahayu",
         position: "Restaurant Manager",
         image: "manager-1.jpg",
-        bio: "Siti telah mengelola beberapa restoran terkemuka di Indonesia selama 10 tahun terakhir. Dengan latar belakang hospitality management, dia memastikan pengalaman tamu yang sempurna.",
+        bio: "Siti đã quản lý một số nhà hàng hàng đầu ở Indonesia trong 10 năm qua. Với nền tảng quản lý hospitality, cô ấy đảm bảo trải nghiệm khách hàng hoàn hảo.",
     },
     {
         id: 3,
         name: "Agus Wijaya",
         position: "Sous Chef",
         image: "chef-2.jpg",
-        bio: "Chef Agus adalah spesialis dalam hidangan seafood dan bumbu rempah Nusantara. Perjalanan kulinernya dimulai dari dapur keluarga di Sulawesi Selatan.",
+        bio: "Đầu bếp Agus là chuyên gia về món hải sản và gia vị vùng miền. Hành trình ẩm thực của anh bắt đầu từ bếp gia đình ở Sulawesi Selatan.",
     },
     {
         id: 4,
         name: "Dewi Anggraini",
         position: "Pastry Chef",
         image: "chef-3.jpg",
-        bio: "Chef Dewi adalah ahli dalam menggabungkan teknik pastry modern dengan cita rasa tradisional Indonesia, menciptakan dessert yang unik dan memorable.",
+        bio: "Đầu bếp Dewi là chuyên gia trong việc kết hợp kỹ thuật làm bánh hiện đại với hương vị truyền thống của Indonesia, tạo ra những món tráng miệng độc đáo và đáng nhớ.",
     },
 ];
 
 const milestones = [
     {
         year: 2018,
-        title: "Awal Perjalanan",
+        title: "Khởi đầu hành trình",
         description:
-            "Cita Nusa Resto didirikan oleh keluarga Santoso dengan visi melestarikan kekayaan kuliner Indonesia.",
+            "Cita Nusa Resto được thành lập bởi gia đình Santoso với tầm nhìn bảo tồn di sản ẩm thực Indonesia.",
     },
     {
         year: 2019,
-        title: "Ekspansi Menu",
+        title: "Mở rộng menu",
         description:
-            "Penambahan menu dari berbagai daerah di Indonesia untuk memperkaya pengalaman kuliner para tamu.",
+            "Thêm menu từ các vùng khác nhau của Indonesia để làm phong phú trải nghiệm ẩm thực của khách hàng.",
     },
     {
         year: 2020,
-        title: "Adaptasi di Masa Pandemi",
+        title: "Thích ứng trong đại dịch",
         description:
-            "Mengembangkan layanan pesan antar dan take away untuk tetap melayani pelanggan setia.",
+            "Phát triển dịch vụ giao hàng và mang đi để tiếp tục phục vụ khách hàng trung thành.",
     },
     {
         year: 2021,
-        title: "Renovasi & Inovasi",
+        title: "Tu sửa & Đổi mới",
         description:
-            "Renovasi total interior restoran dan inovasi menu dengan menambahkan sentuhan modern.",
+            "Tu sửa toàn bộ nội thất nhà hàng và đổi mới menu bằng cách thêm nét hiện đại.",
     },
     {
         year: 2022,
-        title: "Penghargaan Kuliner",
+        title: "Giải thưởng ẩm thực",
         description:
-            "Menerima penghargaan 'Restoran Autentik Terbaik' dari Asosiasi Kuliner Indonesia.",
+            "Nhận giải thưởng 'Nhà hàng Truyền thống Tốt nhất' từ Hiệp hội Ẩm thực Indonesia.",
     },
     {
         year: 2023,
-        title: "Keberlanjutan",
+        title: "Tính bền vững",
         description:
-            "Berkomitmen menggunakan bahan lokal dan praktik ramah lingkungan dalam operasional restoran.",
+            "Cam kết sử dụng nguyên liệu địa phương và thực hành thân thiện với môi trường trong hoạt động nhà hàng.",
     },
 ];
 

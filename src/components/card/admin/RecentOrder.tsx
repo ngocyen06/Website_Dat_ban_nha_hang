@@ -43,12 +43,12 @@ const RecentOrder = ({
                 className={`px-2 py-1 rounded-full text-xs font-medium ${statusColors[status]}`}
             >
                 {status === "PENDING"
-                    ? "Menunggu"
+                    ? "Đang chờ"
                     : status === "PREPARING"
-                      ? "Diproses"
+                      ? "Đang xử lý"
                       : status === "COMPLETED"
-                        ? "Selesai"
-                        : "Dibatalkan"}
+                        ? "Hoàn thành"
+                        : "Đã hủy"}
             </span>
         </div>
     );

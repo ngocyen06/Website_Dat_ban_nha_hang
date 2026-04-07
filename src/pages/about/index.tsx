@@ -117,7 +117,7 @@ const AboutPage: NextPage = () => {
                 <title>Tentang Kami - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Mengenal lebih dekat Cita Nusa Resto, sejarah, dan tim kami yang berdedikasi menyajikan cita rasa nusantara."
+                    content="Tìm hiểu sâu hơn về Cita Nusa Resto, lịch sử, và đội ngũ của chúng tôi chuyên tâm phục vụ hương vị vùng miền."
                 />
             </Head>
 
@@ -132,7 +132,7 @@ const AboutPage: NextPage = () => {
                 <div className="relative h-full">
                     <Image
                         src="/images/about-hero.jpg"
-                        alt="Tentang Cita Nusa Resto"
+                        alt="Về Cita Nusa Resto"
                         layout="fill"
                         objectFit="cover"
                         priority
@@ -157,8 +157,7 @@ const AboutPage: NextPage = () => {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8, duration: 0.8 }}
                         >
-                            Perjalanan kami dalam menghadirkan cita rasa
-                            nusantara yang autentik
+                            Hành trình của chúng tôi trong việc mang đến hương vị vùng miền chân thực
                         </motion.p>
                     </div>
                 </motion.div>
@@ -178,7 +177,7 @@ const AboutPage: NextPage = () => {
                             <div className="relative h-[400px] w-full rounded-lg overflow-hidden shadow-xl">
                                 <Image
                                     src="/images/about-story.jpg"
-                                    alt="Kisah Cita Nusa Resto"
+                                    alt="Câu chuyện Cita Nusa Resto"
                                     layout="fill"
                                     objectFit="cover"
                                 />
@@ -195,7 +194,7 @@ const AboutPage: NextPage = () => {
                                 }
                                 transition={{ delay: 0.2, duration: 0.6 }}
                             >
-                                Kisah Kami
+                                Câu chuyện của chúng tôi
                             </motion.h2>
                             <motion.p
                                 className="text-gray-700 mb-4"
@@ -207,10 +206,10 @@ const AboutPage: NextPage = () => {
                                 }
                                 transition={{ delay: 0.3, duration: 0.6 }}
                             >
-                                Cita Nusa Resto didirikan pada tahun 2018 dengan
-                                sebuah misi sederhana namun mendalam:
-                                melestarikan dan memperkenalkan kekayaan kuliner
-                                Indonesia kepada masyarakat luas.
+                                Cita Nusa Resto được thành lập vào năm 2018 với
+                                một sứ mệnh đơn giản nhưng sâu sắc:
+                                bảo tồn và giới thiệu di sản ẩm thực
+                                Indonesia cho cộng đồng rộng lớn.
                             </motion.p>
                             <motion.p
                                 className="text-gray-700 mb-4"
@@ -222,12 +221,12 @@ const AboutPage: NextPage = () => {
                                 }
                                 transition={{ delay: 0.4, duration: 0.6 }}
                             >
-                                Berawal dari kecintaan keluarga Santoso terhadap
-                                masakan nusantara, Cita Nusa hadir sebagai wadah
-                                untuk berbagi cita rasa autentik Indonesia yang
-                                kaya akan rempah dan kenangan. Kami percaya
-                                bahwa setiap hidangan memiliki cerita dan
-                                warisan budaya yang patut dilestarikan.
+                                Bắt đầu từ tình yêu của gia đình Santoso đối với
+                                ẩm thực vùng miền, Cita Nusa xuất hiện như một
+                                nơi để chia sẻ hương vị chân thực của Indonesia
+                                giàu gia vị và kỷ niệm. Chúng tôi tin rằng mỗi
+                                món ăn đều có câu chuyện và di sản văn hóa đáng
+                                được bảo tồn.
                             </motion.p>
                             <motion.p
                                 className="text-gray-700 mb-4"
@@ -239,11 +238,11 @@ const AboutPage: NextPage = () => {
                                 }
                                 transition={{ delay: 0.5, duration: 0.6 }}
                             >
-                                Nama {"Cita Nusa"} sendiri merupakan perwujudan
-                                dari cita-cita kami untuk mengangkat cita rasa
-                                kuliner nusantara ke panggung yang lebih luas,
-                                tetap mempertahankan keasliannya namun disajikan
-                                dengan sentuhan modern.
+                                Tên {"Cita Nusa"} chính là hiện thân của khát vọng
+                                của chúng tôi để nâng tầm hương vị ẩm thực vùng
+                                miền lên sân khấu rộng lớn hơn, vẫn duy trì
+                                tính chân thực nhưng được trình bày với nét
+                                hiện đại.
                             </motion.p>
                             <motion.p
                                 className="text-gray-700"
@@ -255,11 +254,11 @@ const AboutPage: NextPage = () => {
                                 }
                                 transition={{ delay: 0.6, duration: 0.6 }}
                             >
-                                Setiap hidangan yang kami sajikan merupakan
-                                hasil dari riset mendalam, pemilihan bahan
-                                berkualitas, dan dedikasi untuk mempersembahkan
-                                yang terbaik bagi para tamu. Inilah yang menjadi
-                                fondasi Cita Nusa Resto hingga saat ini.
+                                Mỗi món ăn mà chúng tôi phục vụ là kết quả của
+                                nghiên cứu sâu, lựa chọn nguyên liệu chất lượng,
+                                và sự cống hiến để mang đến điều tốt nhất cho
+                                khách hàng. Đây chính là nền tảng của Cita Nusa
+                                Resto cho đến nay.
                             </motion.p>
                         </motion.div>
                     </div>
@@ -287,7 +286,7 @@ const AboutPage: NextPage = () => {
                             }
                             transition={{ duration: 0.6 }}
                         >
-                            Nilai-Nilai Kami
+                            Giá trị của chúng tôi
                         </motion.h2>
                         <motion.p
                             className="text-gray-700 max-w-2xl mx-auto"
@@ -297,8 +296,8 @@ const AboutPage: NextPage = () => {
                             }
                             transition={{ delay: 0.2, duration: 0.6 }}
                         >
-                            Prinsip yang memandu kami dalam menyajikan
-                            pengalaman kuliner terbaik
+                            Nguyên tắc hướng dẫn chúng tôi trong việc mang đến
+                            trải nghiệm ẩm thực tốt nhất
                         </motion.p>
                     </motion.div>
 
@@ -322,12 +321,11 @@ const AboutPage: NextPage = () => {
                                 <Award className="h-8 w-8 text-amber-700" />
                             </motion.div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2 text-center">
-                                Keaslian
+                                Tính chân thực
                             </h3>
                             <p className="text-gray-600 text-center">
-                                Kami berkomitmen untuk menyajikan hidangan
-                                dengan resep autentik dan teknik tradisional
-                                Indonesia.
+                                Chúng tôi cam kết phục vụ món ăn với công thức
+                                chân thực và kỹ thuật truyền thống của Indonesia.
                             </p>
                         </motion.div>
 
@@ -347,12 +345,12 @@ const AboutPage: NextPage = () => {
                                 <Utensils className="h-8 w-8 text-amber-700" />
                             </motion.div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2 text-center">
-                                Kualitas
+                                Chất lượng
                             </h3>
                             <p className="text-gray-600 text-center">
-                                Hanya bahan-bahan terbaik dan terbaru yang kami
-                                gunakan untuk menciptakan hidangan berkualitas
-                                tinggi.
+                                Chỉ có nguyên liệu tốt nhất và tươi nhất mà
+                                chúng tôi sử dụng để tạo ra món ăn chất lượng
+                                cao.
                             </p>
                         </motion.div>
 
@@ -372,12 +370,12 @@ const AboutPage: NextPage = () => {
                                 <Users className="h-8 w-8 text-amber-700" />
                             </motion.div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2 text-center">
-                                Keramahan
+                                Sự thân thiện
                             </h3>
                             <p className="text-gray-600 text-center">
-                                Kami percaya bahwa keramahan dan pelayanan yang
-                                tulus adalah bagian penting dari pengalaman
-                                bersantap.
+                                Chúng tôi tin rằng sự thân thiện và dịch vụ
+                                chân thành là phần quan trọng của trải nghiệm
+                                ăn uống.
                             </p>
                         </motion.div>
 
@@ -397,11 +395,11 @@ const AboutPage: NextPage = () => {
                                 <Calendar className="h-8 w-8 text-amber-700" />
                             </motion.div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2 text-center">
-                                Inovasi
+                                Đổi mới
                             </h3>
                             <p className="text-gray-600 text-center">
-                                Kami terus berinovasi dan berkembang, tetapi
-                                tetap menghormati akar dan tradisi kuliner
+                                Chúng tôi liên tục đổi mới và phát triển, nhưng
+                                vẫn tôn trọng gốc rễ và truyền thống ẩm thực
                                 Indonesia.
                             </p>
                         </motion.div>
@@ -432,7 +430,7 @@ const AboutPage: NextPage = () => {
                             }
                             transition={{ duration: 0.6 }}
                         >
-                            Perjalanan Kami
+                            Hành trình của chúng tôi
                         </motion.h2>
                         <motion.p
                             className="text-gray-700 max-w-2xl mx-auto"
@@ -444,8 +442,8 @@ const AboutPage: NextPage = () => {
                             }
                             transition={{ delay: 0.2, duration: 0.6 }}
                         >
-                            Tonggak penting dalam perjalanan Cita Nusa Resto
-                            hingga saat ini
+                            Các mốc quan trọng trong hành trình của Cita Nusa
+                            Resto cho đến nay
                         </motion.p>
                     </motion.div>
 
@@ -520,7 +518,7 @@ const AboutPage: NextPage = () => {
                             }
                             transition={{ duration: 0.6 }}
                         >
-                            Tim Kami
+                            Đội ngũ của chúng tôi
                         </motion.h2>
                         <motion.p
                             className="text-gray-700 max-w-2xl mx-auto"
@@ -530,8 +528,8 @@ const AboutPage: NextPage = () => {
                             }
                             transition={{ delay: 0.2, duration: 0.6 }}
                         >
-                            Inilah orang-orang berbakat di balik hidangan lezat
-                            Cita Nusa Resto
+                            Đây là những người tài năng đằng sau món ăn ngon
+                            của Cita Nusa Resto
                         </motion.p>
                     </motion.div>
 
@@ -573,7 +571,7 @@ const AboutPage: NextPage = () => {
                             }
                             transition={{ delay: 0.2, duration: 0.6 }}
                         >
-                            Rasakan Pengalaman Bersantap Bersama Kami
+                            Trải nghiệm ăn uống cùng chúng tôi
                         </motion.h2>
                         <motion.p
                             className="text-amber-100 mb-8 text-lg"
@@ -583,8 +581,8 @@ const AboutPage: NextPage = () => {
                             }
                             transition={{ delay: 0.4, duration: 0.6 }}
                         >
-                            Kami menantikan kehadiran Anda untuk menikmati
-                            beragam cita rasa nusantara di Cita Nusa Resto.
+                            Chúng tôi mong đợi sự hiện diện của bạn để thưởng
+                            thức đa dạng hương vị vùng miền tại Cita Nusa Resto.
                         </motion.p>
                         <motion.div
                             className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -614,7 +612,7 @@ const AboutPage: NextPage = () => {
                                         }}
                                     >
                                         <Calendar className="mr-2 h-5 w-5" />
-                                        Reservasi Sekarang
+                                        Đặt chỗ ngay
                                     </motion.span>
                                 </Link>
                             </motion.div>
@@ -638,7 +636,7 @@ const AboutPage: NextPage = () => {
                                         }}
                                     >
                                         <Utensils className="mr-2 h-5 w-5" />
-                                        Lihat Menu Kami
+                                        Xem menu của chúng tôi
                                     </motion.span>
                                 </Link>
                             </motion.div>

@@ -1,5 +1,5 @@
-import axiosInstance from "@/lib/axios";
-import { Table } from "@/pages/admin/tables";
+import axiosInstance from "../../lib/axios";
+import { Table } from "../../pages/admin/tables";
 import { useMutation } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
@@ -23,12 +23,12 @@ const DeleteConfirmationModal = ({
             return response.data;
         },
         onSuccess: () => {
-            toast.success("Meja berhasil dihapus");
+            toast.success("Bàn đã được xóa thành công");
             refetch();
             setIsDeleteModalOpen(false);
         },
         onError: () => {
-            toast.error("Gagal menghapus meja");
+            toast.error("Xóa bàn thất bại");
         },
     });
 
@@ -45,18 +45,18 @@ const DeleteConfirmationModal = ({
         <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-lg w-full max-w-md p-6">
                 <h2 className="text-xl font-bold text-red-600 mb-4">
-                    Konfirmasi Hapus
+                    Xác nhận xóa
                 </h2>
                 <p className="text-gray-700 mb-6">
-                    Apakah Anda yakin ingin menghapus Meja #{table?.tableNumber}
-                    ? Tindakan ini tidak bisa dibatalkan.
+                    Bạn có chắc chắn muốn xóa Bàn #{table?.tableNumber}
+                    không? Hành động này không thể hoàn tác.
                 </p>
                 <div className="flex justify-end space-x-3">
                     <button
                         onClick={() => setIsDeleteModalOpen(false)}
                         className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200"
                     >
-                        Batal
+                        Hủy
                     </button>
                     <button
                         onClick={handleConfirmDelete}
@@ -65,7 +65,7 @@ const DeleteConfirmationModal = ({
                         {deleteTableMutation.isPending ? (
                             <Loader2 className="h-4 w-4 animate-spin mr-2" />
                         ) : (
-                            "Hapus"
+                            "Xóa"
                         )}
                     </button>
                 </div>

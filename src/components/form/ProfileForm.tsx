@@ -3,14 +3,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
-import axiosInstance from "@/lib/axios";
+import axiosInstance from "../../lib/axios";
 import { LoaderCircle, User, Mail, Phone, Save, Edit, X } from "lucide-react";
-import { useAuthStore } from "@/store/authStore";
+import { useAuthStore } from "../../store/authStore";
 import toast from "react-hot-toast";
 
 const profileSchema = z.object({
-    name: z.string().min(3, "Nama minimal 3 karakter"),
-    email: z.string().email("Email tidak valid"),
+    name: z.string().min(3, "Tên phải có ít nhất 3 ký tự"),
+    email: z.string().email("Email không hợp lệ"),
     phone: z.string().optional(),
 });
 
@@ -34,7 +34,7 @@ const ProfileForm = ({
             },
         });
 
-    // Update form ketika data user berubah
+    // Update form khi data user berubah
     useEffect(() => {
         if (user) {
             reset({
@@ -59,10 +59,10 @@ const ProfileForm = ({
                     phone: data.user.phone,
                 });
             }
-            toast.success("Profil berhasil diperbarui");
+            toast.success("Hồ sơ đã được cập nhật thành công");
         },
         onError: () => {
-            toast.error("Profil gagal diperbarui");
+            toast.error("Cập nhật hồ sơ thất bại");
         },
     });
 
@@ -74,7 +74,7 @@ const ProfileForm = ({
         <div className="mt-2">
             <div className="flex justify-between items-center mb-6">
                 <h3 className="text-lg font-semibold text-amber-900">
-                    Informasi Profil
+                    Thông tin hồ sơ
                 </h3>
                 {!isEdit ? (
                     <button
@@ -83,7 +83,7 @@ const ProfileForm = ({
                         onClick={() => setIsEdit(true)}
                     >
                         <Edit className="h-4 w-4 mr-1" />
-                        Edit Profil
+                        Chỉnh sửa hồ sơ
                     </button>
                 ) : (
                     <button
@@ -92,7 +92,7 @@ const ProfileForm = ({
                         onClick={() => setIsEdit(false)}
                     >
                         <X className="h-4 w-4 mr-1" />
-                        Batal
+                        Hủy
                     </button>
                 )}
             </div>
@@ -104,7 +104,7 @@ const ProfileForm = ({
                             htmlFor="name"
                             className="block text-sm font-medium text-gray-700 mb-1"
                         >
-                            Nama Lengkap
+                            Họ và tên
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -122,7 +122,7 @@ const ProfileForm = ({
                                         ? "border-amber-300 bg-white"
                                         : "border-gray-200 bg-gray-50"
                                 } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-amber-500 focus:border-amber-500 focus:z-10 sm:text-sm`}
-                                placeholder="Nama Lengkap"
+                                placeholder="Họ và tên"
                             />
                         </div>
                         {formState.errors.name && (
@@ -169,7 +169,7 @@ const ProfileForm = ({
                             htmlFor="phone"
                             className="block text-sm font-medium text-gray-700 mb-1"
                         >
-                            Nomor Telepon
+                            Số điện thoại
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -185,7 +185,7 @@ const ProfileForm = ({
                                         ? "border-amber-300 bg-white"
                                         : "border-gray-200 bg-gray-50"
                                 } placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-amber-500 focus:border-amber-500 focus:z-10 sm:text-sm`}
-                                placeholder="Nomor Telepon"
+                                placeholder="Số điện thoại"
                             />
                         </div>
                         {formState.errors.phone && (
@@ -208,7 +208,7 @@ const ProfileForm = ({
                             ) : (
                                 <Save className="h-5 w-5 mr-2" />
                             )}
-                            Simpan Perubahan
+                            Lưu thay đổi
                         </button>
                     </div>
                 )}

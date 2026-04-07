@@ -2,9 +2,9 @@ import { ReactNode, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { LogOut, Menu as MenuIcon, X } from "lucide-react";
-import { useAuthStore } from "@/store/authStore";
-import { playfair } from "@/pages/_app";
-import { dashboardNavItems } from "@/constants";
+import { useAuthStore } from "../../store/authStore";
+import { playfair } from "../../pages/_app";
+import { dashboardNavItems } from "../../constants";
 
 interface AdminLayoutProps {
     children: ReactNode;
@@ -199,7 +199,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                                 className="mt-4 flex items-center px-4 py-2 text-sm font-medium text-red-700 rounded-md hover:bg-red-50"
                             >
                                 <LogOut className="h-4 w-4 mr-2" />
-                                Keluar
+                                Đăng xuất
                             </button>
                         </div>
                     </div>

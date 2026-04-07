@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { Loader2, X } from "lucide-react";
 import { id } from "date-fns/locale";
-import { BookingDetail } from "@/types";
+import { BookingDetail } from "../../types";
 import { Dispatch, SetStateAction } from "react";
 
 const CancelBookingModal = ({
@@ -20,7 +20,7 @@ const CancelBookingModal = ({
             <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className={`text-xl font-extrabold text-amber-900`}>
-                        Konfirmasi Pembatalan
+                        Xác nhận hủy
                     </h3>
                     <button
                         onClick={() => setShowCancelModal(false)}
@@ -31,12 +31,12 @@ const CancelBookingModal = ({
                 </div>
                 <div className="mb-6">
                     <p className="text-gray-700 mb-4">
-                        Apakah Anda yakin ingin membatalkan reservasi ini?
-                        Tindakan ini tidak dapat dibatalkan.
+                        Bạn có chắc chắn muốn hủy đặt chỗ này không?
+                        Hành động này không thể hoàn tác.
                     </p>
                     <div className="bg-yellow-50 p-3 rounded-md text-yellow-800 text-sm mb-2">
                         <p>
-                            Tanggal:{" "}
+                            Ngày:{" "}
                             {format(
                                 new Date(booking?.dateTime),
                                 "dd MMMM yyyy",
@@ -44,15 +44,15 @@ const CancelBookingModal = ({
                             )}
                         </p>
                         <p>
-                            Waktu:{" "}
+                            Thời gian:{" "}
                             {format(new Date(booking?.dateTime), "HH:mm", {
                                 locale: id,
                             })}{" "}
                             WIB
                         </p>
                         <p>
-                            Meja #{booking?.table.tableNumber} untuk{" "}
-                            {booking?.guestCount} orang
+                            Bàn #{booking?.table.tableNumber} cho{" "}
+                            {booking?.guestCount} người
                         </p>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ const CancelBookingModal = ({
                         onClick={() => setShowCancelModal(false)}
                         className="bg-white hover:bg-gray-100 text-gray-800 border border-gray-300 py-2 px-4 rounded-md font-medium"
                     >
-                        Batal
+                        Hủy
                     </button>
                     <button
                         onClick={handleCancelBooking}
@@ -71,10 +71,10 @@ const CancelBookingModal = ({
                         {isPending ? (
                             <>
                                 <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                                <span>Memproses...</span>
+                                <span>Đang xử lý...</span>
                             </>
                         ) : (
-                            "Ya, batalkan reservasi"
+                            "Có, hủy đặt chỗ"
                         )}
                     </button>
                 </div>

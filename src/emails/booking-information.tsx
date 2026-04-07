@@ -44,44 +44,44 @@ export const BookingConfirmationEmail = ({
     return (
         <Html>
             <Head />
-            <Preview>Konfirmasi Reservasi Anda di Cita Nusa Resto</Preview>
+            <Preview>Xác nhận đặt chỗ của bạn tại Cita Nusa Resto</Preview>
             <Body style={main}>
                 <Container style={container}>
                     <Heading style={header}>Cita Nusa Resto</Heading>
                     <Section style={section}>
                         <Heading as="h2" style={subheader}>
-                            Reservasi Anda Telah Dikonfirmasi!
+                            Đặt chỗ của bạn đã được xác nhận!
                         </Heading>
-                        <Text style={text}>Halo {customerName},</Text>
+                        <Text style={text}>Xin chào {customerName},</Text>
                         <Text style={text}>
-                            Kami ingin memberitahu bahwa reservasi Anda di Cita
-                            Nusa Resto telah dikonfirmasi. Berikut adalah detail
-                            reservasi Anda:
+                            Chúng tôi muốn thông báo rằng đặt chỗ của bạn tại Cita
+                            Nusa Resto đã được xác nhận. Dưới đây là chi tiết
+                            đặt chỗ của bạn:
                         </Text>
 
                         <Section style={detailsSection}>
                             <Text style={detailRow}>
-                                <strong>ID Reservasi:</strong>{" "}
+                                <strong>ID đặt chỗ:</strong>{" "}
                                 {bookingId.substring(0, 8).toUpperCase()}
                             </Text>
                             <Text style={detailRow}>
-                                <strong>Tanggal:</strong> {formattedDate}
+                                <strong>Ngày:</strong> {formattedDate}
                             </Text>
                             <Text style={detailRow}>
-                                <strong>Waktu:</strong> {formattedTime} WIB
+                                <strong>Thời gian:</strong> {formattedTime} WIB
                             </Text>
                             <Text style={detailRow}>
-                                <strong>Meja:</strong> #{tableNumber}
+                                <strong>Bàn:</strong> #{tableNumber}
                             </Text>
                             <Text style={detailRow}>
-                                <strong>Jumlah Tamu:</strong> {guestCount} orang
+                                <strong>Số lượng khách:</strong> {guestCount} người
                             </Text>
                             <Text style={detailRow}>
-                                <strong>Durasi:</strong> {duration} menit
+                                <strong>Thời lượng:</strong> {duration} phút
                             </Text>
                             {specialRequest && (
                                 <Text style={detailRow}>
-                                    <strong>Permintaan Khusus:</strong>{" "}
+                                    <strong>Yêu cầu đặc biệt:</strong>{" "}
                                     {specialRequest}
                                 </Text>
                             )}
@@ -90,29 +90,26 @@ export const BookingConfirmationEmail = ({
                         <Hr style={hr} />
 
                         <Text style={text}>
-                            Mohon tiba tepat waktu. Jika Anda perlu mengubah
-                            atau membatalkan reservasi, silakan hubungi kami
-                            minimal 3 jam sebelum waktu kedatangan Anda.
+                            Vui lòng đến đúng giờ. Nếu bạn cần thay đổi hoặc hủy đặt chỗ, vui lòng liên hệ với chúng tôi ít nhất 3 giờ trước thời gian đến của bạn.
                         </Text>
 
                         <Button
                             style={button}
                             href="https://citanusaresto.com/reservasi"
                         >
-                            Kelola Reservasi Anda
+                            Quản lý đặt chỗ của bạn
                         </Button>
 
                         <Text style={text}>
-                            Kami berterima kasih atas kepercayaan Anda dan tidak
-                            sabar menyambut Anda di Cita Nusa Resto!
+                            Chúng tôi cảm ơn sự tin tưởng của bạn và háo hức chào đón bạn tại Cita Nusa Resto!
                         </Text>
 
-                        <Text style={regards}>Salam hangat,</Text>
-                        <Text style={signature}>Tim Cita Nusa Resto</Text>
+                        <Text style={regards}>Trân trọng,</Text>
+                        <Text style={signature}>Đội ngũ Cita Nusa Resto</Text>
                     </Section>
                     <Hr style={hr} />
                     <Text style={footer}>
-                        Jl. Nusa Indah No. 123, Jakarta Selatan • 021-12345678
+                        Đường Nusa Indah số 123, Jakarta Selatan • 021-12345678
                     </Text>
                     <Text style={footer}>
                         <Link href="https://citanusaresto.com">

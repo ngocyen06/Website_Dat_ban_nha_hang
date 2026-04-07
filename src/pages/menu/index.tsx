@@ -100,7 +100,7 @@ const MenuPage: NextPage = () => {
                 <title>Menu - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Menu makanan dan minuman dari Cita Nusa Resto - Sajian autentik Indonesia"
+                    content="Thực đơn món ăn và đồ uống từ nhà hàng Cita Nusa - Ẩm thực Indonesia chính gốc"
                 />
             </Head>
 
@@ -120,7 +120,7 @@ const MenuPage: NextPage = () => {
                 >
                     <Image
                         src="/images/menu-hero.jpg"
-                        alt="Menu Cita Nusa Resto"
+                        alt="Menu nhà hàng Cita Nusa "
                         layout="fill"
                         objectFit="cover"
                         priority
