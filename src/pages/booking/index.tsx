@@ -64,10 +64,10 @@ const BookingPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Reservasi - Cita Nusa Resto</title>
+                <title>Đặt chỗ - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Reservasi meja di Cita Nusa Resto - Sajian autentik Indonesia"
+                    content="Đặt chỗ bàn tại Cita Nusa Resto - Món ăn Indonesia chính gốc"
                 />
             </Head>
 
@@ -90,7 +90,7 @@ const BookingPage: NextPage = () => {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.2, duration: 0.7 }}
                         >
-                            Informasi Reservasi
+                            Thông tin đặt chỗ
                         </motion.h2>
                         <motion.p
                             className="text-gray-700 max-w-2xl mx-auto"
@@ -98,9 +98,7 @@ const BookingPage: NextPage = () => {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4, duration: 0.7 }}
                         >
-                            Kami menyediakan layanan reservasi untuk memastikan
-                            pengalaman bersantap Anda berjalan lancar. Silahkan
-                            pesan meja Anda minimal 2 jam sebelum kedatangan.
+                            Chúng tôi cung cấp dịch vụ đặt chỗ để đảm bảo trải nghiệm ăn uống của bạn diễn ra suôn sẻ. Vui lòng đặt bàn ít nhất 2 giờ trước khi đến.
                         </motion.p>
                     </motion.div>
 
@@ -143,12 +141,12 @@ const BookingPage: NextPage = () => {
                                 </motion.svg>
                             </div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Jam Operasional
+                                Giờ phục vụ
                             </h3>
                             <p className="text-gray-600">
-                                Senin - Jumat: 11.00 - 22.00
+                                Thứ Hai - Thứ Sáu: 11.00 - 22.00
                                 <br />
-                                Sabtu - Minggu: 10.00 - 23.00
+                                Thứ Bảy - Chủ Nhật: 10.00 - 23.00
                             </p>
                         </motion.div>
 
@@ -185,12 +183,12 @@ const BookingPage: NextPage = () => {
                                 </motion.svg>
                             </div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Kapasitas
+                                Sức chứa
                             </h3>
                             <p className="text-gray-600">
-                                Kami memiliki meja untuk 2, 4, 6, dan 8 orang.
+                                Chúng tôi có bàn cho 2, 4, 6 và 8 người.
                                 <br />
-                                Untuk grup lebih besar, silahkan hubungi kami.
+                                Với nhóm lớn hơn, vui lòng liên hệ với chúng tôi.
                             </p>
                         </motion.div>
 
@@ -229,10 +227,10 @@ const BookingPage: NextPage = () => {
                                 </motion.svg>
                             </div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Kontak
+                                Liên hệ
                             </h3>
                             <p className="text-gray-600">
-                                Telepon: (021) 123-4567
+                                Điện thoại: (021) 123-4567
                                 <br />
                                 Email: info@citanusaresto.com
                             </p>
@@ -255,7 +253,7 @@ const BookingPage: NextPage = () => {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8, duration: 0.5 }}
                         >
-                            Buat Reservasi Sekarang
+                            Đặt chỗ ngay bây giờ
                         </motion.h3>
                         <motion.p
                             className="text-gray-700 mb-6"
@@ -263,9 +261,7 @@ const BookingPage: NextPage = () => {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1, duration: 0.5 }}
                         >
-                            Reservasi meja untuk memastikan tempat Anda di Cita
-                            Nusa Resto. Nikmati hidangan autentik Indonesia
-                            dalam suasana yang nyaman.
+                            Đặt bàn để đảm bảo chỗ ngồi của bạn tại Cita Nusa Resto. Thưởng thức món chính thống Indonesia trong không gian ấm cúng.
                         </motion.p>
                         <motion.div
                             variants={buttonHover}
@@ -282,7 +278,7 @@ const BookingPage: NextPage = () => {
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ delay: 1.2, duration: 0.5 }}
                                 >
-                                    Reservasi Meja
+                                    Đặt bàn
                                 </motion.span>
                             </Link>
                         </motion.div>
@@ -313,7 +309,7 @@ const BookingPage: NextPage = () => {
                             }
                             transition={{ duration: 0.7 }}
                         >
-                            Reservasi Saya
+                            Đặt chỗ của tôi
                         </motion.h2>
                         <motion.p
                             className="text-gray-700 max-w-2xl mx-auto"
@@ -325,7 +321,7 @@ const BookingPage: NextPage = () => {
                             }
                             transition={{ delay: 0.2, duration: 0.7 }}
                         >
-                            Lihat dan kelola reservasi yang telah Anda buat.
+                            Xem và quản lý các đặt chỗ bạn đã tạo.
                         </motion.p>
                     </motion.div>
 
@@ -353,7 +349,7 @@ const BookingPage: NextPage = () => {
                                 href="/profile/bookings"
                                 className="bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 px-8 py-3 rounded-md text-lg font-medium inline-block"
                             >
-                                Lihat Reservasi Saya
+                                Xem đặt chỗ của tôi
                             </Link>
                         </motion.div>
                     </motion.div>

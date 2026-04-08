@@ -45,7 +45,7 @@ const Profile: NextPage = () => {
                     <div className="text-center">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                         <p className="mt-2 text-amber-800">
-                            Memuat data profil...
+                            Đang tải dữ liệu hồ sơ...
                         </p>
                     </div>
                 </div>
@@ -59,10 +59,10 @@ const Profile: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Profil - Cita Nusa Resto</title>
+                <title>Hồ Sơ - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Kelola profil pengguna di Cita Nusa Resto"
+                    content="Quản lý hồ sơ người dùng tại Cita Nusa Resto"
                 />
             </Head>
 
@@ -71,11 +71,10 @@ const Profile: NextPage = () => {
                     {/* Header */}
                     <div className="text-center mb-8">
                         <h1 className="text-3xl font-extrabold text-amber-900 mb-4">
-                            Profil Anda
+                            Hồ Sơ Của Bạn
                         </h1>
                         <p className="text-gray-700 max-w-2xl mx-auto">
-                            Kelola informasi pribadi dan lihat riwayat reservasi
-                            Anda di Cita Nusa Resto.
+                            Quản lý thông tin cá nhân và xem lịch sử đặt chỗ của bạn tại Cita Nusa Resto.
                         </p>
                     </div>
 
@@ -87,14 +86,14 @@ const Profile: NextPage = () => {
                                 className="bg-amber-600 text-white px-6 py-3 rounded-md font-medium inline-flex items-center"
                             >
                                 <User className="mr-2 h-5 w-5" />
-                                Profil
+                                Hồ Sơ
                             </Link>
                             <Link
                                 href="/profile/bookings"
                                 className="bg-white hover:bg-amber-100 text-amber-800 border border-amber-200 px-6 py-3 rounded-md font-medium inline-flex items-center transition-colors"
                             >
                                 <Calendar className="mr-2 h-5 w-5" />
-                                Reservasi Saya
+                                Đặt Chỗ Của Tôi
                             </Link>
                         </div>
                     )}
@@ -103,8 +102,7 @@ const Profile: NextPage = () => {
                     {error && (
                         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-6">
                             <p>
-                                Gagal memuat data profil. Silakan coba lagi
-                                nanti.
+                                Không thể tải dữ liệu hồ sơ. Vui lòng thử lại sau.
                             </p>
                         </div>
                     )}
@@ -119,14 +117,14 @@ const Profile: NextPage = () => {
                                     </div>
                                     <div>
                                         <h2 className="text-2xl font-bold text-amber-900">
-                                            {user?.name || "Pengguna"}
+                                            {user?.name || "Người Dùng"}
                                         </h2>
                                         <p className="text-amber-700">
                                             {user?.email || "email@example.com"}
                                         </p>
                                         {user?.role && (
                                             <p className="text-amber-600 text-sm mt-1">
-                                                {user.role === "CUSTOMER" ? "Pelanggan" : user.role}
+                                                {user.role === "CUSTOMER" ? "Khách Hàng" : user.role}
                                             </p>
                                         )}
                                     </div>
@@ -143,15 +141,13 @@ const Profile: NextPage = () => {
                     {/* Additional Info */}
                     <div className="mt-10 bg-white p-6 rounded-lg shadow-md">
                         <h3 className="text-xl font-bold text-amber-900 mb-4">
-                            Kelola Pengalaman Kuliner Anda
+                            Quản Lý Trải Nghiệm Ẩm Thực Của Bạn
                         </h3>
                         <div className="space-y-4 text-gray-700">
                             <div className="flex items-start">
                                 <span className="text-amber-600 mr-2">•</span>
                                 <span>
-                                    Pastikan informasi kontak Anda selalu
-                                    terbaru untuk menerima konfirmasi reservasi
-                                    dan informasi promosi.
+                                    Đảm bảo thông tin liên hệ của bạn luôn cập nhật để nhận xác nhận đặt chỗ và thông tin khuyến mãi.
                                 </span>
                             </div>
                             <div className="flex items-start">
@@ -162,7 +158,7 @@ const Profile: NextPage = () => {
                                         href="/profile/bookings"
                                         className="text-amber-600 hover:text-amber-800 font-medium"
                                     >
-                                        Reservasi Saya
+                                        Đặt Chỗ Của Tôi
                                     </Link>{" "}
                                     untuk melihat dan mengelola reservasi Anda.
                                 </span>
@@ -175,11 +171,10 @@ const Profile: NextPage = () => {
                         <div className="flex flex-col md:flex-row items-center justify-between">
                             <div className="mb-4 md:mb-0">
                                 <h3 className="text-xl font-bold text-amber-900 mb-2">
-                                    Buat Reservasi Baru
+                                    Tạo Đặt Chỗ Mới
                                 </h3>
                                 <p className="text-amber-800">
-                                    Ingin mengunjungi kami? Reservasi meja Anda
-                                    sekarang!
+                                    Muốn ghé thăm chúng tôi? Đặt chỗ bàn của bạn ngay bây giờ!
                                 </p>
                             </div>
                             <Link
@@ -187,7 +182,7 @@ const Profile: NextPage = () => {
                                 className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md font-medium inline-flex items-center transition-colors"
                             >
                                 <Calendar className="mr-2 h-5 w-5" />
-                                Reservasi Sekarang
+                                Đặt Chỗ Ngay
                             </Link>
                         </div>
                     </div>

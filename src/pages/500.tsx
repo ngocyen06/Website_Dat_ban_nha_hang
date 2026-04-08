@@ -11,10 +11,10 @@ const Custom500: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Server Error - Cita Nusa Resto</title>
+                <title>Lỗi máy chủ - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Terjadi kesalahan pada server"
+                    content="Đã xảy ra lỗi trên máy chủ"
                 />
             </Head>
 
@@ -41,12 +41,10 @@ const Custom500: NextPage = () => {
                         <h2
                             className={`text-3xl md:text-4xl font-bold text-white mb-6 ${playfair.className}`}
                         >
-                            Terjadi Kesalahan Server
+                            Đã xảy ra lỗi máy chủ
                         </h2>
                         <p className="text-lg text-amber-100 mb-10">
-                            Mohon maaf, terjadi kesalahan pada server kami. Tim
-                            kami sedang bekerja untuk memperbaikinya. Silakan
-                            coba lagi beberapa saat lagi.
+                            Xin lỗi, đã xảy ra lỗi trên máy chủ của chúng tôi. Nhóm của chúng tôi đang làm việc để khắc phục. Vui lòng thử lại sau vài phút.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -56,7 +54,7 @@ const Custom500: NextPage = () => {
                             >
                                 <span className="flex items-center justify-center gap-2">
                                     <Home className="h-5 w-5" />
-                                    Kembali ke Beranda
+                                    Quay lại Trang chủ
                                 </span>
                             </Link>
                             <button
@@ -65,7 +63,7 @@ const Custom500: NextPage = () => {
                             >
                                 <span className="flex items-center justify-center gap-2">
                                     <RefreshCw className="h-5 w-5" />
-                                    Coba Lagi
+                                    Thử lại
                                 </span>
                             </button>
                         </div>
@@ -80,12 +78,10 @@ const Custom500: NextPage = () => {
                         <h2
                             className={`text-3xl font-bold text-amber-900 mb-4 ${playfair.className}`}
                         >
-                            Butuh Bantuan?
+                            Cần trợ giúp?
                         </h2>
                         <p className="text-gray-600 mb-8">
-                            Jika masalah terus berlanjut, jangan ragu untuk
-                            menghubungi tim dukungan kami. Kami siap membantu
-                            Anda dengan pertanyaan atau masalah apa pun.
+                            Nếu vấn đề vẫn tiếp diễn, đừng ngần ngại liên hệ với đội hỗ trợ của chúng tôi. Chúng tôi sẵn sàng giúp bạn với bất kỳ câu hỏi hoặc vấn đề nào.
                         </p>
 
                         <div className="flex justify-center">
@@ -94,7 +90,7 @@ const Custom500: NextPage = () => {
                                 className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md text-lg font-medium transition-colors duration-200 inline-flex items-center"
                             >
                                 <Mail className="mr-2 h-5 w-5" />
-                                Hubungi Dukungan
+                                Liên hệ hỗ trợ
                             </Link>
                         </div>
                     </div>
@@ -108,11 +104,10 @@ const Custom500: NextPage = () => {
                         <h2
                             className={`text-3xl font-bold text-amber-900 mb-4 ${playfair.className}`}
                         >
-                            Halaman Lainnya
+                            Trang khác
                         </h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Anda dapat mengunjungi halaman-halaman populer kami
-                            di bawah ini
+                            Bạn có thể truy cập các trang phổ biến của chúng tôi bên dưới
                         </p>
                     </div>
 
@@ -122,10 +117,10 @@ const Custom500: NextPage = () => {
                             className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-amber-100"
                         >
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Beranda
+                                Trang chủ
                             </h3>
                             <p className="text-gray-600">
-                                Kembali ke halaman utama
+                                Quay trở lại trang chính
                             </p>
                         </Link>
 
@@ -136,7 +131,7 @@ const Custom500: NextPage = () => {
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
                                 Menu
                             </h3>
-                            <p className="text-gray-600">Jelajahi menu kami</p>
+                            <p className="text-gray-600">Khám phá menu của chúng tôi</p>
                         </Link>
 
                         <Link
@@ -144,9 +139,9 @@ const Custom500: NextPage = () => {
                             className="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-amber-100"
                         >
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Reservasi
+                                Đặt chỗ
                             </h3>
-                            <p className="text-gray-600">Pesan meja Anda</p>
+                            <p className="text-gray-600">Đặt bàn của bạn</p>
                         </Link>
                     </div>
                 </div>

@@ -105,7 +105,7 @@ const ProfileBookingsPage: NextPage = () => {
             );
 
         if (upcoming.length > 0) {
-            grouped["Mendatang"] = upcoming;
+            grouped["Sắp Tới"] = upcoming;
         }
 
         // Then add past bookings
@@ -123,7 +123,7 @@ const ProfileBookingsPage: NextPage = () => {
             );
 
         if (past.length > 0) {
-            grouped["Sebelumnya"] = past;
+            grouped["Trước Đó"] = past;
         }
 
         return grouped;
@@ -146,7 +146,7 @@ const ProfileBookingsPage: NextPage = () => {
                     <div className="text-center">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                         <p className="mt-2 text-amber-800">
-                            Memuat data reservasi...
+                            Đang tải dữ liệu đặt chỗ...
                         </p>
                     </div>
                 </div>
@@ -157,10 +157,10 @@ const ProfileBookingsPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Reservasi Saya - Cita Nusa Resto</title>
+                <title>Đặt Chỗ Của Tôi - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Kelola reservasi meja di Cita Nusa Resto"
+                    content="Quản lý đặt chỗ bàn tại Cita Nusa Resto"
                 />
             </Head>
 
@@ -171,11 +171,10 @@ const ProfileBookingsPage: NextPage = () => {
                         <h1
                             className={`text-3xl font-extrabold text-amber-900 mb-4`}
                         >
-                            Reservasi Saya
+                            Đặt Chỗ Của Tôi
                         </h1>
                         <p className="text-gray-700 max-w-2xl mx-auto">
-                            Lihat dan kelola semua reservasi yang telah Anda
-                            buat di Cita Nusa Resto.
+                            Xem và quản lý tất cả đặt chỗ mà bạn đã tạo tại Cita Nusa Resto.
                         </p>
                     </div>
 
@@ -187,7 +186,7 @@ const ProfileBookingsPage: NextPage = () => {
                                 className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md font-medium inline-flex items-center"
                             >
                                 <Calendar className="mr-2 h-5 w-5" />
-                                Buat Reservasi Baru
+                                Tạo Đặt Chỗ Mới
                             </Link>
                         </div>
 
@@ -223,8 +222,7 @@ const ProfileBookingsPage: NextPage = () => {
                     {error && (
                         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-6">
                             <p>
-                                Gagal memuat data reservasi. Silakan coba lagi
-                                nanti.
+                                Không thể tải dữ liệu đặt chỗ. Vui lòng thử lại sau.
                             </p>
                         </div>
                     )}
@@ -236,18 +234,16 @@ const ProfileBookingsPage: NextPage = () => {
                                 <Calendar className="h-8 w-8" />
                             </div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Belum Ada Reservasi
+                                Chưa Có Đặt Chỗ
                             </h3>
                             <p className="text-gray-600 mb-6">
-                                Anda belum memiliki reservasi. Buat reservasi
-                                baru untuk menikmati hidangan di Cita Nusa
-                                Resto.
+                                Bạn chưa có đặt chỗ. Tạo đặt chỗ mới để thưởng thức món ăn tại Cita Nusa Resto.
                             </p>
                             <Link
                                 href="/booking/new"
                                 className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md font-medium"
                             >
-                                Buat Reservasi
+                                Tạo Đặt Chỗ
                             </Link>
                         </div>
                     )}
@@ -310,7 +306,7 @@ const ProfileBookingsPage: NextPage = () => {
                                                             <div className="flex flex-col sm:flex-row justify-between mb-4">
                                                                 <div>
                                                                     <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                                                                        Meja #
+                                                                        Bàn #
                                                                         {
                                                                             booking
                                                                                 .table
@@ -358,17 +354,17 @@ const ProfileBookingsPage: NextPage = () => {
                                                                         {
                                                                             booking.guestCount
                                                                         }{" "}
-                                                                        orang
+                                                                        người
                                                                     </span>
                                                                 </div>
                                                                 <div className="flex items-center">
                                                                     <Clock className="h-4 w-4 text-amber-600 mr-2" />
                                                                     <span className="text-amber-600">
-                                                                        Durasi:{" "}
+                                                                        Thời Lượng:{" "}
                                                                         {
                                                                             booking.duration
                                                                         }{" "}
-                                                                        menit
+                                                                        phút
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -376,8 +372,7 @@ const ProfileBookingsPage: NextPage = () => {
                                                             {booking.specialRequest && (
                                                                 <div className="mt-2 text-sm text-gray-600">
                                                                     <p className="font-medium">
-                                                                        Permintaan
-                                                                        Khusus:
+                                                                        Yêu Cầu Đặc Biệt:
                                                                     </p>
                                                                     <p className="italic">
                                                                         {
@@ -393,7 +388,7 @@ const ProfileBookingsPage: NextPage = () => {
                                                                     href={`/booking/${booking.id}`}
                                                                     className="text-amber-600 hover:text-amber-800 font-medium text-sm"
                                                                 >
-                                                                    Lihat Detail
+                                                                    Xem Chi Tiết
                                                                 </Link>
                                                             </div>
                                                         </div>

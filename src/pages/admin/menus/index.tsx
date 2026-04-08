@@ -14,12 +14,12 @@ import { Loader2, Search } from "lucide-react";
 
 // Schema for form validation
 const menuSchema = z.object({
-    name: z.string().min(1, "Nama menu harus diisi"),
+    name: z.string().min(1, "Tên menu phải được điền"),
     description: z.string().optional(),
-    price: z.number().positive("Harga harus lebih dari 0"),
+    price: z.number().positive("Giá phải lớn hơn 0"),
     image: z.string().optional(),
     isAvailable: z.boolean(),
-    categoryId: z.string().min(1, "Kategori harus dipilih"),
+    categoryId: z.string().min(1, "Danh mục phải được chọn"),
 });
 
 type MenuFormData = z.infer<typeof menuSchema>;
@@ -83,13 +83,13 @@ const AdminMenusPage: NextPage = () => {
             return res.data.data;
         },
         onSuccess: () => {
-            toast.success("Menu berhasil ditambahkan");
+            toast.success("Menu đã được thêm thành công");
             queryClient.invalidateQueries({ queryKey: ["menus"] });
             setIsModalOpen(false);
             reset();
         },
         onError: (error) => {
-            toast.error(error.message || "Gagal menambahkan menu");
+            toast.error(error.message || "Không thể thêm menu");
         },
     });
 
@@ -102,14 +102,14 @@ const AdminMenusPage: NextPage = () => {
             return res.data;
         },
         onSuccess: () => {
-            toast.success("Menu berhasil diperbarui");
+            toast.success("Menu đã được cập nhật thành công");
             queryClient.invalidateQueries({ queryKey: ["menus"] });
             setIsModalOpen(false);
             setCurrentMenu(null);
             reset();
         },
         onError: (error) => {
-            toast.error(error.message || "Gagal memperbarui menu");
+            toast.error(error.message || "Không thể cập nhật menu");
         },
     });
 
@@ -120,13 +120,13 @@ const AdminMenusPage: NextPage = () => {
             return res.data;
         },
         onSuccess: () => {
-            toast.success("Menu berhasil dihapus");
+            toast.success("Menu đã được xóa thành công");
             queryClient.invalidateQueries({ queryKey: ["menus"] });
             setIsDeleteModalOpen(false);
             setCurrentMenu(null);
         },
         onError: (error) => {
-            toast.error(error.message || "Gagal menghapus menu");
+            toast.error(error.message || "Không thể xóa menu");
         },
     });
 
@@ -190,12 +190,12 @@ const AdminMenusPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Manajemen Menu - Admin Cita Nusa Resto</title>
+                <title>Quản lý Menu - Admin Cita Nusa Resto</title>
             </Head>
 
             <div className="p-6 space-y-3 bg-white">
                 <h1 className="text-2xl font-bold text-amber-900">
-                    Kelola Menu
+                    Quản lý Menu
                 </h1>
                 <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-2">
                     {/* Search Bar */}
@@ -205,7 +205,7 @@ const AdminMenusPage: NextPage = () => {
                                 type="text"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="Cari menu berdasarkan nama..."
+                                placeholder="Tìm kiếm menu theo tên..."
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 pl-10"
                             />
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -215,7 +215,7 @@ const AdminMenusPage: NextPage = () => {
                         onClick={handleAdd}
                         className="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-md w-full md:w-auto"
                     >
-                        Tambah Menu
+                        Thêm Menu
                     </button>
                 </div>
 
@@ -226,7 +226,7 @@ const AdminMenusPage: NextPage = () => {
                             <div className="text-center py-10">
                                 <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                                 <p className="mt-2 text-amber-800">
-                                    Memuat data pesanan...
+                                    Đang tải dữ liệu...
                                 </p>
                             </div>
                         ) : (
@@ -234,19 +234,19 @@ const AdminMenusPage: NextPage = () => {
                                 <thead className="bg-amber-50">
                                     <tr>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase tracking-wider">
-                                            Nama Menu
+                                            Tên Menu
                                         </th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase tracking-wider">
-                                            Kategori
+                                            Danh mục
                                         </th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase tracking-wider">
-                                            Harga
+                                            Giá
                                         </th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-amber-900 uppercase tracking-wider">
-                                            Status
+                                            Trạng thái
                                         </th>
                                         <th className="px-6 py-3 text-right text-xs font-medium text-amber-900 uppercase tracking-wider">
-                                            Aksi
+                                            Hành động
                                         </th>
                                     </tr>
                                 </thead>
@@ -298,8 +298,8 @@ const AdminMenusPage: NextPage = () => {
                                                     }`}
                                                 >
                                                     {menu.isAvailable
-                                                        ? "Tersedia"
-                                                        : "Tidak Tersedia"}
+                                                        ? "Có sẵn"
+                                                        : "Không có sẵn"
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -328,8 +328,7 @@ const AdminMenusPage: NextPage = () => {
                                                 colSpan={5}
                                                 className="px-6 py-4 text-center text-gray-500"
                                             >
-                                                Belum ada menu. Silakan
-                                                tambahkan menu baru.
+                                                Chưa có menu nào. Vui lòng thêm menu mới.
                                             </td>
                                         </tr>
                                     )}
@@ -344,17 +343,17 @@ const AdminMenusPage: NextPage = () => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                title={currentMenu ? "Edit Menu" : "Tambah Menu Baru"}
+                title={currentMenu ? "Chỉnh sửa Menu" : "Thêm Menu Mới"}
             >
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Nama Menu
+                            Tên Menu
                         </label>
                         <input
                             type="text"
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                            placeholder="Nama menu"
+                            placeholder="Tên menu"
                             {...register("name")}
                         />
                         {errors.name && (
@@ -366,24 +365,24 @@ const AdminMenusPage: NextPage = () => {
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Deskripsi
+                            Mô tả
                         </label>
                         <textarea
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                             rows={3}
-                            placeholder="Deskripsi menu (opsional)"
+                            placeholder="Mô tả menu (tùy chọn)"
                             {...register("description")}
                         />
                     </div>
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Harga (Rp)
+                            Giá (Rp)
                         </label>
                         <input
                             type="number"
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                            placeholder="Harga menu"
+                            placeholder="Giá menu"
                             {...register("price")}
                         />
                         {errors.price && (
@@ -395,25 +394,25 @@ const AdminMenusPage: NextPage = () => {
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            URL Gambar
+                            URL Hình ảnh
                         </label>
                         <input
                             type="text"
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                            placeholder="URL gambar menu (opsional)"
+                            placeholder="URL hình ảnh menu (tùy chọn)"
                             {...register("image")}
                         />
                     </div>
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Kategori
+                            Danh mục
                         </label>
                         <select
                             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                             {...register("categoryId")}
                         >
-                            <option value="">Pilih Kategori</option>
+                            <option value="">Chọn Danh mục</option>
                             {categories?.map((category) => (
                                 <option key={category.id} value={category.id}>
                                     {category.name}
@@ -438,7 +437,7 @@ const AdminMenusPage: NextPage = () => {
                             htmlFor="isAvailable"
                             className="ml-2 block text-sm text-gray-700"
                         >
-                            Menu tersedia
+                            Menu có sẵn
                         </label>
                     </div>
 
@@ -448,7 +447,7 @@ const AdminMenusPage: NextPage = () => {
                             onClick={() => setIsModalOpen(false)}
                             className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
                         >
-                            Batal
+                            Hủy bỏ
                         </button>
                         <button
                             type="submit"
@@ -460,10 +459,10 @@ const AdminMenusPage: NextPage = () => {
                         >
                             {createMenuMutation.isPending ||
                             updateMenuMutation.isPending
-                                ? "Menyimpan..."
+                                ? "Đang lưu..."
                                 : currentMenu
-                                  ? "Perbarui"
-                                  : "Simpan"}
+                                  ? "Cập nhật"
+                                  : "Lưu"}
                         </button>
                     </div>
                 </form>
@@ -473,20 +472,20 @@ const AdminMenusPage: NextPage = () => {
             <Modal
                 isOpen={isDeleteModalOpen}
                 onClose={() => setIsDeleteModalOpen(false)}
-                title="Konfirmasi Hapus"
+                title="Xác nhận Xóa"
             >
                 <div className="space-y-4">
                     <p className="text-sm text-gray-500">
-                        Apakah Anda yakin ingin menghapus menu &quot;
+                        Bạn có chắc muốn xóa menu &quot;
                         {currentMenu?.name}
-                        &quot;? Tindakan ini tidak dapat dibatalkan.
+                        &quot;? Hành động này không thể bị hoàn tác.
                     </p>
                     <div className="flex justify-end space-x-3 pt-4">
                         <button
                             onClick={() => setIsDeleteModalOpen(false)}
                             className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
                         >
-                            Batal
+                            Hủy bỏ
                         </button>
                         <button
                             onClick={confirmDelete}
@@ -494,8 +493,8 @@ const AdminMenusPage: NextPage = () => {
                             disabled={deleteMenuMutation.isPending}
                         >
                             {deleteMenuMutation.isPending
-                                ? "Menghapus..."
-                                : "Hapus"}
+                                ? "Đang xóa..."
+                                : "Xóa"}
                         </button>
                     </div>
                 </div>

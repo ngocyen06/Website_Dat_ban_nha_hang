@@ -47,12 +47,12 @@ const BookingDetailPage: NextPage = () => {
             return response.data;
         },
         onSuccess: () => {
-            toast.success("Reservasi berhasil dibatalkan");
+            toast.success("Đặt chỗ đã được hủy thành công");
             setShowCancelModal(false);
             refetch();
         },
         onError: (error) => {
-            toast.error("Gagal membatalkan reservasi");
+            toast.error("Hủy đặt chỗ thất bại");
             console.error("Cancel booking error:", error);
         },
     });
@@ -83,7 +83,7 @@ const BookingDetailPage: NextPage = () => {
                     <div className="text-center">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                         <p className="mt-2 text-amber-800">
-                            Memuat data reservasi...
+                            Đang tải dữ liệu đặt chỗ...
                         </p>
                     </div>
                 </div>
@@ -100,11 +100,11 @@ const BookingDetailPage: NextPage = () => {
                             <h1
                                 className={`text-2xl font-extrabold text-amber-900 mb-4`}
                             >
-                                Gagal Memuat Data
+                                Không thể tải dữ liệu
                             </h1>
                             <p className="text-gray-700 mb-6">
-                                Terjadi kesalahan saat memuat data reservasi.
-                                Silakan coba lagi nanti.
+                                Đã xảy ra lỗi khi tải dữ liệu đặt chỗ.
+                                Vui lòng thử lại sau.
                             </p>
                             <Link
                                 href="/profile/bookings"
@@ -126,14 +126,14 @@ const BookingDetailPage: NextPage = () => {
             (user?.role === "CUSTOMER" && user?.id !== booking?.userId))
     ) {
         router.push("/auth/login");
-        toast.error("Anda bukan pemilik reservasi ini");
+        toast.error("Bạn không phải là chủ đặt chỗ này");
         return null;
     }
 
     return (
         <Layout>
             <Head>
-                <title>Detail Reservasi - Cita Nusa Resto</title>
+                <title>Chi tiết đặt chỗ - Cita Nusa Resto</title>
                 <meta
                     name="description"
                     content="Detail reservasi di Cita Nusa Resto"
@@ -150,7 +150,7 @@ const BookingDetailPage: NextPage = () => {
                                     <h1
                                         className={`text-2xl font-extrabold text-white`}
                                     >
-                                        Detail Reservasi
+                                        Chi tiết đặt chỗ
                                     </h1>
                                     <p className="text-amber-100 mt-1">
                                         ID:
@@ -184,7 +184,7 @@ const BookingDetailPage: NextPage = () => {
                                                 <Calendar className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                                 <div>
                                                     <p className="text-gray-600 text-sm">
-                                                        Tanggal
+                                                        Ngày
                                                     </p>
                                                     <p className="text-gray-900 font-medium">
                                                         {format(
@@ -201,7 +201,7 @@ const BookingDetailPage: NextPage = () => {
                                                 <Clock className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                                 <div>
                                                     <p className="text-gray-600 text-sm">
-                                                        Waktu
+                                                        Thời gian
                                                     </p>
                                                     <p className="text-gray-900 font-medium">
                                                         {format(
@@ -213,9 +213,9 @@ const BookingDetailPage: NextPage = () => {
                                                         )}{" "}
                                                         WIB
                                                         <span className="text-gray-500 text-sm ml-2">
-                                                            (Durasi:{" "}
+                                                            (Thời lượng: {" "}
                                                             {booking?.duration}{" "}
-                                                            menit)
+                                                            phút)
                                                         </span>
                                                     </p>
                                                 </div>
@@ -224,7 +224,7 @@ const BookingDetailPage: NextPage = () => {
                                                 <Users className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                                 <div>
                                                     <p className="text-gray-600 text-sm">
-                                                        Jumlah Tamu
+                                                        Số lượng khách
                                                     </p>
                                                     <p className="text-gray-900 font-medium">
                                                         {booking?.guestCount}{" "}
@@ -236,7 +236,7 @@ const BookingDetailPage: NextPage = () => {
                                                 <MapPin className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                                 <div>
                                                     <p className="text-gray-600 text-sm">
-                                                        Nomor Meja
+                                                        Số bàn
                                                     </p>
                                                     <p className="text-gray-900 font-medium">
                                                         Meja #
@@ -250,7 +250,7 @@ const BookingDetailPage: NextPage = () => {
                                                                 booking?.table
                                                                     .capacity
                                                             }{" "}
-                                                            orang)
+                                                            người)
                                                         </span>
                                                     </p>
                                                 </div>
@@ -300,7 +300,7 @@ const BookingDetailPage: NextPage = () => {
                                                 <FileText className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                                 <div>
                                                     <p className="text-gray-600 text-sm">
-                                                        Permintaan Khusus
+                                                        Yêu cầu đặc biệt
                                                     </p>
                                                     <p className="text-gray-900">
                                                         {booking.specialRequest}
@@ -321,7 +321,7 @@ const BookingDetailPage: NextPage = () => {
                                     href="/profile/bookings"
                                     className="bg-white hover:bg-gray-100 text-amber-900 border border-amber-300 px-6 py-3 rounded-md font-medium text-center"
                                 >
-                                    Kembali ke Daftar Reservasi
+                                    Quay lại danh sách đặt chỗ
                                 </Link>
 
                                 {booking && isCancellable(booking) && (
@@ -329,7 +329,7 @@ const BookingDetailPage: NextPage = () => {
                                         onClick={() => setShowCancelModal(true)}
                                         className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-medium"
                                     >
-                                        Batalkan Reservasi
+                                        Hủy đặt chỗ
                                     </button>
                                 )}
                             </div>

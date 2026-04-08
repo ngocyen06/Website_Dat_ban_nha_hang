@@ -46,13 +46,13 @@ export const useAuthStore = create<AuthState>()(
                 }
 
                 try {
-                    // Dekode token untuk mendapatkan waktu kedaluwarsa
+                    // Giải mã token để lấy thời gian hết hạn
                     const decoded = jwtDecode(token) as { exp: number };
                     const currentTime = Date.now() / 1000;
 
-                    // Jika token kedaluwarsa
+                    // Nếu token hết hạn
                     if (decoded.exp < currentTime) {
-                        // Logout user jika token kedaluwarsa
+                        // Đăng xuất người dùng nếu token hết hạn
                         set({
                             user: null,
                             token: null,
@@ -63,7 +63,7 @@ export const useAuthStore = create<AuthState>()(
 
                     return true;
                 } catch (error) {
-                    // Token tidak valid, logout user
+                    // Token không hợp lệ, đăng xuất người dùng
                     console.log(error);
                     set({ user: null, token: null, isAuthenticated: false });
                     return false;

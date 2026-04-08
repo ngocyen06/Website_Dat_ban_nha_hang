@@ -15,16 +15,16 @@ import z from "zod";
 
 const registerSchema = z
     .object({
-        name: z.string().min(3, "Nama minimal 3 karakter"),
-        email: z.string().email("Email tidak valid"),
-        password: z.string().min(6, "Password minimal 6 karakter"),
+        name: z.string().min(3, "Tên phải ít nhất 3 ký tự"),
+        email: z.string().email("Email không hợp lệ"),
+        password: z.string().min(6, "Password tối thiểu 6 ký tự"),
         confirmPassword: z
             .string()
-            .min(6, "Konfirmasi password minimal 6 karakter"),
+            .min(6, "Xác nhận Password tối thiểu 6 ký tự"),
         phone: z.string().optional(),
     })
     .refine((data) => data.password === data.confirmPassword, {
-        message: "Password dan konfirmasi password tidak sama",
+        message: "Password và xác nhận Password không khớp",
         path: ["confirmPassword"],
     });
 
@@ -53,11 +53,11 @@ const Register: NextPage = () => {
         onSuccess: (data) => {
             login(data.user, data.token);
             router.push("/");
-            toast.success("Login sukses");
+            toast.success("Đăng nhập thành công");
         },
         onError: (error) => {
             console.error("Registration error:", error);
-            toast.error("Register gagal");
+            toast.error("Đăng ký thất bại");
         },
     });
 
@@ -68,10 +68,10 @@ const Register: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Daftar</title>
+                <title>Đăng ký</title>
             </Head>
 
-            <AuthCard title="Daftar Akun Baru">
+            <AuthCard title="Đăng ký Tài khoản Mới">
                 <form
                     className="mt-8 space-y-6"
                     onSubmit={handleSubmit(onSubmit)}
@@ -82,7 +82,7 @@ const Register: NextPage = () => {
                                 htmlFor="name"
                                 className="block text-sm font-medium text-gray-700 mb-1"
                             >
-                                Nama Lengkap
+                                Họ và Tên
                             </label>
                             <input
                                 id="name"
@@ -90,7 +90,7 @@ const Register: NextPage = () => {
                                 autoComplete="name"
                                 {...register("name")}
                                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-amber-500 focus:border-amber-500 focus:z-10 sm:text-sm"
-                                placeholder="Nama Lengkap"
+                                placeholder="Họ và Tên"
                             />
                             {formState.errors.name && (
                                 <p className="mt-1 text-sm text-red-600">
@@ -126,7 +126,7 @@ const Register: NextPage = () => {
                                 htmlFor="phone"
                                 className="block text-sm font-medium text-gray-700 mb-1"
                             >
-                                Nomor Telepon (Opsional)
+                                Số điện thoại (Tùy chọn)
                             </label>
                             <input
                                 id="phone"
@@ -134,7 +134,7 @@ const Register: NextPage = () => {
                                 autoComplete="tel"
                                 {...register("phone")}
                                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-amber-500 focus:border-amber-500 focus:z-10 sm:text-sm"
-                                placeholder="Nomor Telepon"
+                                placeholder="Số điện thoại"
                             />
                             {formState.errors.phone && (
                                 <p className="mt-1 text-sm text-red-600">
@@ -180,7 +180,7 @@ const Register: NextPage = () => {
                                 htmlFor="confirmPassword"
                                 className="block text-sm font-medium text-gray-700 mb-1"
                             >
-                                Konfirmasi Password
+                                Xác nhận Password
                             </label>
                             <div>
                             <input
@@ -189,7 +189,7 @@ const Register: NextPage = () => {
                                 autoComplete="new-password"
                                 {...register("confirmPassword")}
                                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-amber-500 focus:border-amber-500 focus:z-10 sm:text-sm"
-                                placeholder="Konfirmasi Password"
+                                placeholder="Xác nhận Password"
                             />
                             {formState.errors.confirmPassword && (
                                 <p className="mt-1 text-sm text-red-600">
@@ -214,18 +214,18 @@ const Register: NextPage = () => {
                             disabled={isPending}
                             className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
                         >
-                            {isPending ? "Loading..." : "Daftar"}
+                            {isPending ? "Loading..." : "Đăng ký"}
                         </button>
                     </div>
 
                     <div className="text-center">
                         <p className="text-sm text-gray-600">
-                            Sudah punya akun?{" "}
+                            Đã có tài khoản?{" "}
                             <Link
                                 href="/auth/login"
                                 className="font-medium text-amber-600 hover:text-amber-500"
                             >
-                                Login di sini
+                                Login ở đây
                             </Link>
                         </p>
                     </div>

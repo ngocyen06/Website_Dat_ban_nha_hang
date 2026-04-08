@@ -14,8 +14,8 @@ import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
 const LoginSchema = z.object({
-    email: z.string().email("Email tidak valid"),
-    password: z.string().min(6, "Password minimal 6 karakter"),
+    email: z.string().email("Email không hợp lệ"),
+    password: z.string().min(6, "Password tối thiểu 6 ký tự"),
 });
 
 type LoginFormData = z.infer<typeof LoginSchema>;
@@ -37,11 +37,11 @@ const Login: NextPage = () => {
         onSuccess: (data) => {
             login(data.user, data.token);
             router.push("/");
-            toast.success("Login sukses");
+            toast.success("Đăng nhập thành công");
         },
         onError: (error) => {
             console.log("Login error", error);
-            toast.error("Login gagal");
+            toast.error("Đăng nhập thất bại");
         },
     });
 
@@ -55,7 +55,7 @@ const Login: NextPage = () => {
                 <title>Login</title>
             </Head>
 
-            <AuthCard title="Login ke Akun Anda">
+            <AuthCard title="Đăng nhập vào Tài khoản của Bạn">
                 <form
                     className="mt-8 space-y-6"
                     onSubmit={handleSubmit(onSubmit)}
@@ -124,12 +124,12 @@ const Login: NextPage = () => {
 
                         <div className="text-center">
                             <p className="text-sm text-gray-600">
-                                Belum punya akun?{" "}
+                                Đã có tài khoản?{" "}
                                 <Link
                                     href="/auth/register"
                                     className="font-medium text-amber-600 hover:text-amber-500"
                                 >
-                                    Daftar di sini
+                                    Login ở đây
                                 </Link>
                             </p>
                         </div>

@@ -28,10 +28,10 @@ import { OrderStatus } from "@prisma/client";
 import { Order, OrderItem } from "@/types";
 
 const statusLabels: Record<OrderStatus, { label: string }> = {
-    PENDING: { label: "Menunggu" },
-    PREPARING: { label: "Diproses" },
-    COMPLETED: { label: "Selesai" },
-    CANCELLED: { label: "Dibatalkan" },
+    PENDING: { label: "Đang chờ" },
+    PREPARING: { label: "Đang xử lý" },
+    COMPLETED: { label: "Hoàn thành" },
+    CANCELLED: { label: "Đã hủy" },
 };
 
 const AdminOrdersPage: NextPage = () => {
@@ -72,12 +72,12 @@ const AdminOrdersPage: NextPage = () => {
         },
         onSuccess: (data: { status: OrderStatus }) => {
             toast.success(
-                `Status reservasi berhasil diubah ke ${statusLabels[data.status].label} dan email konfirmasi telah dikirim ke pelanggan`
+                `Trạng thái đơn hàng đã được thay đổi thành ${statusLabels[data.status].label} và email xác nhận đã được gửi đến khách hàng`
             );
             refetch();
         },
         onError: () => {
-            toast.error("Gagal mengubah status pesanan");
+            toast.error("Không thể thay đổi trạng thái đơn hàng");
         },
     });
 
@@ -153,24 +153,24 @@ const AdminOrdersPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Kelola Pesanan - Cita Nusa Resto</title>
+                <title>Quản lý Đơn hàng - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Dasbor admin untuk mengelola pesanan di Cita Nusa Resto"
+                    content="Bảng điều khiển admin để quản lý đơn hàng tại Cita Nusa Resto"
                 />
             </Head>
 
             <div className="p-6 bg-white rounded-lg">
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
                     <h1 className="text-2xl font-extrabold text-amber-900 mb-4 md:mb-0">
-                        Kelola Pesanan
+                        Quản lý Đơn hàng
                     </h1>
                     <Link
                         href="/admin/dashboard"
                         className="px-4 py-2 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 inline-flex items-center"
                     >
                         <Clock className="h-4 w-4 mr-2" />
-                        Kembali ke Dashboard
+                        Quay lại Bảng điều khiển
                     </Link>
                 </div>
 
@@ -183,7 +183,7 @@ const AdminOrdersPage: NextPage = () => {
                                 type="text"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="Cari pesanan berdasarkan nama pelanggan atau nomor meja..."
+                                placeholder="Tìm kiếm đơn hàng theo tên khách hàng hoặc số bàn..."
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 pl-10"
                             />
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -201,11 +201,11 @@ const AdminOrdersPage: NextPage = () => {
                             }
                             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
                         >
-                            <option value="ALL">Semua Status</option>
-                            <option value="PENDING">Menunggu</option>
-                            <option value="PREPARING">Sedang Disiapkan</option>
-                            <option value="COMPLETED">Selesai</option>
-                            <option value="CANCELLED">Dibatalkan</option>
+                            <option value="ALL">Tất cả Trạng thái</option>
+                            <option value="PENDING">Đang chờ</option>
+                            <option value="PREPARING">Đang Chuẩn bị</option>
+                            <option value="COMPLETED">Hoàn thành</option>
+                            <option value="CANCELLED">Đã hủy</option>
                         </select>
                     </div>
 
@@ -215,7 +215,7 @@ const AdminOrdersPage: NextPage = () => {
                         className="inline-flex items-center px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700"
                     >
                         <PlusCircle className="h-4 w-4 mr-2" />
-                        Tambah Pesanan Baru
+                        Thêm Đơn hàng Mới
                     </Link>
                 </div>
 
@@ -224,7 +224,7 @@ const AdminOrdersPage: NextPage = () => {
                     <div className="text-center py-10">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                         <p className="mt-2 text-amber-800">
-                            Memuat data pesanan...
+                            Đang tải dữ liệu đơn hàng...
                         </p>
                     </div>
                 ) : paginatedOrders && paginatedOrders.length > 0 ? (
@@ -233,28 +233,28 @@ const AdminOrdersPage: NextPage = () => {
                             <thead>
                                 <tr className="bg-amber-50">
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        ID Pesanan
+                                        ID Đơn hàng
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Pelanggan
+                                        Khách hàng
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Meja
+                                        Bàn
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Tanggal & Waktu
+                                        Ngày & Giờ
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Item
+                                        Mục
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Total
+                                        Tổng
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Status
+                                        Trạng thái
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Aksi
+                                        Hành động
                                     </th>
                                 </tr>
                             </thead>
@@ -286,7 +286,7 @@ const AdminOrdersPage: NextPage = () => {
                                             <div className="flex items-center">
                                                 <Table2 className="h-4 w-4 text-gray-500 mr-1" />
                                                 <span className="text-gray-900">
-                                                    Meja #
+                                                    Bàn #
                                                     {
                                                         order.booking.table
                                                             .tableNumber
@@ -331,13 +331,13 @@ const AdminOrdersPage: NextPage = () => {
                                                 )}`}
                                             >
                                                 {order.status === "PENDING" &&
-                                                    "Menunggu"}
+                                                    "Đang chờ"}
                                                 {order.status === "PREPARING" &&
-                                                    "Sedang Disiapkan"}
+                                                    "Đang Chuẩn bị"}
                                                 {order.status === "COMPLETED" &&
-                                                    "Selesai"}
+                                                    "Hoàn thành"}
                                                 {order.status === "CANCELLED" &&
-                                                    "Dibatalkan"}
+                                                    "Đã hủy"}
                                             </span>
                                         </td>
                                         <td className="py-4 px-4 whitespace-nowrap">
@@ -347,7 +347,7 @@ const AdminOrdersPage: NextPage = () => {
                                                     className="inline-flex items-center px-2.5 py-1.5 bg-amber-50 text-amber-800 rounded hover:bg-amber-100"
                                                 >
                                                     <Edit className="h-4 w-4 mr-1" />
-                                                    Detail
+                                                    Chi tiết
                                                 </Link>
 
                                                 {order.status === "PENDING" && (
@@ -367,7 +367,7 @@ const AdminOrdersPage: NextPage = () => {
                                                         }
                                                     >
                                                         <TrendingUp className="h-4 w-4 mr-1" />
-                                                        Proses
+                                                        Xử lý
                                                     </button>
                                                 )}
 
@@ -389,7 +389,7 @@ const AdminOrdersPage: NextPage = () => {
                                                         }
                                                     >
                                                         <CheckCircle className="h-4 w-4 mr-1" />
-                                                        Selesai
+                                                        Hoàn thành
                                                     </button>
                                                 )}
 
@@ -412,7 +412,7 @@ const AdminOrdersPage: NextPage = () => {
                                                         }
                                                     >
                                                         <XCircle className="h-4 w-4 mr-1" />
-                                                        Batal
+                                                        Hủy
                                                     </button>
                                                 )}
                                             </div>
@@ -427,15 +427,15 @@ const AdminOrdersPage: NextPage = () => {
                         <ShoppingCart className="h-10 w-10 text-amber-600 mx-auto mb-2" />
                         <p className="text-amber-800">
                             {searchTerm || statusFilter !== "ALL"
-                                ? "Tidak ada pesanan yang cocok dengan pencarian atau filter Anda"
-                                : "Belum ada pesanan yang tersedia"}
+                                ? "Không có đơn hàng nào khớp với tìm kiếm hoặc bộ lọc của bạn"
+                                : "Chưa có đơn hàng nào"}
                         </p>
                         <Link
                             href="/admin/orders/add"
                             className="mt-4 inline-flex items-center px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700"
                         >
                             <PlusCircle className="h-4 w-4 mr-2" />
-                            Tambah Pesanan Baru
+                            Thêm Đơn hàng Mới
                         </Link>
                     </div>
                 )}
@@ -444,12 +444,12 @@ const AdminOrdersPage: NextPage = () => {
                 {totalPages > 1 && (
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mt-6">
                         <div className="text-sm text-gray-700">
-                            Menampilkan {(currentPage - 1) * itemsPerPage + 1} -{" "}
+                            Hiển thị {(currentPage - 1) * itemsPerPage + 1} - {" "}
                             {Math.min(
                                 currentPage * itemsPerPage,
                                 filteredOrders?.length || 0
                             )}{" "}
-                            dari {filteredOrders?.length || 0} pesanan
+                            từ {filteredOrders?.length || 0} đơn hàng
                         </div>
                         <div className="flex space-x-2">
                             <button
@@ -461,7 +461,7 @@ const AdminOrdersPage: NextPage = () => {
                                         : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                 }`}
                             >
-                                Sebelumnya
+                                Trang trước
                             </button>
                             <div className="flex items-center space-x-1">
                                 {Array.from({ length: totalPages }).map(
@@ -491,7 +491,7 @@ const AdminOrdersPage: NextPage = () => {
                                         : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                 }`}
                             >
-                                Selanjutnya
+                                Trang sau
                             </button>
                         </div>
                     </div>

@@ -37,10 +37,10 @@ const AdminDashboardPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Dashboard Admin - Cita Nusa Resto</title>
+                <title>Bảng Điều Khiển Admin - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Dashboard admin untuk mengelola Cita Nusa Resto"
+                    content="Bảng điều khiển admin để quản lý Cita Nusa Resto"
                 />
             </Head>
 
@@ -49,10 +49,10 @@ const AdminDashboardPage: NextPage = () => {
                     <h1
                         className={`text-2xl font-extrabold text-amber-900 mb-2`}
                     >
-                        Dashboard Admin
+                        Bảng Điều Khiển Admin
                     </h1>
                     <p className="text-gray-600">
-                        Selamat datang di panel admin Cita Nusa Resto
+                        Chào mừng đến bảng điều khiển admin Cita Nusa Resto
                     </p>
                 </div>
                 <Link
@@ -60,7 +60,7 @@ const AdminDashboardPage: NextPage = () => {
                     className="px-4 py-2 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 inline-flex items-center"
                 >
                     <Home className="h-4 w-4 mr-2" />
-                    Kembali ke Beranda
+                    Quay lại Trang chủ
                 </Link>
             </div>
 
@@ -73,14 +73,14 @@ const AdminDashboardPage: NextPage = () => {
                     {/* Stat cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 mb-6">
                         <StatCard
-                            title="Total Pengguna"
+                            title="Tổng Người dùng"
                             value={dashboardStats?.totalUsers || 0}
                             icon={<Users className="h-5 w-5 text-purple-600" />}
                             iconBg="bg-purple-100"
                             link="/admin/users"
                         />
                         <StatCard
-                            title="Total Reservasi"
+                            title="Tổng Đặt chỗ"
                             value={dashboardStats?.totalBookings || 0}
                             icon={
                                 <CalendarClock className="h-5 w-5 text-amber-600" />
@@ -89,7 +89,7 @@ const AdminDashboardPage: NextPage = () => {
                             link="/admin/bookings"
                         />
                         <StatCard
-                            title="Total Pesanan"
+                            title="Tổng Đơn hàng"
                             value={dashboardStats?.totalOrders || 0}
                             icon={
                                 <ShoppingCart className="h-5 w-5 text-green-600" />
@@ -98,7 +98,7 @@ const AdminDashboardPage: NextPage = () => {
                             link="/admin/orders"
                         />
                         <StatCard
-                            title="Total Menu"
+                            title="Tổng Menu"
                             value={dashboardStats?.totalMenuItems || 0}
                             icon={
                                 <BookOpen className="h-5 w-5 text-blue-600" />
@@ -107,7 +107,7 @@ const AdminDashboardPage: NextPage = () => {
                             link="/admin/menu"
                         />
                         <StatCard
-                            title="Total Meja"
+                            title="Tổng Bàn"
                             value={dashboardStats?.totalTables || 0}
                             icon={<Table2 className="h-5 w-5 text-red-600" />}
                             iconBg="bg-red-100"
@@ -117,7 +117,7 @@ const AdminDashboardPage: NextPage = () => {
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                         {/* Chart - Bookings per day */}
-                        <ChartCard title="Reservasi per Hari">
+                        <ChartCard title="Đặt chỗ mỗi ngày">
                             {dashboardStats?.bookingsPerDay ? (
                                 <div className="h-64">
                                     <BookingsChart
@@ -128,7 +128,7 @@ const AdminDashboardPage: NextPage = () => {
                                 <div className="flex items-center justify-center h-64 bg-gray-50 rounded">
                                     <div className="text-center">
                                         <p className="text-gray-500">
-                                            Tidak ada data reservasi
+                                            Không có dữ liệu đặt chỗ
                                         </p>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@ const AdminDashboardPage: NextPage = () => {
                         </ChartCard>
 
                         {/* Chart - Orders per day */}
-                        <ChartCard title="Pesanan per Hari">
+                        <ChartCard title="Đơn hàng mỗi ngày">
                             {dashboardStats?.ordersPerDay ? (
                                 <div className="h-64">
                                     <OrdersChart
@@ -147,7 +147,7 @@ const AdminDashboardPage: NextPage = () => {
                                 <div className="flex items-center justify-center h-64 bg-gray-50 rounded">
                                     <div className="text-center">
                                         <p className="text-gray-500">
-                                            Tidak ada data pesanan
+                                            Không có dữ liệu đơn hàng
                                         </p>
                                     </div>
                                 </div>
@@ -160,7 +160,7 @@ const AdminDashboardPage: NextPage = () => {
                         <div className="bg-white p-6 rounded-lg shadow">
                             <div className="flex justify-between items-center mb-4">
                                 <h2 className="text-lg font-medium text-gray-900">
-                                    Reservasi Terbaru
+                                    Đặt chỗ Gần đây
                                 </h2>
                                 <Link
                                     href="/admin/bookings"
@@ -199,7 +199,7 @@ const AdminDashboardPage: NextPage = () => {
                                     )
                                 ) : (
                                     <div className="py-4 text-center text-gray-500">
-                                        Belum ada reservasi
+                                        Chưa có đặt chỗ nào
                                     </div>
                                 )}
                             </div>
@@ -209,7 +209,7 @@ const AdminDashboardPage: NextPage = () => {
                         <div className="bg-white p-6 rounded-lg shadow">
                             <div className="flex justify-between items-center mb-4">
                                 <h2 className="text-lg font-medium text-gray-900">
-                                    Pesanan Terbaru
+                                    Đơn hàng Gần đây
                                 </h2>
                                 <Link
                                     href="/admin/orders"
@@ -253,7 +253,7 @@ const AdminDashboardPage: NextPage = () => {
                                     ))
                                 ) : (
                                     <div className="py-4 text-center text-gray-500">
-                                        Belum ada pesanan
+                                        Chưa có đơn hàng nào
                                     </div>
                                 )}
                             </div>

@@ -11,10 +11,10 @@ const Custom404: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Halaman Tidak Ditemukan - Cita Nusa Resto</title>
+                <title>Trang không tìm thấy - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Halaman yang Anda cari tidak ditemukan"
+                    content="Trang bạn tìm không tìm thấy"
                 />
             </Head>
 
@@ -41,12 +41,11 @@ const Custom404: NextPage = () => {
                         <h2
                             className={`text-3xl md:text-4xl font-bold text-white mb-6 ${playfair.className}`}
                         >
-                            Halaman Tidak Ditemukan
+                            Trang không tìm thấy
                         </h2>
                         <p className="text-lg text-amber-100 mb-10">
-                            Maaf, halaman yang Anda cari tidak dapat ditemukan.
-                            Mungkin halaman tersebut telah dipindahkan atau
-                            dihapus.
+                            Xin lỗi, trang bạn tìm không thể tìm thấy.
+                            Có thể trang đó đã bị di chuyển hoặc xóa.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -56,7 +55,7 @@ const Custom404: NextPage = () => {
                             >
                                 <span className="flex items-center justify-center gap-2">
                                     <Home className="h-5 w-5" />
-                                    Kembali ke Beranda
+                                    Quay lại Trang chủ
                                 </span>
                             </Link>
                             <Link
@@ -65,7 +64,7 @@ const Custom404: NextPage = () => {
                             >
                                 <span className="flex items-center justify-center gap-2">
                                     <Utensils className="h-5 w-5" />
-                                    Lihat Menu Kami
+                                    Xem menu của chúng tôi
                                 </span>
                             </Link>
                         </div>
@@ -80,10 +79,10 @@ const Custom404: NextPage = () => {
                         <h2
                             className={`text-3xl font-bold text-amber-900 mb-4 ${playfair.className}`}
                         >
-                            Mungkin Anda mencari
+                            Có thể bạn đang tìm
                         </h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Silakan coba halaman-halaman populer di bawah ini
+                            Vui lòng thử các trang phổ biến dưới đây
                         </p>
                     </div>
 
@@ -93,17 +92,16 @@ const Custom404: NextPage = () => {
                                 <Utensils className="h-7 w-7 text-amber-700" />
                             </div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Menu Kami
+                                Menu của chúng tôi
                             </h3>
                             <p className="text-gray-600 mb-4">
-                                Jelajahi berbagai hidangan autentik Indonesia
-                                yang kami tawarkan
+                                Khám phá các món chính thống Indonesia mà chúng tôi cung cấp
                             </p>
                             <Link
                                 href="/menu"
                                 className="text-amber-600 hover:text-amber-800 font-medium"
                             >
-                                Lihat Menu
+                                Xem menu
                             </Link>
                         </div>
 
@@ -112,17 +110,16 @@ const Custom404: NextPage = () => {
                                 <Book className="h-7 w-7 text-amber-700" />
                             </div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Reservasi
+                                Đặt chỗ
                             </h3>
                             <p className="text-gray-600 mb-4">
-                                Pesan meja Anda sekarang untuk pengalaman
-                                bersantap yang istimewa
+                                Đặt bàn ngay bây giờ để có trải nghiệm ẩm thực đặc biệt
                             </p>
                             <Link
                                 href="/booking/new"
                                 className="text-amber-600 hover:text-amber-800 font-medium"
                             >
-                                Reservasi Sekarang
+                                Đặt chỗ ngay
                             </Link>
                         </div>
 
@@ -144,17 +141,16 @@ const Custom404: NextPage = () => {
                                 </svg>
                             </div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Tentang Kami
+                                Về chúng tôi
                             </h3>
                             <p className="text-gray-600 mb-4">
-                                Pelajari lebih lanjut tentang Cita Nusa Resto
-                                dan sejarah kami
+                                Tìm hiểu thêm về Cita Nusa Resto và lịch sử của chúng tôi
                             </p>
                             <Link
                                 href="/about"
                                 className="text-amber-600 hover:text-amber-800 font-medium"
                             >
-                                Tentang Kami
+                                Về chúng tôi
                             </Link>
                         </div>
 
@@ -176,17 +172,16 @@ const Custom404: NextPage = () => {
                                 </svg>
                             </div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Kontak
+                                Liên hệ
                             </h3>
                             <p className="text-gray-600 mb-4">
-                                Hubungi kami untuk pertanyaan atau informasi
-                                tambahan
+                                Liên hệ với chúng tôi để biết thêm câu hỏi hoặc thông tin
                             </p>
                             <Link
                                 href="/contact"
                                 className="text-amber-600 hover:text-amber-800 font-medium"
                             >
-                                Hubungi Kami
+                                Liên hệ với chúng tôi
                             </Link>
                         </div>
                     </div>

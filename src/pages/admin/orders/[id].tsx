@@ -31,10 +31,10 @@ import { calculateOrderTotal } from "@/utils";
 
 // Status label and color mapping
 const statusLabels: Record<OrderStatus, string> = {
-    PENDING: "Menunggu",
-    PREPARING: "Sedang Diproses",
-    COMPLETED: "Selesai",
-    CANCELLED: "Dibatalkan",
+    PENDING: "Đang chờ",
+    PREPARING: "Đang xử lý",
+    COMPLETED: "Hoàn thành",
+    CANCELLED: "Đã hủy",
 };
 
 const statusColors: Record<OrderStatus, string> = {
@@ -75,12 +75,12 @@ const AdminOrderDetailPage: NextPage = () => {
         },
         onSuccess: (data: { status: OrderStatus }) => {
             toast.success(
-                `Status pesanan berhasil diubah ke ${statusLabels[data.status]} dan email konfirmasi telah dikirim ke pelanggan`
+                `Trạng thái đơn hàng đã được thay đổi thành ${statusLabels[data.status]} và email xác nhận đã được gửi đến khách hàng`
             );
             refetch();
         },
         onError: () => {
-            toast.error("Gagal mengubah status pesanan");
+            toast.error("Không thể thay đổi trạng thái đơn hàng");
         },
     });
 
@@ -93,7 +93,7 @@ const AdminOrderDetailPage: NextPage = () => {
                     <div className="text-center">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                         <p className="mt-2 text-amber-800">
-                            Memuat data pesanan...
+                            Đang tải dữ liệu đơn hàng...
                         </p>
                     </div>
                 </div>
@@ -104,24 +104,24 @@ const AdminOrderDetailPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Detail Pesanan - Cita Nusa Resto</title>
+                <title>Chi tiết Đơn hàng - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Detail pesanan admin di Cita Nusa Resto"
+                    content="Chi tiết đơn hàng admin tại Cita Nusa Resto"
                 />
             </Head>
 
             <div className="p-6 bg-white rounded-lg">
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
                     <h1 className="text-2xl font-extrabold text-amber-900 mb-4 md:mb-0">
-                        Detail Pesanan
+                        Chi tiết Đơn hàng
                     </h1>
                     <Link
                         href="/admin/orders"
                         className="px-4 py-2 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 inline-flex items-center"
                     >
                         <ArrowLeft className="h-4 w-4 mr-2" />
-                        Kembali ke Daftar Pesanan
+                        Quay lại Danh sách Đơn hàng
                     </Link>
                 </div>
 
@@ -144,7 +144,7 @@ const AdminOrderDetailPage: NextPage = () => {
                     {/* Left Column: Order Information */}
                     <div className="bg-gray-50 p-6 rounded-lg">
                         <h2 className="text-xl font-bold text-amber-900 mb-4 pb-2 border-b border-gray-200">
-                            Informasi Pesanan
+                            Thông tin Đơn hàng
                         </h2>
 
                         <div className="space-y-4 mt-4">
@@ -152,7 +152,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                 <Calendar className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Tanggal & Waktu
+                                        Ngày & Giờ
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         {order &&
@@ -173,15 +173,15 @@ const AdminOrderDetailPage: NextPage = () => {
                                 <Table2 className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Meja
+                                        Bàn
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         <span className="px-2 py-1 bg-amber-50 text-amber-800 rounded-md text-sm">
-                                            Meja #
+                                            Bàn #
                                             {order?.booking.table.tableNumber}
                                         </span>
                                         <span className="text-gray-500 text-sm ml-2">
-                                            (Kapasitas:{" "}
+                                            (Sức chứa: {order?.booking.table.capacity} người)
                                             {order?.booking.table.capacity}{" "}
                                             orang)
                                         </span>
@@ -193,10 +193,10 @@ const AdminOrderDetailPage: NextPage = () => {
                                 <Users className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Jumlah Tamu
+                                        Số lượng khách
                                     </p>
                                     <p className="text-gray-900 font-medium">
-                                        {order?.booking.guestCount} orang
+                                        {order?.booking.guestCount} người
                                     </p>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                 <Receipt className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Total Harga
+                                        Tổng giá
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         Rp{" "}
@@ -220,7 +220,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                 <Clock className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Waktu Pemesanan
+                                        Thời gian Đặt hàng
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         {order &&
@@ -239,7 +239,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                         <Clock className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                         <div>
                                             <p className="text-gray-600 text-sm">
-                                                Terakhir Diubah
+                                                Lần cuối chỉnh sửa
                                             </p>
                                             <p className="text-gray-900 font-medium">
                                                 {format(
@@ -257,7 +257,7 @@ const AdminOrderDetailPage: NextPage = () => {
                     {/* Right Column: Customer Details */}
                     <div className="bg-gray-50 p-6 rounded-lg">
                         <h2 className="text-xl font-bold text-amber-900 mb-4 pb-2 border-b border-gray-200">
-                            Informasi Pelanggan
+                            Thông tin Khách hàng
                         </h2>
 
                         <div className="space-y-4 mt-4">
@@ -265,7 +265,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                 <User className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Nama
+                                        Tên
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         {order?.booking.user.name}
@@ -289,7 +289,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                 <Calendar className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        No. Telepon
+                                        Số điện thoại
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         {order?.booking.user.phone || "-"}
@@ -303,7 +303,7 @@ const AdminOrderDetailPage: NextPage = () => {
                 {/* Order Items */}
                 <div className="mt-8">
                     <h2 className="text-xl font-bold text-amber-900 mb-4">
-                        Daftar Menu Pesanan
+                        Danh sách Menu Đặt hàng
                     </h2>
 
                     <div className="overflow-x-auto bg-gray-50 rounded-lg">
@@ -314,13 +314,13 @@ const AdminOrderDetailPage: NextPage = () => {
                                         Menu
                                     </th>
                                     <th className="py-3 px-4 text-center text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Harga
+                                        Giá
                                     </th>
                                     <th className="py-3 px-4 text-center text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Jumlah
+                                        Số lượng
                                     </th>
                                     <th className="py-3 px-4 text-right text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Subtotal
+                                        Tạm tính
                                     </th>
                                 </tr>
                             </thead>
@@ -353,7 +353,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                                     </div>
                                                     {item.notes && (
                                                         <div className="text-sm text-gray-500 mt-1">
-                                                            Catatan:{" "}
+                                                            Ghi chú: {item.notes}
                                                             {item.notes}
                                                         </div>
                                                     )}
@@ -384,7 +384,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                         colSpan={3}
                                         className="py-4 px-4 text-right text-sm font-bold text-gray-900"
                                     >
-                                        Total
+                                        Tổng
                                     </td>
                                     <td className="py-4 px-4 text-right text-sm font-bold text-gray-900">
                                         Rp{" "}
@@ -401,7 +401,7 @@ const AdminOrderDetailPage: NextPage = () => {
                 {/* Action Buttons */}
                 <div className="mt-8 border-t border-gray-200 pt-6">
                     <h3 className="text-lg font-semibold text-amber-900 mb-4">
-                        Tindakan
+                        Hành động
                     </h3>
                     <div className="flex flex-wrap gap-3">
                         {order?.status === "PENDING" && (
@@ -417,7 +417,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                 ) : (
                                     <TrendingUp className="h-4 w-4 mr-2" />
                                 )}
-                                Proses Pesanan
+                                Xử lý Đơn hàng
                             </button>
                         )}
 
@@ -434,7 +434,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                 ) : (
                                     <CheckCircle className="h-4 w-4 mr-2" />
                                 )}
-                                Selesaikan Pesanan
+                                Hoàn thành Đơn hàng
                             </button>
                         )}
 
@@ -452,7 +452,7 @@ const AdminOrderDetailPage: NextPage = () => {
                                 ) : (
                                     <XCircle className="h-4 w-4 mr-2" />
                                 )}
-                                Batalkan Pesanan
+                                Hủy Đơn hàng
                             </button>
                         )}
                     </div>

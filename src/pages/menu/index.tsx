@@ -134,7 +134,7 @@ const MenuPage: NextPage = () => {
                             animate="visible"
                             className={`text-4xl md:text-5xl font-extrabold text-white mb-4 ${playfair.className}`}
                         >
-                            Menu Kami
+                            Menu Của Chúng Tôi
                         </motion.h1>
                         <motion.p
                             initial={{ y: 30, opacity: 0 }}
@@ -142,8 +142,7 @@ const MenuPage: NextPage = () => {
                             transition={{ duration: 0.7, delay: 0.4 }}
                             className="text-lg md:text-xl text-white"
                         >
-                            Nikmati berbagai hidangan autentik Nusantara yang
-                            menggugah selera
+                            Thưởng thức các món ăn chính thống Indonesia kích thích vị giác
                         </motion.p>
                     </div>
                 </div>
@@ -167,7 +166,7 @@ const MenuPage: NextPage = () => {
                         <h2
                             className={`text-3xl font-bold text-amber-900 text-center mb-8 ${playfair.className}`}
                         >
-                            Pilih Kategori
+                            Chọn Danh Mục
                         </h2>
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -186,7 +185,7 @@ const MenuPage: NextPage = () => {
                                         : "bg-white text-amber-800 hover:bg-amber-100"
                                 }`}
                             >
-                                Semua Menu
+                                Tất Cả Menu
                             </motion.button>
 
                             {categories?.map((category) => (
@@ -219,7 +218,7 @@ const MenuPage: NextPage = () => {
                         >
                             <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-amber-600 border-t-transparent"></div>
                             <p className="mt-4 text-amber-800">
-                                Memuat menu...
+                                Đang tải menu...
                             </p>
                         </motion.div>
                     ) : (paginatedMenuItems as MenuWithCategory[]).length ===
@@ -231,7 +230,7 @@ const MenuPage: NextPage = () => {
                         >
                             <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-amber-600 border-t-transparent"></div>
                             <p className="mt-4 text-amber-800">
-                                Memuat menu...
+                                Đang tải menu...
                             </p>
                         </motion.div>
                     ) : (
@@ -325,8 +324,8 @@ const MenuPage: NextPage = () => {
                                                         }`}
                                                     >
                                                         {menu.isAvailable
-                                                            ? "Tersedia"
-                                                            : "Habis"}
+                                                            ? "Có sẵn"
+                                                            : "Hết"}
                                                     </motion.span>
                                                 </motion.div>
                                             </div>
@@ -352,13 +351,13 @@ const MenuPage: NextPage = () => {
                                 transition={{ duration: 0.3 }}
                                 className="text-sm text-gray-700"
                             >
-                                Menampilkan{" "}
+                                Hiển thị{" "}
                                 {(currentPage - 1) * menuPerPage + 1} -{" "}
                                 {Math.min(
                                     currentPage * menuPerPage,
                                     filteredMenuItems?.length || 0
                                 )}{" "}
-                                dari {filteredMenuItems?.length} menu
+                                từ {filteredMenuItems?.length} menu
                             </motion.div>
                             <div className="flex space-x-2">
                                 <motion.button
@@ -378,7 +377,7 @@ const MenuPage: NextPage = () => {
                                             : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                     }`}
                                 >
-                                    Sebelumnya
+                                    Trước
                                 </motion.button>
                                 <div className="flex items-center space-x-1 overflow-x-auto flex-nowrap scrollbar-hide">
                                     {Array.from({ length: totalPages }).map(
@@ -437,7 +436,7 @@ const MenuPage: NextPage = () => {
                                             : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                     }`}
                                 >
-                                    Selanjutnya
+                                    Tiếp
                                 </motion.button>
                             </div>
                         </motion.div>

@@ -96,24 +96,24 @@ const AdminTablesPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Kelola Meja - Cita Nusa Resto</title>
+                <title>Quản lý Bàn - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Dasbor admin untuk mengelola meja di Cita Nusa Resto"
+                    content="Bảng điều khiển admin để quản lý bàn tại Cita Nusa Resto"
                 />
             </Head>
 
             <div className="p-6 bg-white rounded-lg">
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
                     <h1 className="text-2xl font-extrabold text-amber-900 mb-4 md:mb-0">
-                        Kelola Meja
+                        Quản lý Bàn
                     </h1>
                     <Link
                         href="/admin/dashboard"
                         className="px-4 py-2 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 inline-flex items-center"
                     >
                         <Clock className="h-4 w-4 mr-2" />
-                        Kembali ke Dashboard
+                        Quay lại Bảng điều khiển
                     </Link>
                 </div>
 
@@ -126,7 +126,7 @@ const AdminTablesPage: NextPage = () => {
                                 type="text"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="Cari meja berdasarkan nomor atau kapasitas..."
+                                placeholder="Tìm kiếm bàn theo số hoặc sức chứa..."
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 pl-10"
                             />
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -139,7 +139,7 @@ const AdminTablesPage: NextPage = () => {
                         className="inline-flex items-center px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700"
                     >
                         <PlusCircle className="h-4 w-4 mr-2" />
-                        Tambah Meja Baru
+                        Thêm Bàn Mới
                     </button>
                 </div>
 
@@ -148,7 +148,7 @@ const AdminTablesPage: NextPage = () => {
                     <div className="text-center py-10">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                         <p className="mt-2 text-amber-800">
-                            Memuat data meja...
+                            Đang tải dữ liệu bàn...
                         </p>
                     </div>
                 ) : paginatedTables && paginatedTables.length > 0 ? (
@@ -157,16 +157,16 @@ const AdminTablesPage: NextPage = () => {
                             <thead>
                                 <tr className="bg-amber-50">
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Nomor Meja
+                                        Số Bàn
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Kapasitas
+                                        Sức chứa
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Status
+                                        Trạng thái
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Aksi
+                                        Hành động
                                     </th>
                                 </tr>
                             </thead>
@@ -182,7 +182,7 @@ const AdminTablesPage: NextPage = () => {
                                                     {table.tableNumber}
                                                 </div>
                                                 <span className="ml-3 font-medium text-gray-900">
-                                                    Meja #{table.tableNumber}
+                                                    Bàn #{table.tableNumber}
                                                 </span>
                                             </div>
                                         </td>
@@ -190,7 +190,7 @@ const AdminTablesPage: NextPage = () => {
                                             <div className="flex items-center">
                                                 <Users className="h-4 w-4 text-gray-500 mr-1" />
                                                 <span className="text-gray-900">
-                                                    {table.capacity} orang
+                                                    {table.capacity} người
                                                 </span>
                                             </div>
                                         </td>
@@ -203,8 +203,8 @@ const AdminTablesPage: NextPage = () => {
                                                 }`}
                                             >
                                                 {table.isAvailable
-                                                    ? "Tersedia"
-                                                    : "Tidak Tersedia"}
+                                                    ? "Có sẵn"
+                                                    : "Không có sẵn"
                                             </span>
                                         </td>
                                         <td className="py-4 px-4 whitespace-nowrap space-x-2">
@@ -215,7 +215,7 @@ const AdminTablesPage: NextPage = () => {
                                                 className="inline-flex items-center px-2.5 py-1.5 bg-amber-50 text-amber-800 rounded hover:bg-amber-100"
                                             >
                                                 <Edit className="h-4 w-4 mr-1" />
-                                                Edit
+                                                Chỉnh sửa
                                             </button>
                                             <button
                                                 onClick={() =>
@@ -224,7 +224,7 @@ const AdminTablesPage: NextPage = () => {
                                                 className="inline-flex items-center px-2.5 py-1.5 bg-red-50 text-red-800 rounded hover:bg-red-100"
                                             >
                                                 <Trash2 className="h-4 w-4 mr-1" />
-                                                Hapus
+                                                Xóa
                                             </button>
                                         </td>
                                     </tr>
@@ -237,15 +237,15 @@ const AdminTablesPage: NextPage = () => {
                         <Table2 className="h-10 w-10 text-amber-600 mx-auto mb-2" />
                         <p className="text-amber-800">
                             {searchTerm
-                                ? "Tidak ada meja yang cocok dengan pencarian Anda"
-                                : "Belum ada meja yang tersedia"}
+                                ? "Không có bàn nào khớp với tìm kiếm của bạn"
+                                : "Chưa có bàn nào có sẵn"}
                         </p>
                         <button
                             onClick={() => setIsAddModalOpen(true)}
                             className="mt-4 inline-flex items-center px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700"
                         >
                             <PlusCircle className="h-4 w-4 mr-2" />
-                            Tambah Meja Baru
+                            Thêm Bàn Mới
                         </button>
                     </div>
                 )}
@@ -254,12 +254,12 @@ const AdminTablesPage: NextPage = () => {
                 {totalPages > 1 && (
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mt-6">
                         <div className="text-sm text-gray-700">
-                            Menampilkan {(currentPage - 1) * itemsPerPage + 1} -{" "}
+                            Hiển thị {(currentPage - 1) * itemsPerPage + 1} - {" "}
                             {Math.min(
                                 currentPage * itemsPerPage,
                                 filteredTables?.length || 0
                             )}{" "}
-                            dari {filteredTables?.length || 0} meja
+                            từ {filteredTables?.length || 0} bàn
                         </div>
                         <div className="flex space-x-2">
                             <button
@@ -271,7 +271,7 @@ const AdminTablesPage: NextPage = () => {
                                         : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                 }`}
                             >
-                                Sebelumnya
+                                Trang trước
                             </button>
                             <div className="flex items-center space-x-1">
                                 {Array.from({ length: totalPages }).map(
@@ -301,7 +301,7 @@ const AdminTablesPage: NextPage = () => {
                                         : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                 }`}
                             >
-                                Selanjutnya
+                                Trang tiếp theo
                             </button>
                         </div>
                     </div>

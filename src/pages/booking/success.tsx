@@ -26,10 +26,10 @@ const BookingSuccessPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Reservasi Berhasil - Cita Nusa Resto</title>
+                <title>Đặt chỗ thành công - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Konfirmasi reservasi berhasil di Cita Nusa Resto"
+                    content="Xác nhận đặt chỗ thành công tại Cita Nusa Resto"
                 />
             </Head>
 
@@ -44,20 +44,17 @@ const BookingSuccessPage: NextPage = () => {
                         <h1
                             className={`text-3xl md:text-4xl font-extrabold text-amber-900 mb-4`}
                         >
-                            Reservasi Berhasil!
+                            Đặt chỗ thành công!
                         </h1>
 
                         <p className="text-gray-700 text-lg mb-8">
-                            Terima kasih telah melakukan reservasi di Cita Nusa
-                            Resto. Kami telah menerima permintaan reservasi Anda
-                            dan akan segera mengkonfirmasi.
+                            Cảm ơn bạn đã đặt chỗ tại Cita Nusa Resto. Chúng tôi đã nhận được yêu cầu đặt chỗ của bạn và sẽ sớm xác nhận.
                         </p>
 
                         <BookingInfo />
 
                         <p className="text-gray-700 mb-8">
-                            Anda dapat melihat dan mengelola reservasi Anda di
-                            halaman profil.
+                            Bạn có thể xem và quản lý đặt chỗ của mình trong trang hồ sơ.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -65,13 +62,13 @@ const BookingSuccessPage: NextPage = () => {
                                 href="/profile/bookings"
                                 className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md font-medium"
                             >
-                                Lihat Reservasi Saya
+                                Xem đặt chỗ của tôi
                             </Link>
                             <Link
                                 href="/menu"
                                 className="bg-white hover:bg-gray-100 text-amber-900 border border-amber-300 px-6 py-3 rounded-md font-medium"
                             >
-                                Lihat Menu Kami
+                                Xem menu của chúng tôi
                             </Link>
                         </div>
                     </div>

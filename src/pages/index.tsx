@@ -52,10 +52,10 @@ const Home: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Cita Nusa Resto - Sajian Autentik Indonesia</title>
+                <title>Cita Nusa Resto - Món ăn chính thống Indonesia</title>
                 <meta
                     name="description"
-                    content="Restoran dengan cita rasa nusantara yang menggugah selera"
+                    content="Nhà hàng với hương vị vùng miền Indonesia kích thích vị giác"
                 />
             </Head>
 
@@ -92,8 +92,8 @@ const Home: NextPage = () => {
                             transition={{ duration: 0.8, delay: 0.5 }}
                             className="text-lg sm:text-xl md:text-2xl text-white mb-8"
                         >
-                            Sajian autentik Indonesia dengan cita rasa nusantara
-                            yang menggugah selera
+                            Món ăn chính thống Indonesia với hương vị vùng miền
+                            kích thích vị giác
                         </motion.p>
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -111,7 +111,7 @@ const Home: NextPage = () => {
                                 >
                                     <span className="flex items-center justify-center gap-2">
                                         <Utensils className="h-5 w-5" />
-                                        Lihat Menu
+                                        Xem Thực Đơn
                                     </span>
                                 </Link>
                             </motion.div>
@@ -125,7 +125,7 @@ const Home: NextPage = () => {
                                 >
                                     <span className="flex items-center justify-center gap-2">
                                         <Calendar className="h-5 w-5" />
-                                        Reservasi Sekarang
+                                        Đặt chỗ ngay
                                     </span>
                                 </Link>
                             </motion.div>
@@ -150,11 +150,11 @@ const Home: NextPage = () => {
                         <h2
                             className={`text-3xl font-bold text-amber-900 mb-4 ${playfair.className}`}
                         >
-                            Pengalaman Bersantap yang Istimewa
+                            Trải nghiệm ẩm thực đặc biệt
                         </h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Nikmati keunikan cita rasa kuliner nusantara dalam
-                            suasana yang nyaman dan elegan di Cita Nusa Resto.
+                            Thưởng thức hương vị ẩm thực vùng miền trong
+                            không gian thoải mái và sang trọng tại Cita Nusa Resto.
                         </p>
                     </motion.div>
 
@@ -184,11 +184,11 @@ const Home: NextPage = () => {
                                 <Utensils className="h-7 w-7 text-amber-700" />
                             </motion.div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Masakan Autentik
+                                Món ăn chính thống
                             </h3>
                             <p className="text-gray-600">
-                                Hidangan Indonesia dari berbagai daerah dengan
-                                resep asli dan bahan berkualitas
+                                Món Indonesia từ nhiều vùng với
+                                công thức gốc và nguyên liệu chất lượng
                             </p>
                         </motion.div>
 
@@ -214,11 +214,11 @@ const Home: NextPage = () => {
                                 <Award className="h-7 w-7 text-amber-700" />
                             </motion.div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Kualitas Terbaik
+                                Chất Lượng Tốt Nhất
                             </h3>
                             <p className="text-gray-600">
-                                Menggunakan bahan-bahan segar dan berkualitas
-                                tinggi untuk setiap hidangan
+                                Sử dụng nguyên liệu tươi ngon và cao cấp
+                                cho mỗi món ăn
                             </p>
                         </motion.div>
 
@@ -244,11 +244,11 @@ const Home: NextPage = () => {
                                 <MapPin className="h-7 w-7 text-amber-700" />
                             </motion.div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Lokasi Strategis
+                                Vị trí Chiến lược
                             </h3>
                             <p className="text-gray-600">
-                                Berada di pusat kota dengan akses mudah dan
-                                tempat parkir yang luas
+                                Nằm ở trung tâm thành phố với lối vào dễ dàng và
+                                chỗ đậu xe rộng rãi
                             </p>
                         </motion.div>
 
@@ -274,11 +274,11 @@ const Home: NextPage = () => {
                                 <Clock className="h-7 w-7 text-amber-700" />
                             </motion.div>
                             <h3 className="text-xl font-semibold text-amber-900 mb-2">
-                                Reservasi Mudah
+                                Đặt chỗ Dễ dàng
                             </h3>
                             <p className="text-gray-600">
-                                Sistem reservasi online yang praktis untuk
-                                menjamin kenyamanan Anda
+                                Hệ thống đặt chỗ trực tuyến tiện lợi để
+                                đảm bảo sự thoải mái cho bạn
                             </p>
                         </motion.div>
                     </motion.div>
@@ -301,11 +301,10 @@ const Home: NextPage = () => {
                         <h2
                             className={`text-3xl font-bold text-amber-900 mb-4 ${playfair.className}`}
                         >
-                            Menu Unggulan Kami
+                            Thực đơn nổi bật của chúng tôi
                         </h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Hidangan-hidangan istimewa yang menjadi favorit
-                            pelanggan kami
+                            Những món đặc biệt được khách hàng yêu thích
                         </p>
                     </motion.div>
 
@@ -369,7 +368,7 @@ const Home: NextPage = () => {
                                             href="/menu"
                                             className="text-amber-600 hover:text-amber-800 font-medium text-sm flex items-center"
                                         >
-                                            Lihat Menu Lengkap
+                                            Xem Thực Đơn Đầy Đủ
                                             <svg
                                                 className="ml-1 w-4 h-4"
                                                 fill="none"
@@ -407,7 +406,7 @@ const Home: NextPage = () => {
                                 className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md text-lg font-medium transition-colors duration-200 inline-flex items-center"
                             >
                                 <Utensils className="mr-2 h-5 w-5" />
-                                Jelajahi Menu Lengkap
+                                Khám phá Thực Đơn Đầy Đủ
                             </Link>
                         </motion.div>
                     </motion.div>
@@ -428,14 +427,14 @@ const Home: NextPage = () => {
                             variants={slideUp}
                             className={`text-3xl font-bold mb-6 ${playfair.className}`}
                         >
-                            Pesan Meja Anda Sekarang
+                            Đặt Bàn Ngay
                         </motion.h2>
                         <motion.p
                             variants={slideUp}
                             className="text-amber-100 mb-8 text-lg"
                         >
-                            Jangan lewatkan pengalaman bersantap yang istimewa.
-                            Reservasi meja Anda untuk memastikan tempat di Cita
+                            Đừng bỏ lỡ trải nghiệm ẩm thực đặc biệt.
+                            Đặt bàn để đảm bảo chỗ tại Cita
                             Nusa Resto.
                         </motion.p>
                         <motion.div
@@ -452,7 +451,7 @@ const Home: NextPage = () => {
                                     className="bg-white hover:bg-gray-100 text-amber-900 px-6 py-3 rounded-md text-lg font-medium transition-colors duration-200 inline-flex items-center justify-center"
                                 >
                                     <Calendar className="mr-2 h-5 w-5" />
-                                    Reservasi Sekarang
+                                    Đặt chỗ Ngay
                                 </Link>
                             </motion.div>
                             <motion.div
@@ -464,7 +463,7 @@ const Home: NextPage = () => {
                                     href="/contact"
                                     className="bg-transparent hover:bg-amber-800 text-white border border-white px-6 py-3 rounded-md text-lg font-medium transition-colors duration-200 inline-flex items-center justify-center"
                                 >
-                                    Hubungi Kami
+                                    Liên hệ với chúng tôi
                                 </Link>
                             </motion.div>
                         </motion.div>
@@ -488,7 +487,7 @@ const Home: NextPage = () => {
                         <h3
                             className={`text-2xl font-bold text-amber-900 mb-4 ${playfair.className}`}
                         >
-                            Lokasi Kami
+                            Vị trí của chúng tôi
                         </h3>
 
                         {/* Embed Google Maps */}
@@ -514,7 +513,7 @@ const Home: NextPage = () => {
                             variants={itemFadeIn}
                             className="text-gray-600 mb-2"
                         >
-                            Jl. Raya Cita Nusa No. 123, Denpasar, Bali
+                            HCM city, VietNam
                         </motion.p>
                         <motion.div
                             variants={itemFadeIn}
@@ -526,7 +525,7 @@ const Home: NextPage = () => {
                                 target="_blank"
                                 className="text-amber-600 hover:text-amber-800 font-medium inline-flex items-center"
                             >
-                                Lihat di Google Maps
+                                Xem trên Google Maps
                                 <svg
                                     className="ml-1 w-4 h-4"
                                     fill="none"

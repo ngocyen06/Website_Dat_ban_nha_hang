@@ -59,15 +59,15 @@ const AdminBookingDetailPage: NextPage = () => {
         },
         onSuccess: (data) => {
             toast.success(
-                `Status reservasi berhasil diubah ke ${
+                `Trạng thái đặt chỗ đã được thay đổi thành ${
                     statusLabels[data.status]
-                } dan email konfirmasi telah dikirim ke pelanggan`
+                } và email xác nhận đã được gửi đến khách hàng`
             );
             refetch();
         },
         onError: (error) => {
             console.error("Error updating booking status:", error);
-            toast.error("Gagal mengubah status reservasi");
+            toast.error("Không thể thay đổi trạng thái đặt chỗ");
         },
         onSettled: () => {
             setIsLoadingAction(false);
@@ -89,7 +89,7 @@ const AdminBookingDetailPage: NextPage = () => {
                     <div className="text-center">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                         <p className="mt-2 text-amber-800">
-                            Memuat data reservasi...
+                            Đang tải dữ liệu đặt chỗ...
                         </p>
                     </div>
                 </div>
@@ -100,24 +100,24 @@ const AdminBookingDetailPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Detail Reservasi Admin - Cita Nusa Resto</title>
+                <title>Chi tiết đặt chỗ Admin - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Detail reservasi admin di Cita Nusa Resto"
+                    content="Chi tiết đặt chỗ admin tại Cita Nusa Resto"
                 />
             </Head>
 
             <div className="p-6 bg-white rounded-lg">
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
                     <h1 className="text-2xl font-extrabold text-amber-900 mb-4 md:mb-0">
-                        Detail Reservasi
+                        Chi tiết đặt chỗ
                     </h1>
                     <Link
                         href="/admin/bookings"
                         className="px-4 py-2 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 inline-flex items-center"
                     >
                         <ArrowLeft className="h-4 w-4 mr-2" />
-                        Kembali ke Daftar Reservasi
+                        Quay lại danh sách đặt chỗ
                     </Link>
                 </div>
 
@@ -140,7 +140,7 @@ const AdminBookingDetailPage: NextPage = () => {
                     {/* Left Column: Reservation Details */}
                     <div className="bg-gray-50 p-6 rounded-lg">
                         <h2 className="text-xl font-bold text-amber-900 mb-4 pb-2 border-b border-gray-200">
-                            Informasi Reservasi
+                            Thông tin đặt chỗ
                         </h2>
 
                         <div className="space-y-4 mt-4">
@@ -148,7 +148,7 @@ const AdminBookingDetailPage: NextPage = () => {
                                 <Calendar className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Tanggal
+                                        Ngày
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         {booking &&
@@ -165,7 +165,7 @@ const AdminBookingDetailPage: NextPage = () => {
                                 <Clock className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Waktu
+                                        Thời gian
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         {booking &&
@@ -176,7 +176,7 @@ const AdminBookingDetailPage: NextPage = () => {
                                             )}{" "}
                                         WIB
                                         <span className="text-gray-500 text-sm ml-2">
-                                            (Durasi: {booking?.duration} menit)
+                                            (Thời lượng: {booking?.duration} phút)
                                         </span>
                                     </p>
                                 </div>
@@ -186,10 +186,10 @@ const AdminBookingDetailPage: NextPage = () => {
                                 <Users className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Jumlah Tamu
+                                        Số lượng khách
                                     </p>
                                     <p className="text-gray-900 font-medium">
-                                        {booking?.guestCount} orang
+                                        {booking?.guestCount} người
                                     </p>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@ const AdminBookingDetailPage: NextPage = () => {
                                 <MapPin className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                 <div>
                                     <p className="text-gray-600 text-sm">
-                                        Meja
+                                        Bàn
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         <span className="px-2 py-1 bg-amber-50 text-amber-800 rounded-md text-sm">
@@ -217,7 +217,7 @@ const AdminBookingDetailPage: NextPage = () => {
                                     <FileText className="w-5 h-5 text-amber-600 mr-3 mt-0.5" />
                                     <div>
                                         <p className="text-gray-600 text-sm">
-                                            Permintaan Khusus
+                                            Yêu cầu đặc biệt
                                         </p>
                                         <p className="text-gray-900">
                                             {booking.specialRequest}
@@ -231,12 +231,12 @@ const AdminBookingDetailPage: NextPage = () => {
                     {/* Right Column: Customer Details */}
                     <div className="bg-gray-50 p-6 rounded-lg">
                         <h2 className="text-xl font-bold text-amber-900 mb-4 pb-2 border-b border-gray-200">
-                            Informasi Pelanggan
+                            Thông tin khách hàng
                         </h2>
 
                         <div className="space-y-4 mt-4">
                             <div>
-                                <p className="text-gray-600 text-sm">Nama</p>
+                                <p className="text-gray-600 text-sm">Tên</p>
                                 <p className="text-gray-900 font-medium">
                                     {booking?.user.name}
                                 </p>
@@ -251,7 +251,7 @@ const AdminBookingDetailPage: NextPage = () => {
 
                             <div>
                                 <p className="text-gray-600 text-sm">
-                                    No. Telepon
+                                    Số điện thoại
                                 </p>
                                 <p className="text-gray-900 font-medium">
                                     {booking?.user.phone || "-"}
@@ -261,12 +261,12 @@ const AdminBookingDetailPage: NextPage = () => {
                             {/* Booking History - A nice addition for admin */}
                             <div className="pt-4 mt-2 border-t border-gray-200">
                                 <p className="text-gray-600 text-sm mb-2">
-                                    Status Perubahan
+                                    Lịch sử thay đổi trạng thái
                                 </p>
                                 <div className="bg-white p-2 rounded-md border border-gray-200">
                                     <p className="text-sm text-gray-600">
                                         <span className="font-medium">
-                                            Dibuat:
+                                            Được tạo:
                                         </span>{" "}
                                         {booking &&
                                             format(
@@ -280,7 +280,7 @@ const AdminBookingDetailPage: NextPage = () => {
                                             booking.createdAt && (
                                             <p className="text-sm text-gray-600 mt-1">
                                                 <span className="font-medium">
-                                                    Diperbarui:
+                                                    Được cập nhật:
                                                 </span>{" "}
                                                 {format(
                                                     new Date(booking.updatedAt),
@@ -298,7 +298,7 @@ const AdminBookingDetailPage: NextPage = () => {
                 {/* Action Buttons */}
                 <div className="mt-8 border-t border-gray-200 pt-6">
                     <h3 className="text-lg font-semibold text-amber-900 mb-4">
-                        Tindakan
+                        Hành động
                     </h3>
                     <div className="flex flex-wrap gap-3">
                         {booking?.status === "PENDING" && (
@@ -312,7 +312,7 @@ const AdminBookingDetailPage: NextPage = () => {
                                 ) : (
                                     <Check className="h-4 w-4 mr-2" />
                                 )}
-                                Konfirmasi Reservasi
+                                Xác nhận đặt chỗ
                             </button>
                         )}
                         {booking?.status === "CONFIRMED" && (
@@ -326,7 +326,7 @@ const AdminBookingDetailPage: NextPage = () => {
                                 ) : (
                                     <UserCheck className="h-4 w-4 mr-2" />
                                 )}
-                                Tandai Selesai
+                                Đánh dấu hoàn thành
                             </button>
                         )}
                         {(booking?.status === "PENDING" ||
@@ -341,7 +341,7 @@ const AdminBookingDetailPage: NextPage = () => {
                                 ) : (
                                     <X className="h-4 w-4 mr-2" />
                                 )}
-                                Batalkan Reservasi
+                                Hủy đặt chỗ
                             </button>
                         )}
                     </div>
@@ -350,35 +350,34 @@ const AdminBookingDetailPage: NextPage = () => {
                 {/* Notes from Admin */}
                 <div className="mt-8 bg-amber-50 p-6 rounded-lg">
                     <h3 className="text-lg font-semibold text-amber-900 mb-4">
-                        Panduan untuk Staff
+                        Hướng dẫn cho nhân viên
                     </h3>
                     <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                             <span className="text-amber-600 mr-2">•</span>
                             <span>
-                                Pastikan meja telah disiapkan 10 menit sebelum
-                                waktu reservasi.
+                                Đảm bảo bàn đã được chuẩn bị 10 phút trước
+                                giờ đặt chỗ.
                             </span>
                         </li>
                         <li className="flex items-start">
                             <span className="text-amber-600 mr-2">•</span>
                             <span>
-                                Hubungi pelanggan jika mereka terlambat lebih
-                                dari 15 menit.
+                                Liên hệ khách hàng nếu họ muộn hơn 15 phút.
                             </span>
                         </li>
                         <li className="flex items-start">
                             <span className="text-amber-600 mr-2">•</span>
                             <span>
-                                Jika pelanggan memiliki permintaan khusus,
-                                informasikan kepada chef dan tim dapur.
+                                Nếu khách hàng có yêu cầu đặc biệt, hãy
+                                thông báo cho đầu bếp và đội bếp.
                             </span>
                         </li>
                         <li className="flex items-start">
                             <span className="text-amber-600 mr-2">•</span>
                             <span>
-                                Tandai reservasi sebagai {`'Selesai'`} hanya
-                                setelah pelanggan meninggalkan restoran.
+                                Đánh dấu đặt chỗ là {`'Hoàn thành'`} chỉ
+                                sau khi khách hàng rời khỏi nhà hàng.
                             </span>
                         </li>
                     </ul>

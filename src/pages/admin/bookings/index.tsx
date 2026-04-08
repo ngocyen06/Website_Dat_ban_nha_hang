@@ -27,10 +27,10 @@ import AdminLayout from "@/components/layout/admin/AdminLayout";
 import { BookingWithRelations } from "@/types";
 
 const statusLabels: Record<BookingStatus, { label: string; color: string }> = {
-    PENDING: { label: "Menunggu", color: "bg-yellow-100 text-yellow-800" },
-    CONFIRMED: { label: "Terkonfirmasi", color: "bg-green-100 text-green-800" },
-    CANCELLED: { label: "Dibatalkan", color: "bg-red-100 text-red-800" },
-    COMPLETED: { label: "Selesai", color: "bg-blue-100 text-blue-800" },
+    PENDING: { label: "Đang chờ", color: "bg-yellow-100 text-yellow-800" },
+    CONFIRMED: { label: "Đã xác nhận", color: "bg-green-100 text-green-800" },
+    CANCELLED: { label: "Đã hủy", color: "bg-red-100 text-red-800" },
+    COMPLETED: { label: "Hoàn thành", color: "bg-blue-100 text-blue-800" },
 };
 
 const AdminBookingsPage: NextPage = () => {
@@ -74,7 +74,7 @@ const AdminBookingsPage: NextPage = () => {
                 return response.data.data;
             } catch (error) {
                 console.error("Error fetching bookings:", error);
-                toast.error("Gagal mengambil data reservasi");
+                toast.error("Không thể lấy dữ liệu đặt chỗ");
                 return [];
             }
         },
@@ -97,14 +97,14 @@ const AdminBookingsPage: NextPage = () => {
         },
         onSuccess: (data: { status: BookingStatus }) => {
             toast.success(
-                `Status reservasi berhasil diubah ke ${
+                `Trạng thái đặt chỗ đã được thay đổi thành ${
                     statusLabels[data.status].label
-                } dan email konfirmasi telah dikirim ke pelanggan`
+                } và email xác nhận đã được gửi đến khách hàng`
             );
             refetch();
         },
         onError: () => {
-            toast.error("Gagal mengubah status reservasi");
+            toast.error("Không thể thay đổi trạng thái đặt chỗ");
         },
     });
 
@@ -151,10 +151,10 @@ const AdminBookingsPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Kelola Reservasi - Cita Nusa Resto</title>
+                <title>Quản lý đặt chỗ - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Dasbor admin untuk mengelola reservasi di Cita Nusa Resto"
+                    content="Bảng điều khiển admin để quản lý đặt chỗ tại Cita Nusa Resto"
                 />
             </Head>
 
@@ -163,14 +163,14 @@ const AdminBookingsPage: NextPage = () => {
                     <h1
                         className={`text-2xl font-extrabold text-amber-900 mb-4 md:mb-0`}
                     >
-                        Kelola Reservasi
+                        Quản lý đặt chỗ
                     </h1>
                     <Link
                         href="/admin/dashboard"
                         className="px-4 py-2 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 inline-flex items-center"
                     >
                         <Clock className="h-4 w-4 mr-2" />
-                        Kembali ke Dashboard
+                        Quay lại bảng điều khiển
                     </Link>
                 </div>
 
@@ -179,7 +179,7 @@ const AdminBookingsPage: NextPage = () => {
                     {/* Date Filter */}
                     <div className="relative">
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Filter Tanggal
+                            Lọc theo ngày
                         </label>
                         <div className="flex items-center">
                             <div className="relative flex-grow text-black">
@@ -206,7 +206,7 @@ const AdminBookingsPage: NextPage = () => {
                     {/* Status Filter */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Filter Status
+                            Lọc theo trạng thái
                         </label>
                         <div className="relative">
                             <select
@@ -218,11 +218,11 @@ const AdminBookingsPage: NextPage = () => {
                                 }
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 pl-10 text-black"
                             >
-                                <option value="ALL">Semua Status</option>
-                                <option value="PENDING">Menunggu</option>
-                                <option value="CONFIRMED">Terkonfirmasi</option>
-                                <option value="CANCELLED">Dibatalkan</option>
-                                <option value="COMPLETED">Selesai</option>
+                                <option value="ALL">Tất cả trạng thái</option>
+                                <option value="PENDING">Đang chờ</option>
+                                <option value="CONFIRMED">Đã xác nhận</option>
+                                <option value="CANCELLED">Đã hủy</option>
+                                <option value="COMPLETED">Hoàn thành</option>
                             </select>
                             <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                         </div>
@@ -231,14 +231,14 @@ const AdminBookingsPage: NextPage = () => {
                     {/* Search Filter */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Cari Reservasi
+                            Tìm kiếm đặt chỗ
                         </label>
                         <div className="relative text-black">
                             <input
                                 type="text"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="Cari nama pelanggan, email, meja..."
+                                placeholder="Tìm kiếm tên khách hàng, email, bàn..."
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 pl-10"
                             />
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -251,7 +251,7 @@ const AdminBookingsPage: NextPage = () => {
                     <div className="text-center py-10">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                         <p className="mt-2 text-amber-800">
-                            Memuat data reservasi...
+                            Đang tải dữ liệu đặt chỗ...
                         </p>
                     </div>
                 ) : paginatedBookings.length > 0 ? (
@@ -260,25 +260,25 @@ const AdminBookingsPage: NextPage = () => {
                             <thead>
                                 <tr className="bg-amber-50">
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        ID Reservasi
+                                        ID đặt chỗ
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Pelanggan
+                                        Khách hàng
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Meja
+                                        Bàn
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Tanggal & Waktu
+                                        Ngày & giờ
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Jumlah Tamu
+                                        Số lượng khách
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
                                         Status
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Aksi
+                                        Hành động
                                     </th>
                                 </tr>
                             </thead>
@@ -339,12 +339,12 @@ const AdminBookingsPage: NextPage = () => {
                                                 )}
                                             </div>
                                             <div className="text-xs text-gray-500">
-                                                Durasi: {booking.duration} menit
+                                                Thời lượng: {booking.duration} phút
                                             </div>
                                         </td>
                                         <td className="py-4 px-4 whitespace-nowrap text-center">
                                             <span className="px-2 py-1 bg-gray-100 text-gray-800 rounded-md text-sm">
-                                                {booking.guestCount} orang
+                                                {booking.guestCount} người
                                             </span>
                                         </td>
                                         <td className="py-4 px-4 whitespace-nowrap">
@@ -366,7 +366,7 @@ const AdminBookingsPage: NextPage = () => {
                                                 className="inline-flex items-center px-2.5 py-1.5 bg-amber-50 text-amber-800 rounded hover:bg-amber-100"
                                             >
                                                 <Eye className="h-4 w-4 mr-1" />
-                                                Detail
+                                                Chi tiết
                                             </Link>
 
                                             {booking.status === "PENDING" && (
@@ -381,7 +381,7 @@ const AdminBookingsPage: NextPage = () => {
                                                     className={`inline-flex items-center px-2.5 py-1.5 bg-green-50 text-green-800 rounded hover:bg-green-100 ${isPending ? "cursor-not-allowed  bg-green-50/50" : ""}`}
                                                 >
                                                     <Check className="h-4 w-4 mr-1" />
-                                                    Konfirmasi
+                                                    Xác nhận
                                                 </button>
                                             )}
 
@@ -397,7 +397,7 @@ const AdminBookingsPage: NextPage = () => {
                                                     className={`inline-flex items-center px-2.5 py-1.5 bg-blue-50 text-blue-800 rounded hover:bg-blue-100 ${isPending ? "cursor-not-allowed  bg-blue-50/50" : ""}`}
                                                 >
                                                     <UserCheck className="h-4 w-4 mr-1" />
-                                                    Selesai
+                                                    Hoàn thành
                                                 </button>
                                             )}
 
@@ -415,7 +415,7 @@ const AdminBookingsPage: NextPage = () => {
                                                     className={`inline-flex items-center px-2.5 py-1.5 bg-red-50 text-red-800 rounded hover:bg-red-100 ${isPending ? "cursor-not-allowed  bg-red-50/50" : ""}`}
                                                 >
                                                     <X className="h-4 w-4 mr-1" />
-                                                    Batalkan
+                                                    Hủy
                                                 </button>
                                             )}
                                         </td>
@@ -428,8 +428,8 @@ const AdminBookingsPage: NextPage = () => {
                     <div className="text-center py-10 bg-amber-50 rounded-lg">
                         <p className="text-amber-800">
                             {bookings && bookings.length > 0
-                                ? "Tidak ada reservasi yang cocok dengan filter"
-                                : "Tidak ada reservasi yang tersedia"}
+                                ? "Không có đặt chỗ nào khớp với bộ lọc"
+                                : "Không có đặt chỗ nào có sẵn"}}
                         </p>
                     </div>
                 )}
@@ -438,12 +438,12 @@ const AdminBookingsPage: NextPage = () => {
                 {totalPages > 1 && (
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mt-6">
                         <div className="text-sm text-gray-700">
-                            Menampilkan {(currentPage - 1) * itemsPerPage + 1} -{" "}
+                            Hiển thị {(currentPage - 1) * itemsPerPage + 1} -{" "}
                             {Math.min(
                                 currentPage * itemsPerPage,
                                 filteredBookings.length
                             )}{" "}
-                            dari {filteredBookings.length} reservasi
+                            từ {filteredBookings.length} đặt chỗ
                         </div>
                         <div className="flex space-x-2">
                             <button
@@ -455,7 +455,7 @@ const AdminBookingsPage: NextPage = () => {
                                         : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                 }`}
                             >
-                                Sebelumnya
+                                Trang trước
                             </button>
                             <div className="flex items-center space-x-1">
                                 {Array.from({ length: totalPages }).map(
@@ -485,7 +485,7 @@ const AdminBookingsPage: NextPage = () => {
                                         : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                 }`}
                             >
-                                Selanjutnya
+                                Trang tiếp theo
                             </button>
                         </div>
                     </div>

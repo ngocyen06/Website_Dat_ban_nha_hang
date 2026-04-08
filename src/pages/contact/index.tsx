@@ -12,10 +12,10 @@ import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 
 const contactSchema = z.object({
-    name: z.string().min(2, "Nama harus minimal 2 karakter"),
-    email: z.string().email("Format email tidak valid"),
-    subject: z.string().min(3, "Subjek harus minimal 3 karakter"),
-    message: z.string().min(10, "Pesan harus minimal 10 karakter"),
+    name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
+    email: z.string().email("Định dạng email không hợp lệ"),
+    subject: z.string().min(3, "Chủ đề phải có ít nhất 3 ký tự"),
+    message: z.string().min(10, "Tin nhắn phải có ít nhất 10 ký tự"),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -80,10 +80,10 @@ const ContactPage: NextPage = () => {
         },
         onSuccess() {
             reset();
-            toast.success("Pesan berhasil dikirim!");
+            toast.success("Tin nhắn đã được gửi thành công!");
         },
         onError() {
-            toast.error("Terjadi kesalahan saat mengirim pesan");
+            toast.error("Đã xảy ra lỗi khi gửi tin nhắn");
         },
     });
 
@@ -94,10 +94,10 @@ const ContactPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Kontak Kami - Cita Nusa Resto</title>
+                <title>Liên Hệ Chúng Tôi - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Hubungi Cita Nusa Resto untuk reservasi, feedback, atau pertanyaan lainnya"
+                    content="Liên hệ Cita Nusa Resto để đặt chỗ, phản hồi, hoặc câu hỏi khác"
                 />
             </Head>
 
@@ -123,14 +123,13 @@ const ContactPage: NextPage = () => {
                             className={`text-4xl md:text-5xl font-extrabold text-white mb-4 ${playfair.className}`}
                             variants={heroTextVariants}
                         >
-                            Hubungi Kami
+                            Liên Hệ Chúng Tôi
                         </motion.h1>
                         <motion.p 
                             className="text-lg md:text-xl text-white"
                             variants={heroTextVariants}
                         >
-                            Kami siap mendengarkan pertanyaan, saran, dan
-                            reservasi Anda
+                            Chúng tôi sẵn sàng lắng nghe câu hỏi, gợi ý, và đặt chỗ của bạn
                         </motion.p>
                     </motion.div>
                 </div>
@@ -160,7 +159,7 @@ const ContactPage: NextPage = () => {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5 }}
                                 >
-                                    Informasi Kontak
+                                    Thông Tin Liên Hệ
                                 </motion.h2>
 
                                 <motion.div 
@@ -183,7 +182,7 @@ const ContactPage: NextPage = () => {
                                         </motion.div>
                                         <div>
                                             <h3 className="font-semibold text-amber-900 mb-1">
-                                                Alamat
+                                                Địa Chỉ
                                             </h3>
                                             <p className="text-gray-600">
                                                 Jl. Raya Cita Nusa No. 123
@@ -206,7 +205,7 @@ const ContactPage: NextPage = () => {
                                         </motion.div>
                                         <div>
                                             <h3 className="font-semibold text-amber-900 mb-1">
-                                                Telepon
+                                                Điện Thoại
                                             </h3>
                                             <p className="text-gray-600">
                                                 (021) 123-4567
@@ -244,21 +243,21 @@ const ContactPage: NextPage = () => {
                                     transition={{ delay: 0.6, duration: 0.5 }}
                                 >
                                     <h3 className="font-semibold text-amber-900 mb-3">
-                                        Jam Operasional
+                                        Giờ Hoạt Động
                                     </h3>
                                     <ul className="text-gray-600 space-y-1">
                                         <motion.li 
                                             className="flex justify-between"
                                             whileHover={{ x: 5, color: "#B45309" }}
                                         >
-                                            <span>Senin - Jumat:</span>
+                                            <span>Thứ Hai - Thứ Sáu:</span>
                                             <span>11.00 - 22.00</span>
                                         </motion.li>
                                         <motion.li 
                                             className="flex justify-between"
                                             whileHover={{ x: 5, color: "#B45309" }}
                                         >
-                                            <span>Sabtu - Minggu:</span>
+                                            <span>Thứ Bảy - Chủ Nhật:</span>
                                             <span>10.00 - 23.00</span>
                                         </motion.li>
                                     </ul>
@@ -282,7 +281,7 @@ const ContactPage: NextPage = () => {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5 }}
                                 >
-                                    Kirim Pesan
+                                    Gửi Tin Nhắn
                                 </motion.h2>
                                 <form
                                     onSubmit={handleSubmit(onSubmit)}
@@ -298,7 +297,7 @@ const ContactPage: NextPage = () => {
                                             htmlFor="name"
                                             className="block text-gray-700 mb-1"
                                         >
-                                            Nama Lengkap
+                                            Tên Đầy Đủ
                                         </label>
                                         <motion.input
                                             id="name"
@@ -308,7 +307,7 @@ const ContactPage: NextPage = () => {
                                                     ? "border-red-500"
                                                     : "border-gray-300"
                                             }`}
-                                            placeholder="Masukkan nama lengkap"
+                                            placeholder="Nhập tên đầy đủ"
                                             {...register("name")}
                                             whileFocus={{ scale: 1.01, boxShadow: "0 0 0 2px rgba(217, 119, 6, 0.2)" }}
                                         />
@@ -344,7 +343,7 @@ const ContactPage: NextPage = () => {
                                                     ? "border-red-500"
                                                     : "border-gray-300"
                                             }`}
-                                            placeholder="Masukkan alamat email"
+                                            placeholder="Nhập địa chỉ email"
                                             {...register("email")}
                                             whileFocus={{ scale: 1.01, boxShadow: "0 0 0 2px rgba(217, 119, 6, 0.2)" }}
                                         />
@@ -370,7 +369,7 @@ const ContactPage: NextPage = () => {
                                             htmlFor="subject"
                                             className="block text-gray-700 mb-1"
                                         >
-                                            Subjek
+                                            Chủ Đề
                                         </label>
                                         <motion.input
                                             id="subject"
@@ -380,7 +379,7 @@ const ContactPage: NextPage = () => {
                                                     ? "border-red-500"
                                                     : "border-gray-300"
                                             }`}
-                                            placeholder="Masukkan subjek pesan"
+                                            placeholder="Nhập chủ đề tin nhắn"
                                             {...register("subject")}
                                             whileFocus={{ scale: 1.01, boxShadow: "0 0 0 2px rgba(217, 119, 6, 0.2)" }}
                                         />
@@ -406,7 +405,7 @@ const ContactPage: NextPage = () => {
                                             htmlFor="message"
                                             className="block text-gray-700 mb-1"
                                         >
-                                            Pesan
+                                            Tin Nhắn
                                         </label>
                                         <motion.textarea
                                             id="message"
@@ -416,7 +415,7 @@ const ContactPage: NextPage = () => {
                                                     ? "border-red-500"
                                                     : "border-gray-300"
                                             }`}
-                                            placeholder="Tulis pesan Anda"
+                                            placeholder="Viết tin nhắn của bạn"
                                             {...register("message")}
                                             whileFocus={{ scale: 1.01, boxShadow: "0 0 0 2px rgba(217, 119, 6, 0.2)" }}
                                         ></motion.textarea>
@@ -453,7 +452,7 @@ const ContactPage: NextPage = () => {
                                                         ease: "linear"
                                                     }}
                                                 ></motion.span>
-                                                Mengirim...
+                                                Đang gửi...
                                             </span>
                                         ) : (
                                             <span className="flex items-center">
@@ -464,7 +463,7 @@ const ContactPage: NextPage = () => {
                                                 >
                                                     <Send className="h-5 w-5 mr-2" />
                                                 </motion.div>
-                                                Kirim Pesan
+                                                Gửi Tin Nhắn
                                             </span>
                                         )}
                                     </motion.button>

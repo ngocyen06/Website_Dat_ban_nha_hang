@@ -27,7 +27,7 @@ const NewBookingPage: NextPage = () => {
                 "/auth/login?callbackUrl=" + encodeURIComponent("/booking/new")
             );
             toast.error(
-                "Anda harus login terlebih dahulu untuk melakukan reservasi"
+                "Bạn phải đăng nhập trước để thực hiện đặt chỗ"
             );
         }
     }, [isAuthenticated]);
@@ -35,10 +35,10 @@ const NewBookingPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Buat Reservasi - Cita Nusa Resto</title>
+                <title>Tạo Đặt Chỗ - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Form pembuatan reservasi di Cita Nusa Resto"
+                    content="Biểu mẫu tạo đặt chỗ tại Cita Nusa Resto"
                 />
             </Head>
 
@@ -60,19 +60,19 @@ const NewBookingPage: NextPage = () => {
                         
                         {/* Floor Plan Visualization Column */}
                         <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
-                            <h3 className="text-xl font-semibold mb-4 text-brown-700">Denah Meja Restoran</h3>
+                            <h3 className="text-xl font-semibold mb-4 text-brown-700">Sơ đồ Bàn Nhà Hàng</h3>
                             <div className="bg-white p-4 rounded-lg shadow-md">
                                 <div className="relative w-full">
                                     <Image
                                         src="/images/denah-meja.png"
-                                        alt="Denah Meja Cita Nusa Resto"
+                                        alt="Sơ đồ Bàn Cita Nusa Resto"
                                         width={600}
                                         height={600}
                                         className="w-full rounded-lg"
                                         priority
                                     />
                                 </div>
-                                <p className="text-sm text-gray-600 mt-3 text-center">Pilih meja yang tersedia sesuai dengan kebutuhan Anda</p>
+                                <p className="text-sm text-gray-600 mt-3 text-center">Chọn bàn trống phù hợp với nhu cầu của bạn</p>
                             </div>
                         </div>
                     </div>

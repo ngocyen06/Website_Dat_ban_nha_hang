@@ -26,16 +26,16 @@ import { queryClient } from "@/lib/queryClient";
 import { Booking, MenuItem } from "@/types";
 
 const orderSchema = z.object({
-    bookingId: z.string().min(1, "Pemesanan wajib dipilih"),
+    bookingId: z.string().min(1, "Đặt chỗ phải được chọn"),
     items: z
         .array(
             z.object({
-                menuId: z.string().min(1, "Menu wajib dipilih"),
-                quantity: z.coerce.number().positive("Jumlah harus positif"),
+                menuId: z.string().min(1, "Menu phải được chọn"),
+                quantity: z.coerce.number().positive("Đơn vị phải dương"),
                 notes: z.string().optional(),
             })
         )
-        .min(1, "Minimal harus ada 1 item pesanan"),
+        .min(1, "Tối thiểu phải có 1 mục đặt hàng"),
 });
 
 type OrderForm = z.infer<typeof orderSchema>;
@@ -120,11 +120,11 @@ const AddOrderPage: NextPage = () => {
                 queryKey: ["active-bookings"],
             });
             updateBooking("COMPLETED");
-            toast.success("Pesanan berhasil ditambahkan!");
+            toast.success("Đơn hàng đã được thêm thành công!");
             router.push("/admin/orders");
         },
         onError: () => {
-            toast.error("Gagal menambahkan pesanan");
+            toast.error("Không thể thêm đơn hàng");
         },
     });
 
@@ -138,7 +138,7 @@ const AddOrderPage: NextPage = () => {
 
     const removeItem = (index: number) => {
         if (fields.length === 1) {
-            toast.error("Minimal harus ada 1 item pesanan");
+            toast.error("Tối thiểu phải có 1 mục đặt hàng");
             return;
         }
         remove(index);
@@ -179,31 +179,31 @@ const AddOrderPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Tambah Pesanan - Cita Nusa Resto</title>
+                <title>Thêm Đơn hàng - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Tambah pesanan baru untuk pelanggan di Cita Nusa Resto"
+                    content="Thêm đơn hàng mới cho khách hàng tại Cita Nusa Resto"
                 />
             </Head>
 
             <div className="p-6 bg-white rounded-lg">
                 <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
                     <h1 className="text-2xl font-extrabold text-amber-900 mb-4 md:mb-0">
-                        Tambah Pesanan Baru
+                        Thêm Đơn hàng Mới
                     </h1>
                     <Link
                         href="/admin/orders"
                         className="px-4 py-2 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 inline-flex items-center"
                     >
                         <ChevronLeft className="h-4 w-4 mr-2" />
-                        Kembali ke Daftar Pesanan
+                        Quay lại Danh sách Đơn hàng
                     </Link>
                 </div>
 
                 {isLoading ? (
                     <div className="text-center py-10">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
-                        <p className="mt-2 text-amber-800">Memuat data...</p>
+                        <p className="mt-2 text-amber-800">Đang tải dữ liệu...</p>
                     </div>
                 ) : (
                     <form
@@ -214,19 +214,19 @@ const AddOrderPage: NextPage = () => {
                         <div className="bg-amber-50 p-5 rounded-lg border border-amber-200">
                             <h2 className="text-lg font-medium text-amber-800 mb-4 flex items-center">
                                 <CalendarClock className="h-5 w-5 mr-2" />
-                                Pilih Reservasi
+                                Chọn Đặt chỗ
                             </h2>
 
                             <div className="mb-4">
                                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                                    Reservasi
+                                    Đặt chỗ
                                 </label>
                                 <select
                                     {...register("bookingId")}
                                     className="w-full px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50"
                                 >
                                     <option value="">
-                                        -- Pilih Reservasi --
+                                        -- Chọn Đặt chỗ --
                                     </option>
                                     {activeBookings?.map((booking: Booking) => (
                                         <option
@@ -251,7 +251,7 @@ const AddOrderPage: NextPage = () => {
                             {selectedBooking && (
                                 <div className="bg-white p-4 rounded-md border border-amber-100 mt-4">
                                     <h3 className="font-medium text-amber-800 mb-2">
-                                        Detail Reservasi:
+                                        Chi tiết Đặt chỗ:
                                     </h3>
                                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                         <div className="flex items-center">
@@ -271,13 +271,13 @@ const AddOrderPage: NextPage = () => {
                                         <div className="flex items-center">
                                             <Table2 className="h-4 w-4 text-amber-600 mr-2" />
                                             <span className="text-gray-700">
-                                                {`Meja #${selectedBooking.table.tableNumber}`}
+                                                {`Bàn #${selectedBooking.table.tableNumber}`}
                                             </span>
                                         </div>
                                         <div className="flex items-center">
                                             <Users className="h-4 w-4 text-amber-600 mr-2" />
                                             <span className="text-gray-700">
-                                                {selectedBooking.guestCount}{" "}
+                                                {selectedBooking.guestCount} người
                                                 orang
                                             </span>
                                         </div>
@@ -291,7 +291,7 @@ const AddOrderPage: NextPage = () => {
                             <div className="flex justify-between items-center mb-4">
                                 <h2 className="text-lg font-medium text-amber-800 flex items-center">
                                     <ShoppingCart className="h-5 w-5 mr-2" />
-                                    Item Pesanan
+                                    Mục Đơn hàng
                                 </h2>
                                 <button
                                     type="button"
@@ -299,7 +299,7 @@ const AddOrderPage: NextPage = () => {
                                     className="px-3 py-1.5 bg-amber-600 text-white rounded-md hover:bg-amber-700 flex items-center text-sm"
                                 >
                                     <PlusCircle className="h-4 w-4 mr-1" />
-                                    Tambah Item
+                                    Thêm Mục
                                 </button>
                             </div>
 
@@ -310,7 +310,7 @@ const AddOrderPage: NextPage = () => {
                                 >
                                     <div className="flex justify-between items-center mb-3">
                                         <h3 className="font-medium text-amber-700">
-                                            Item #{index + 1}
+                                            Mục #{index + 1}
                                         </h3>
                                         <button
                                             type="button"
@@ -318,7 +318,7 @@ const AddOrderPage: NextPage = () => {
                                             className="text-red-500 hover:text-red-700 flex items-center text-sm"
                                         >
                                             <Trash2 className="h-4 w-4 mr-1" />
-                                            Hapus
+                                            Xóa
                                         </button>
                                     </div>
 
@@ -336,7 +336,7 @@ const AddOrderPage: NextPage = () => {
                                                         className="w-full px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50"
                                                     >
                                                         <option value="">
-                                                            -- Pilih Menu --
+                                                            -- Chọn Menu --
                                                         </option>
                                                         {Object.keys(
                                                             groupedMenuItems
@@ -386,7 +386,7 @@ const AddOrderPage: NextPage = () => {
 
                                         <div className="md:col-span-2">
                                             <label className="block text-sm font-medium text-gray-700 mb-1">
-                                                Jumlah
+                                                Số lượng
                                             </label>
                                             <Controller
                                                 name={`items.${index}.quantity`}
@@ -421,14 +421,14 @@ const AddOrderPage: NextPage = () => {
 
                                         <div className="md:col-span-4">
                                             <label className="block text-sm font-medium text-gray-700 mb-1">
-                                                Catatan
+                                                Ghi chú
                                             </label>
                                             <input
                                                 type="text"
                                                 {...register(
                                                     `items.${index}.notes`
                                                 )}
-                                                placeholder="Tanpa bawang, pedas, dll."
+                                                placeholder="Không hành, cay, v.v."
                                                 className="w-full px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50"
                                             />
                                         </div>
@@ -438,7 +438,7 @@ const AddOrderPage: NextPage = () => {
                                     {watch(`items.${index}.menuId`) && (
                                         <div className="mt-3 text-right">
                                             <span className="text-sm text-gray-600">
-                                                Subtotal:{" "}
+                                                Tính tạm: {" "}
                                                 <span className="font-medium">
                                                     Rp{" "}
                                                     {calculateItemPrice(
@@ -460,7 +460,7 @@ const AddOrderPage: NextPage = () => {
                             <div className="mt-6 bg-amber-50 p-4 rounded-md border border-amber-100">
                                 <div className="flex justify-between items-center">
                                     <span className="font-medium text-amber-800">
-                                        Total Pesanan
+                                        Tổng Đơn hàng
                                     </span>
                                     <span className="text-lg font-bold text-amber-900">
                                         Rp {totalPrice.toLocaleString("id-ID")}
@@ -476,7 +476,7 @@ const AddOrderPage: NextPage = () => {
                                 onClick={() => router.push("/admin/orders")}
                                 className="px-4 py-2 mr-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
                             >
-                                Batalkan
+                                Hủy bỏ
                             </button>
                             <button
                                 type="submit"
@@ -486,7 +486,7 @@ const AddOrderPage: NextPage = () => {
                                 {isPending && (
                                     <Loader2 className="animate-spin h-4 w-4 mr-2" />
                                 )}
-                                {isPending ? "Memproses..." : "Tambah Pesanan"}
+                                {isPending ? "Đang xử lý..." : "Thêm Đơn hàng"}
                             </button>
                         </div>
                     </form>

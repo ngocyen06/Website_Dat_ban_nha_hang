@@ -42,7 +42,7 @@ const roleLabels: Record<
         icon: UserCog,
     },
     CUSTOMER: {
-        label: "Pelanggan",
+        label: "Khách hàng",
         color: "bg-green-100 text-green-800",
         icon: User,
     },
@@ -82,7 +82,7 @@ const UserManagementPage: NextPage = () => {
                 return response.data.data;
             } catch (error) {
                 console.error("Error fetching users:", error);
-                toast.error("Gagal mengambil data pengguna");
+                toast.error("Không thể lấy dữ liệu người dùng");
                 return [];
             }
         },
@@ -100,12 +100,12 @@ const UserManagementPage: NextPage = () => {
             return response.data;
         },
         onSuccess: () => {
-            toast.success("Role pengguna berhasil diperbarui");
+            toast.success("Quyền của người dùng đã được cập nhật thành công");
             setEditingUser(null);
             queryClient.invalidateQueries({ queryKey: ["adminUsers"] });
         },
         onError: () => {
-            toast.error("Gagal memperbarui role pengguna");
+            toast.error("Không thể cập nhật quyền của người dùng");
         },
     });
 
@@ -156,10 +156,10 @@ const UserManagementPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Kelola Pengguna - Cita Nusa Resto</title>
+                <title>Quản lý Người dùng - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Dasbor admin untuk mengelola pengguna di Cita Nusa Resto"
+                    content="Bảng điều khiển admin để quản lý người dùng tại Cita Nusa Resto"
                 />
             </Head>
 
@@ -168,14 +168,14 @@ const UserManagementPage: NextPage = () => {
                     <h1
                         className={`text-2xl font-extrabold text-amber-900 mb-4 md:mb-0`}
                     >
-                        Kelola Pengguna
+                        Quản lý Người dùng
                     </h1>
                     <Link
                         href="/admin/dashboard"
                         className="px-4 py-2 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 inline-flex items-center"
                     >
                         <Clock className="h-4 w-4 mr-2" />
-                        Kembali ke Dashboard
+                        Quay lại Bảng điều khiển
                     </Link>
                 </div>
 
@@ -184,7 +184,7 @@ const UserManagementPage: NextPage = () => {
                     {/* Role Filter */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Filter Role
+                            Lọc Quyền
                         </label>
                         <div className="relative">
                             <select
@@ -200,10 +200,10 @@ const UserManagementPage: NextPage = () => {
                                 }
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 pl-10 text-black"
                             >
-                                <option value="ALL">Semua Role</option>
+                                <option value="ALL">Tất cả Quyền</option>
                                 <option value="ADMIN">Admin</option>
-                                <option value="STAFF">Staff</option>
-                                <option value="CUSTOMER">Pelanggan</option>
+                                <option value="STAFF">Nhân viên</option>
+                                <option value="CUSTOMER">Khách hàng</option>
                             </select>
                             <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                         </div>
@@ -212,14 +212,14 @@ const UserManagementPage: NextPage = () => {
                     {/* Search Filter */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Cari Pengguna
+                            Tìm kiếm Người dùng
                         </label>
                         <div className="relative text-black">
                             <input
                                 type="text"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="Cari nama, email..."
+                                placeholder="Tìm kiếm tên, email..."
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 pl-10"
                             />
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -232,7 +232,7 @@ const UserManagementPage: NextPage = () => {
                     <div className="text-center py-10">
                         <Loader2 className="h-8 w-8 animate-spin mx-auto text-amber-600" />
                         <p className="mt-2 text-amber-800">
-                            Memuat data pengguna...
+                            Đang tải dữ liệu người dùng...
                         </p>
                     </div>
                 ) : paginatedUsers.length > 0 ? (
@@ -244,19 +244,19 @@ const UserManagementPage: NextPage = () => {
                                         ID
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Nama
+                                        Tên
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
                                         Email
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Role
+                                        Quyền
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Tanggal Bergabung
+                                        Ngày Tham gia
                                     </th>
                                     <th className="py-3 px-4 text-left text-xs font-medium text-amber-800 uppercase tracking-wider border-b">
-                                        Aksi
+                                        Hành động
                                     </th>
                                 </tr>
                             </thead>
@@ -347,10 +347,10 @@ const UserManagementPage: NextPage = () => {
                                                             Admin
                                                         </option>
                                                         <option value="STAFF">
-                                                            Staff
+                                                            Nhân viên
                                                         </option>
                                                         <option value="CUSTOMER">
-                                                            Pelanggan
+                                                            Khách hàng
                                                         </option>
                                                     </select>
                                                     <button
@@ -369,7 +369,7 @@ const UserManagementPage: NextPage = () => {
                                                         ) : (
                                                             <UserCheck className="h-3 w-3 mr-1" />
                                                         )}
-                                                        Simpan
+                                                        Lưu
                                                     </button>
                                                     <button
                                                         onClick={
@@ -377,7 +377,7 @@ const UserManagementPage: NextPage = () => {
                                                         }
                                                         className="inline-flex items-center px-2 py-1 bg-gray-50 text-gray-800 rounded hover:bg-gray-100 text-sm"
                                                     >
-                                                        Batal
+                                                        Hủy
                                                     </button>
                                                 </div>
                                             ) : (
@@ -388,7 +388,7 @@ const UserManagementPage: NextPage = () => {
                                                     className="inline-flex items-center px-2.5 py-1.5 bg-amber-50 text-amber-800 rounded hover:bg-amber-100 text-sm"
                                                 >
                                                     <UserCog className="h-4 w-4 mr-1" />
-                                                    Ubah Role
+                                                    Đổi Quyền
                                                 </button>
                                             )}
                                         </td>
@@ -401,8 +401,8 @@ const UserManagementPage: NextPage = () => {
                     <div className="text-center py-10 bg-amber-50 rounded-lg">
                         <p className="text-amber-800">
                             {users && users.length > 0
-                                ? "Tidak ada pengguna yang cocok dengan filter"
-                                : "Tidak ada pengguna yang tersedia"}
+                                ? "Không có người dùng nào khớp với bộ lọc"
+                                : "Không có người dùng nào có sẵn"}
                         </p>
                     </div>
                 )}
@@ -411,12 +411,12 @@ const UserManagementPage: NextPage = () => {
                 {totalPages > 1 && (
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mt-6">
                         <div className="text-sm text-gray-700">
-                            Menampilkan {(currentPage - 1) * itemsPerPage + 1} -{" "}
+                            Hiển thị {(currentPage - 1) * itemsPerPage + 1} - {" "}
                             {Math.min(
                                 currentPage * itemsPerPage,
                                 filteredUsers.length
                             )}{" "}
-                            dari {filteredUsers.length} pengguna
+                            từ {filteredUsers.length} người dùng
                         </div>
                         <div className="flex space-x-2">
                             <button
@@ -428,7 +428,7 @@ const UserManagementPage: NextPage = () => {
                                         : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                 }`}
                             >
-                                Sebelumnya
+                                Trang trước
                             </button>
                             <div className="flex items-center space-x-1">
                                 {Array.from({ length: totalPages }).map(
@@ -458,7 +458,7 @@ const UserManagementPage: NextPage = () => {
                                         : "bg-amber-100 text-amber-800 hover:bg-amber-200"
                                 }`}
                             >
-                                Selanjutnya
+                                Trang sau
                             </button>
                         </div>
                     </div>

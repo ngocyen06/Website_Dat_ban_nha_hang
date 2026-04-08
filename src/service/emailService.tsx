@@ -15,7 +15,7 @@ export async function sendBookingConfirmationEmail({
     const { user, table } = booking;
 
     try {
-        // Validasi environment variables
+        // Xác thực environment variables
         if (!process.env.RESEND_API_KEY) {
             throw new Error("RESEND_API_KEY is not defined");
         }
@@ -24,8 +24,8 @@ export async function sendBookingConfirmationEmail({
             throw new Error("EMAIL_FROM is not defined");
         }
 
-        // Untuk testing dan development, kirim ke email sendiri
-        // Untuk production, kirim ke email pelanggan
+        // Cho testing và development, gửi đến email của chính mình
+        // Cho production, gửi đến email khách hàng
         const emailTo =
             process.env.NODE_ENV === "production"
                 ? user.email
@@ -34,7 +34,7 @@ export async function sendBookingConfirmationEmail({
         const data = await resend.emails.send({
             to: emailTo,
             from: process.env.EMAIL_FROM,
-            subject: "Konfirmasi Reservasi - Cita Nusa Resto",
+            subject: "Xác nhận Đặt chỗ - Cita Nusa Resto",
             react: (
                 <BookingConfirmationEmail
                     bookingId={booking.id}
