@@ -208,7 +208,7 @@ const ContactPage: NextPage = () => {
                                                 Điện Thoại
                                             </h3>
                                             <p className="text-gray-600">
-                                                (021) 123-4567
+                                                0383997772
                                             </p>
                                         </div>
                                     </motion.div>

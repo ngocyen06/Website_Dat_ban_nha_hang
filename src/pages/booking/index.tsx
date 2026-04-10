@@ -230,7 +230,7 @@ const BookingPage: NextPage = () => {
                                 Liên hệ
                             </h3>
                             <p className="text-gray-600">
-                                Điện thoại: (021) 123-4567
+                                Điện thoại: 0383997772
                                 <br />
                                 Email: info@citanusaresto.com
                             </p>
