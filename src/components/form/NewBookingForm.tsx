@@ -15,19 +15,19 @@ import { id } from "date-fns/locale";
 // Form schema validation
 const bookingSchema = z.object({
     date: z.date({
-        required_error: "Tanggal wajib diisi",
+        required_error: "Ngày bắt buộc phải nhập",
     }),
     time: z.date({
-        required_error: "Waktu wajib diisi",
+        required_error: "Thời gian bắt buộc phải nhập",
     }),
     guestCount: z
         .number({
-            required_error: "Jumlah tamu wajib diisi",
+            required_error: "Số lượng khách bắt buộc phải nhập",
         })
-        .min(1, "Minimal 1 tamu")
-        .max(20, "Maksimal 20 tamu"),
+        .min(1, "Tối thiểu 1 khách")
+        .max(20, "Tối đa 20 khách"),
     tableId: z.string({
-        required_error: "Pilih meja",
+        required_error: "Chọn bàn",
     }),
     specialRequest: z.string().optional(),
 });
@@ -97,7 +97,7 @@ const NewBookingForm = ({
             }
         } catch (error) {
             console.error("Error fetching available tables:", error);
-            toast.error("Gagal mendapatkan data meja yang tersedia");
+            toast.error("Không thể lấy dữ liệu bàn trống");
         }
     };
 
@@ -132,11 +132,11 @@ const NewBookingForm = ({
             return response.data.data;
         },
         onSuccess: () => {
-            toast.success("Reservasi berhasil dibuat!");
+            toast.success("Đặt bàn thành công!");
             router.push("/booking/success?fromBooking=true");
         },
         onError: () => {
-            toast.error("Gagal membuat reservasi");
+            toast.error("Không thể đặt bàn");
         },
     });
 
@@ -149,7 +149,7 @@ const NewBookingForm = ({
             <h2
                 className={`text-2xl font-extrabold text-amber-900 mb-6 text-center`}
             >
-                Form Reservasi
+                Form Đặt Bàn
             </h2>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -159,7 +159,7 @@ const NewBookingForm = ({
                         htmlFor="date"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        Tanggal
+                        Ngày
                     </label>
                     <Controller
                         control={control}
@@ -177,7 +177,7 @@ const NewBookingForm = ({
                                 minDate={new Date()}
                                 locale={id}
                                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-black"
-                                placeholderText="Pilih tanggal"
+                                placeholderText="Chọn ngày"
                             />
                         )}
                     />
@@ -194,7 +194,7 @@ const NewBookingForm = ({
                         htmlFor="time"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        Waktu
+                        Thời gian
                     </label>
                     <Controller
                         control={control}
@@ -211,11 +211,11 @@ const NewBookingForm = ({
                                 showTimeSelect
                                 showTimeSelectOnly
                                 timeIntervals={30}
-                                timeCaption="Waktu"
+                                timeCaption="Thời gian"
                                 dateFormat="HH:mm"
                                 // includeTimes={timeOptions}
                                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-black"
-                                placeholderText="Pilih waktu"
+                                placeholderText="Chọn thời gian"
                             />
                         )}
                     />
@@ -232,7 +232,7 @@ const NewBookingForm = ({
                         htmlFor="guestCount"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        Jumlah Tamu
+                        Số lượng khách
                     </label>
                     <select
                         {...register("guestCount", {
@@ -242,7 +242,7 @@ const NewBookingForm = ({
                     >
                         {[...Array(20)].map((_, i) => (
                             <option key={i + 1} value={i + 1}>
-                                {i + 1} {i === 0 ? "tamu" : "tamu"}
+                                {i + 1} {i === 0 ? "khách" : "khách"}
                             </option>
                         ))}
                     </select>
@@ -259,7 +259,7 @@ const NewBookingForm = ({
                         htmlFor="tableId"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        Pilih Meja
+                        Chọn bàn
                     </label>
                     {watchDate && watchTime && watchGuestCount ? (
                         availableTables.length > 0 ? (
@@ -269,22 +269,19 @@ const NewBookingForm = ({
                             >
                                 {availableTables.map((table) => (
                                     <option key={table.id} value={table.id}>
-                                        Meja #{table.tableNumber} (Kapasitas:{" "}
-                                        {table.capacity} orang)
+                                        Bàn #{table.tableNumber} (Sức chứa:{" "}
+                                        {table.capacity} người)
                                     </option>
                                 ))}
                             </select>
                         ) : (
                             <div className="p-3 bg-red-50 text-red-700 rounded-md">
-                                Tidak ada meja yang tersedia untuk waktu yang
-                                dipilih dan jumlah tamu. Silakan pilih waktu
-                                lain atau ubah jumlah tamu.
+                                Không có bàn trống cho thời gian đã chọn và số lượng khách. Vui lòng chọn thời gian khác hoặc thay đổi số lượng khách.
                             </div>
                         )
                     ) : (
                         <div className="p-3 bg-amber-50 text-amber-700 rounded-md">
-                            Silakan pilih tanggal, waktu, dan jumlah tamu
-                            terlebih dahulu.
+                            Vui lòng chọn ngày, thời gian và số lượng khách trước.
                         </div>
                     )}
                     {errors.tableId && (
@@ -300,12 +297,12 @@ const NewBookingForm = ({
                         htmlFor="specialRequest"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        Permintaan Khusus (opsional)
+                        Permintaan Khusus (tùy chọn)
                     </label>
                     <textarea
                         {...register("specialRequest")}
                         className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 h-32"
-                        placeholder="Jika Anda memiliki permintaan khusus, silakan tuliskan di sini..."
+                        placeholder="Nếu bạn có yêu cầu đặc biệt, vui lòng viết ở đây..."
                     />
                 </div>
 
@@ -328,10 +325,10 @@ const NewBookingForm = ({
                         {createBookingMutation.isPending ? (
                             <div className="flex items-center justify-center">
                                 <Loader2 className="animate-spin h-5 w-5 mr-2" />
-                                <span>Memproses...</span>
+                                <span>Đang xử lý...</span>
                             </div>
                         ) : (
-                            "Buat Reservasi"
+                            "Đặt bàn"
                         )}
                     </button>
                 </div>

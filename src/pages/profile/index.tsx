@@ -59,10 +59,10 @@ const Profile: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Hồ Sơ - Cita Nusa Resto</title>
+                <title>Hồ Sơ - Ao Sen Chú Sang</title>
                 <meta
                     name="description"
-                    content="Quản lý hồ sơ người dùng tại Cita Nusa Resto"
+                    content="Quản lý hồ sơ người dùng tại Ao Sen Chú Sang"
                 />
             </Head>
 
@@ -74,7 +74,7 @@ const Profile: NextPage = () => {
                             Hồ Sơ Của Bạn
                         </h1>
                         <p className="text-gray-700 max-w-2xl mx-auto">
-                            Quản lý thông tin cá nhân và xem lịch sử đặt chỗ của bạn tại Cita Nusa Resto.
+                            Quản lý thông tin cá nhân và xem lịch sử đặt chỗ của bạn tại Ao Sen Chú Sang.
                         </p>
                     </div>
 
@@ -153,14 +153,14 @@ const Profile: NextPage = () => {
                             <div className="flex items-start">
                                 <span className="text-amber-600 mr-2">•</span>
                                 <span>
-                                    Kunjungi halaman{" "}
+                                    Truy cập trang{" "}
                                     <Link
                                         href="/profile/bookings"
                                         className="text-amber-600 hover:text-amber-800 font-medium"
                                     >
                                         Đặt Chỗ Của Tôi
                                     </Link>{" "}
-                                    untuk melihat dan mengelola reservasi Anda.
+                                    để xem và quản lý đặt chỗ của bạn.
                                 </span>
                             </div>
                         </div>

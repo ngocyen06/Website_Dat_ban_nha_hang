@@ -52,10 +52,10 @@ const Home: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Cita Nusa Resto - Món ăn chính thống Indonesia</title>
+                <title>Ao Sen Chú Sang - Món ăn đồng quê Việt Nam</title>
                 <meta
                     name="description"
-                    content="Nhà hàng với hương vị vùng miền Indonesia kích thích vị giác"
+                    content="Nhà hàng với hương vị vùng miền Việt Nam kích thích vị giác"
                 />
             </Head>
 
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
                 >
                     <Image
                         src="/images/hero-bg.jpg"
-                        alt="Cita Nusa Resto"
+                        alt="Ao Sen Chú Sang"
                         layout="fill"
                         objectFit="cover"
                         priority
@@ -84,7 +84,7 @@ const Home: NextPage = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className={`text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 ${playfair.className}`}
                         >
-                            Cita Nusa Resto
+                            Ao Sen Chú Sang
                         </motion.h1>
                         <motion.p
                             initial={{ y: 50, opacity: 0 }}
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
                             transition={{ duration: 0.8, delay: 0.5 }}
                             className="text-lg sm:text-xl md:text-2xl text-white mb-8"
                         >
-                            Món ăn chính thống Indonesia với hương vị vùng miền
+                            Món ăn chính thống Việt Nam với hương vị vùng miền
                             kích thích vị giác
                         </motion.p>
                         <motion.div
@@ -154,7 +154,7 @@ const Home: NextPage = () => {
                         </h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">
                             Thưởng thức hương vị ẩm thực vùng miền trong
-                            không gian thoải mái và sang trọng tại Cita Nusa Resto.
+                            không gian thoải mái và dễ chịu tại Ao Sen Chú Sang.
                         </p>
                     </motion.div>
 
@@ -187,7 +187,7 @@ const Home: NextPage = () => {
                                 Món ăn chính thống
                             </h3>
                             <p className="text-gray-600">
-                                Món Indonesia từ nhiều vùng với
+                                Món đồng quê từ nhiều vùng với
                                 công thức gốc và nguyên liệu chất lượng
                             </p>
                         </motion.div>
@@ -434,8 +434,7 @@ const Home: NextPage = () => {
                             className="text-amber-100 mb-8 text-lg"
                         >
                             Đừng bỏ lỡ trải nghiệm ẩm thực đặc biệt.
-                            Đặt bàn để đảm bảo chỗ tại Cita
-                            Nusa Resto.
+                            Đặt bàn để đảm bảo chỗ tại Ao Sen Chú Sang.
                         </motion.p>
                         <motion.div
                             variants={staggerContainer}
@@ -513,7 +512,7 @@ const Home: NextPage = () => {
                             variants={itemFadeIn}
                             className="text-gray-600 mb-2"
                         >
-                            HCM city, VietNam
+                            Biene Hòa city, VietNam
                         </motion.p>
                         <motion.div
                             variants={itemFadeIn}
@@ -521,7 +520,7 @@ const Home: NextPage = () => {
                             transition={{ duration: 0.2 }}
                         >
                             <Link
-                                href="https://www.google.com/maps?q=Jl.+Raya+Cita+Nusa+No.+123,+Denpasar,+Bali"
+                                href="https://maps.app.goo.gl/TEBscMiD22evVTnZ8"
                                 target="_blank"
                                 className="text-amber-600 hover:text-amber-800 font-medium inline-flex items-center"
                             >

@@ -100,10 +100,10 @@ const AdminBookingDetailPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Chi tiết đặt chỗ Admin - Cita Nusa Resto</title>
+                <title>Chi tiết đặt chỗ Admin - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Chi tiết đặt chỗ admin tại Cita Nusa Resto"
+                    content="Chi tiết đặt chỗ admin tại Ao sen chú Sang"
                 />
             </Head>
 

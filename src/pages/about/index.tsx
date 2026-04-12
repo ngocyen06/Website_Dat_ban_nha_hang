@@ -114,10 +114,10 @@ const AboutPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Tentang Kami - Cita Nusa Resto</title>
+                <title>Về chúng tôi - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Tìm hiểu sâu hơn về Cita Nusa Resto, lịch sử, và đội ngũ của chúng tôi chuyên tâm phục vụ hương vị vùng miền."
+                    content="Tìm hiểu sâu hơn về Ao sen chú Sang, lịch sử, và đội ngũ của chúng tôi chuyên tâm phục vụ hương vị vùng miền."
                 />
             </Head>
 
@@ -132,7 +132,7 @@ const AboutPage: NextPage = () => {
                 <div className="relative h-full">
                     <Image
                         src="/images/about-hero.jpg"
-                        alt="Về Cita Nusa Resto"
+                        alt="Về Ao sen chú Sang"
                         layout="fill"
                         objectFit="cover"
                         priority
@@ -149,7 +149,7 @@ const AboutPage: NextPage = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5, duration: 0.8 }}
                         >
-                            Tentang Kami
+                            Về chúng tôi
                         </motion.h1>
                         <motion.p
                             className="text-lg md:text-xl text-white"
@@ -177,7 +177,7 @@ const AboutPage: NextPage = () => {
                             <div className="relative h-[400px] w-full rounded-lg overflow-hidden shadow-xl">
                                 <Image
                                     src="/images/about-story.jpg"
-                                    alt="Câu chuyện Cita Nusa Resto"
+                                    alt="Câu chuyện Ao sen chú Sang"
                                     layout="fill"
                                     objectFit="cover"
                                 />
@@ -206,10 +206,10 @@ const AboutPage: NextPage = () => {
                                 }
                                 transition={{ delay: 0.3, duration: 0.6 }}
                             >
-                                Cita Nusa Resto được thành lập vào năm 2018 với
+                                Ao sen chú Sang được thành lập vào năm 2018 với
                                 một sứ mệnh đơn giản nhưng sâu sắc:
                                 bảo tồn và giới thiệu di sản ẩm thực
-                                Indonesia cho cộng đồng rộng lớn.
+                                Việt Nam cho cộng đồng rộng lớn.
                             </motion.p>
                             <motion.p
                                 className="text-gray-700 mb-4"
@@ -221,9 +221,9 @@ const AboutPage: NextPage = () => {
                                 }
                                 transition={{ delay: 0.4, duration: 0.6 }}
                             >
-                                Bắt đầu từ tình yêu của gia đình Santoso đối với
-                                ẩm thực vùng miền, Cita Nusa xuất hiện như một
-                                nơi để chia sẻ hương vị chân thực của Indonesia
+                                Bắt đầu từ tình yêu của gia đình Ngọc Ýn đối với
+                                ẩm thực vùng miền, Ao sen chú Sang xuất hiện như một
+                                nơi để chia sẻ hương vị chân thực của Việt Nam
                                 giàu gia vị và kỷ niệm. Chúng tôi tin rằng mỗi
                                 món ăn đều có câu chuyện và di sản văn hóa đáng
                                 được bảo tồn.
@@ -238,7 +238,7 @@ const AboutPage: NextPage = () => {
                                 }
                                 transition={{ delay: 0.5, duration: 0.6 }}
                             >
-                                Tên {"Cita Nusa"} chính là hiện thân của khát vọng
+                                Tên {"Ao sen chú Sang"} chính là hiện thân của khát vọng
                                 của chúng tôi để nâng tầm hương vị ẩm thực vùng
                                 miền lên sân khấu rộng lớn hơn, vẫn duy trì
                                 tính chân thực nhưng được trình bày với nét
@@ -257,8 +257,8 @@ const AboutPage: NextPage = () => {
                                 Mỗi món ăn mà chúng tôi phục vụ là kết quả của
                                 nghiên cứu sâu, lựa chọn nguyên liệu chất lượng,
                                 và sự cống hiến để mang đến điều tốt nhất cho
-                                khách hàng. Đây chính là nền tảng của Cita Nusa
-                                Resto cho đến nay.
+                                khách hàng. Đây chính là nền tảng của Ao sen chú Sang
+                                cho đến nay.
                             </motion.p>
                         </motion.div>
                     </div>
@@ -325,7 +325,7 @@ const AboutPage: NextPage = () => {
                             </h3>
                             <p className="text-gray-600 text-center">
                                 Chúng tôi cam kết phục vụ món ăn với công thức
-                                chân thực và kỹ thuật truyền thống của Indonesia.
+                                chân thực và kỹ thuật truyền thống của Việt Nam.
                             </p>
                         </motion.div>
 
@@ -400,7 +400,7 @@ const AboutPage: NextPage = () => {
                             <p className="text-gray-600 text-center">
                                 Chúng tôi liên tục đổi mới và phát triển, nhưng
                                 vẫn tôn trọng gốc rễ và truyền thống ẩm thực
-                                Indonesia.
+                                Việt Nam.
                             </p>
                         </motion.div>
                     </motion.div>
@@ -442,8 +442,8 @@ const AboutPage: NextPage = () => {
                             }
                             transition={{ delay: 0.2, duration: 0.6 }}
                         >
-                            Các mốc quan trọng trong hành trình của Cita Nusa
-                            Resto cho đến nay
+                            Các mốc quan trọng trong hành trình của Ao sen chú Sang
+                            cho đến nay
                         </motion.p>
                     </motion.div>
 
@@ -529,7 +529,7 @@ const AboutPage: NextPage = () => {
                             transition={{ delay: 0.2, duration: 0.6 }}
                         >
                             Đây là những người tài năng đằng sau món ăn ngon
-                            của Cita Nusa Resto
+                            của Ao sen chú Sang
                         </motion.p>
                     </motion.div>
 
@@ -582,7 +582,7 @@ const AboutPage: NextPage = () => {
                             transition={{ delay: 0.4, duration: 0.6 }}
                         >
                             Chúng tôi mong đợi sự hiện diện của bạn để thưởng
-                            thức đa dạng hương vị vùng miền tại Cita Nusa Resto.
+                            thức đa dạng hương vị vùng miền tại Ao sen chú Sang.
                         </motion.p>
                         <motion.div
                             className="flex flex-col sm:flex-row gap-4 justify-center"

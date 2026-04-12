@@ -156,7 +156,7 @@ const UserManagementPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Quản lý Người dùng - Cita Nusa Resto</title>
+                <title>Quản lý Người dùng - Ao sen chú Sang</title>
                 <meta
                     name="description"
                     content="Bảng điều khiển admin để quản lý người dùng tại Cita Nusa Resto"

@@ -67,7 +67,7 @@ const BookingPage: NextPage = () => {
                 <title>Đặt chỗ - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Đặt chỗ bàn tại Cita Nusa Resto - Món ăn Indonesia chính gốc"
+                    content="Đặt chỗ bàn tại Ao sen chú Sang - Món ăn Việt Nam chính gốc"
                 />
             </Head>
 
@@ -230,9 +230,9 @@ const BookingPage: NextPage = () => {
                                 Liên hệ
                             </h3>
                             <p className="text-gray-600">
-                                Điện thoại: 0383997772
+                                Điện thoại: 0123456789
                                 <br />
-                                Email: info@citanusaresto.com
+                                Email: martin@gmail.com
                             </p>
                         </motion.div>
                     </motion.div>
@@ -261,7 +261,7 @@ const BookingPage: NextPage = () => {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1, duration: 0.5 }}
                         >
-                            Đặt bàn để đảm bảo chỗ ngồi của bạn tại Cita Nusa Resto. Thưởng thức món chính thống Indonesia trong không gian ấm cúng.
+                            Đặt bàn để đảm bảo chỗ ngồi của bạn tại Ao sen chú Sang. Thưởng thức món chính thống Việt Nam trong không gian ấm cúng.
                         </motion.p>
                         <motion.div
                             variants={buttonHover}

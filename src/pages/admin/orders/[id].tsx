@@ -104,10 +104,10 @@ const AdminOrderDetailPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Chi tiết Đơn hàng - Cita Nusa Resto</title>
+                <title>Chi tiết Đơn hàng - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Chi tiết đơn hàng admin tại Cita Nusa Resto"
+                    content="Chi tiết đơn hàng admin tại Ao sen chú Sang"
                 />
             </Head>
 
@@ -461,36 +461,32 @@ const AdminOrderDetailPage: NextPage = () => {
                 {/* Staff Guidelines */}
                 <div className="mt-8 bg-amber-50 p-6 rounded-lg">
                     <h3 className="text-lg font-semibold text-amber-900 mb-4">
-                        Panduan untuk Staff
+                        Hướng dẫn dành cho Nhân viên
                     </h3>
                     <ul className="space-y-2 text-gray-700">
                         <li className="flex items-start">
                             <span className="text-amber-600 mr-2">•</span>
                             <span>
-                                Pastikan menu disiapkan sesuai dengan catatan
-                                khusus dari pelanggan.
+                                Đảm bảo các món ăn được chuẩn bị đúng theo ghi chú đặc biệt của khách hàng.
                             </span>
                         </li>
                         <li className="flex items-start">
                             <span className="text-amber-600 mr-2">•</span>
                             <span>
-                                Jika ada menu yang tidak tersedia, segera
-                                hubungi pelanggan untuk penggantian.
+                                Nếu có món nào không còn (hết hàng), hãy lập tức liên hệ với khách hàng để thay đổi món.
                             </span>
                         </li>
                         <li className="flex items-start">
                             <span className="text-amber-600 mr-2">•</span>
                             <span>
-                                Perhatikan waktu penyajian agar sesuai dengan
-                                reservasi pelanggan.
+                                Chú ý thời gian phục vụ để đảm bảo đúng với thời gian đặt chỗ của khách.
                             </span>
                         </li>
                         <li className="flex items-start">
                             <span className="text-amber-600 mr-2">•</span>
                             <span>
-                                Ubah status pesanan menjadi {`'Selesai'`}{" "}
-                                setelah semua menu telah disajikan dan dinikmati
-                                pelanggan.
+                                Thay đổi trạng thái đơn hàng thành {`'Hoàn thành'`}{" "}
+                                sau khi tất cả món ăn đã được phục vụ và khách hàng đã thưởng thức.
                             </span>
                         </li>
                     </ul>

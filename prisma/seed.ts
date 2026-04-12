@@ -33,10 +33,10 @@ async function seedUsers() {
       where: { email: 'admin@citanusa.com' },
       update: {},
       create: {
-        name: 'Admin Cita Nusa',
-        email: 'admin@citanusa.com',
+        name: 'Bui Ngoc Yen',
+        email: 'Martin@gmail.com',
         password: adminPassword,
-        phone: '081234567890',
+        phone: '0123456789',
         role: 'ADMIN',
       },
     });

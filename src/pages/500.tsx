@@ -11,7 +11,7 @@ const Custom500: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Lỗi máy chủ - Cita Nusa Resto</title>
+                <title>Lỗi máy chủ - Ao Sen Chú Sang</title>
                 <meta
                     name="description"
                     content="Đã xảy ra lỗi trên máy chủ"

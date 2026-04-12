@@ -110,7 +110,7 @@ const BookingDetailPage: NextPage = () => {
                                 href="/profile/bookings"
                                 className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md font-medium"
                             >
-                                Kembali ke Daftar Reservasi
+                                Quay lại danh sách đặt chỗ
                             </Link>
                         </div>
                     </div>
@@ -133,10 +133,10 @@ const BookingDetailPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Chi tiết đặt chỗ - Cita Nusa Resto</title>
+                <title>Chi tiết đặt chỗ - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Detail reservasi di Cita Nusa Resto"
+                    content="Chi tiết đặt chỗ tại Ao sen chú Sang"
                 />
             </Head>
 
@@ -177,7 +177,7 @@ const BookingDetailPage: NextPage = () => {
                                         <h2
                                             className={`text-xl font-bold text-amber-900 mb-4`}
                                         >
-                                            Informasi Reservasi
+                                            Thông tin đặt chỗ
                                         </h2>
                                         <div className="space-y-4">
                                             <div className="flex items-start">
@@ -228,7 +228,7 @@ const BookingDetailPage: NextPage = () => {
                                                     </p>
                                                     <p className="text-gray-900 font-medium">
                                                         {booking?.guestCount}{" "}
-                                                        orang
+                                                        người
                                                     </p>
                                                 </div>
                                             </div>
@@ -239,13 +239,13 @@ const BookingDetailPage: NextPage = () => {
                                                         Số bàn
                                                     </p>
                                                     <p className="text-gray-900 font-medium">
-                                                        Meja #
+                                                        Bàn #
                                                         {
                                                             booking?.table
                                                                 .tableNumber
                                                         }
                                                         <span className="text-gray-500 text-sm ml-2">
-                                                            (Kapasitas:{" "}
+                                                            (Sức chứa:{" "}
                                                             {
                                                                 booking?.table
                                                                     .capacity
@@ -264,12 +264,12 @@ const BookingDetailPage: NextPage = () => {
                                         <h2
                                             className={`text-xl font-bold text-amber-900 mb-4`}
                                         >
-                                            Informasi Pemesan
+                                            Thông tin người đặt
                                         </h2>
                                         <div className="space-y-4">
                                             <div>
                                                 <p className="text-gray-600 text-sm">
-                                                    Nama
+                                                    Tên
                                                 </p>
                                                 <p className="text-gray-900 font-medium">
                                                     {booking?.user.name}
@@ -285,7 +285,7 @@ const BookingDetailPage: NextPage = () => {
                                             </div>
                                             <div>
                                                 <p className="text-gray-600 text-sm">
-                                                    No. Telepon
+                                                    Số điện thoại
                                                 </p>
                                                 <p className="text-gray-900 font-medium">
                                                     {booking?.user.phone || "-"}

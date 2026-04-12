@@ -153,7 +153,7 @@ const AdminOrdersPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Quản lý Đơn hàng - Cita Nusa Resto</title>
+                <title>Quản lý Đơn hàng - Ao sen chú Sang</title>
                 <meta
                     name="description"
                     content="Bảng điều khiển admin để quản lý đơn hàng tại Cita Nusa Resto"

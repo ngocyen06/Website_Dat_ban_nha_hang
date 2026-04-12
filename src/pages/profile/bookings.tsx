@@ -157,10 +157,10 @@ const ProfileBookingsPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Đặt Chỗ Của Tôi - Cita Nusa Resto</title>
+                <title>Đặt Chỗ Của Tôi - Ao Sen Chú Sang</title>
                 <meta
                     name="description"
-                    content="Quản lý đặt chỗ bàn tại Cita Nusa Resto"
+                    content="Quản lý đặt chỗ bàn tại Ao Sen Chú Sang"
                 />
             </Head>
 
@@ -174,7 +174,7 @@ const ProfileBookingsPage: NextPage = () => {
                             Đặt Chỗ Của Tôi
                         </h1>
                         <p className="text-gray-700 max-w-2xl mx-auto">
-                            Xem và quản lý tất cả đặt chỗ mà bạn đã tạo tại Cita Nusa Resto.
+                            Xem và quản lý tất cả đặt chỗ mà bạn đã tạo tại Ao Sen Chú Sang.
                         </p>
                     </div>
 
@@ -237,7 +237,7 @@ const ProfileBookingsPage: NextPage = () => {
                                 Chưa Có Đặt Chỗ
                             </h3>
                             <p className="text-gray-600 mb-6">
-                                Bạn chưa có đặt chỗ. Tạo đặt chỗ mới để thưởng thức món ăn tại Cita Nusa Resto.
+                                Bạn chưa có đặt chỗ. Tạo đặt chỗ mới để thưởng thức món ăn tại Ao Sen Chú Sang.
                             </p>
                             <Link
                                 href="/booking/new"

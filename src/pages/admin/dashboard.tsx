@@ -40,7 +40,7 @@ const AdminDashboardPage: NextPage = () => {
                 <title>Bảng Điều Khiển Admin - Cita Nusa Resto</title>
                 <meta
                     name="description"
-                    content="Bảng điều khiển admin để quản lý Cita Nusa Resto"
+                    content="Bảng điều khiển admin để quản lý Ao sen chú Sang"
                 />
             </Head>
 

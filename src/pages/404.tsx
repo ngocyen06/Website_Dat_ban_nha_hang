@@ -11,7 +11,7 @@ const Custom404: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Trang không tìm thấy - Cita Nusa Resto</title>
+                <title>Trang không tìm thấy - Ao Sen Chú Sang</title>
                 <meta
                     name="description"
                     content="Trang bạn tìm không tìm thấy"
@@ -95,7 +95,7 @@ const Custom404: NextPage = () => {
                                 Menu của chúng tôi
                             </h3>
                             <p className="text-gray-600 mb-4">
-                                Khám phá các món chính thống Indonesia mà chúng tôi cung cấp
+                                Khám phá các món chính thống Việt Nam mà chúng tôi cung cấp
                             </p>
                             <Link
                                 href="/menu"
@@ -144,7 +144,7 @@ const Custom404: NextPage = () => {
                                 Về chúng tôi
                             </h3>
                             <p className="text-gray-600 mb-4">
-                                Tìm hiểu thêm về Cita Nusa Resto và lịch sử của chúng tôi
+                                Tìm hiểu thêm về Ao Sen Chú Sang và lịch sử của chúng tôi
                             </p>
                             <Link
                                 href="/about"

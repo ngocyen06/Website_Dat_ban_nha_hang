@@ -8,10 +8,10 @@ const Footer: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div>
                         <h3 className="text-xl font-bold mb-4">
-                            Cita Nusa Resto
+                            Ao Sen Chú Sang 
                         </h3>
                         <p className="mb-4">
-                            Món ăn truyền thống Indonesia với hương vị vùng miền kích thích vị giác.
+                            Món ăn truyền thống Việt Nam với hương vị vùng miền kích thích vị giác.
                         </p>
                         <div className="flex space-x-4">
                             <a href="#" className="hover:text-amber-200">
@@ -46,16 +46,16 @@ const Footer: React.FC = () => {
 
                     <div>
                         <h3 className="text-xl font-bold mb-4">Liên hệ</h3>
-                        <p className="mb-2">Đường Raya Cita Nusa số 123</p>
-                        <p className="mb-2">Denpasar, Bali</p>
-                        <p className="mb-2">Điện thoại: (0361) 123456</p>
-                        <p className="mb-2">Email: info@citanusaresto.com</p>
+                        <p className="mb-2">Đường Nguyễn Tri Phương số 123</p>
+                        <p className="mb-2">Biên Hòa, Đồng Nai</p>
+                        <p className="mb-2">Điện thoại: 0123456789</p>
+                        <p className="mb-2">Email: Martin@gmail.com</p>
                     </div>
                 </div>
 
                 <div className="mt-8 border-t border-amber-800 pt-6 text-center">
                     <p>
-                        &copy; {new Date().getFullYear()} Cita Nusa Resto. All
+                        &copy; {new Date().getFullYear()} Ao Sen Chú Sang. All
                         rights reserved.
                     </p>
                 </div>

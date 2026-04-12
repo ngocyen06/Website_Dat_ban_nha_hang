@@ -52,7 +52,7 @@ const Header: React.FC = () => {
                         href="/"
                         className={`text-2xl font-bold ${playfair.className}`}
                     >
-                        Cita Nusa Resto
+                        Ao Sen Chú Sang
                     </Link>
 
                     {/* Desktop Navigation */}

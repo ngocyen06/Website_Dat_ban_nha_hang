@@ -4,7 +4,7 @@ import Head from "next/head";
 import Layout from "@/components/layout/Layout";
 import "react-datepicker/dist/react-datepicker.css";
 import { Table } from "@prisma/client";
-import { toast } from "react-hot-toast";
+ import { toast } from "react-hot-toast";
 import { useAuth } from "@/hooks/useAuth";
 import NewBookingForm from "@/components/form/NewBookingForm";
 import { useRouter } from "next/router";
@@ -20,7 +20,7 @@ const NewBookingPage: NextPage = () => {
         "/auth/login?callbackUrl=" + encodeURIComponent("/booking/new")
     );
 
-    // Handle authentication check
+    //Handle authentication check
     useEffect(() => {
         if (isHydrated && !isAuthenticated) {
             router.push(
@@ -35,10 +35,10 @@ const NewBookingPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Tạo Đặt Chỗ - Cita Nusa Resto</title>
+                <title>Tạo Đặt Chỗ - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Biểu mẫu tạo đặt chỗ tại Cita Nusa Resto"
+                    content="Biểu mẫu tạo đặt chỗ tại Ao sen chú Sang - Món ăn Việt Nam chính gốc"
                 />
             </Head>
 
@@ -65,7 +65,7 @@ const NewBookingPage: NextPage = () => {
                                 <div className="relative w-full">
                                     <Image
                                         src="/images/denah-meja.png"
-                                        alt="Sơ đồ Bàn Cita Nusa Resto"
+                                        alt="Sơ đồ Bàn Ao sen chú Sang"
                                         width={600}
                                         height={600}
                                         className="w-full rounded-lg"

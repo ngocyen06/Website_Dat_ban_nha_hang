@@ -37,7 +37,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                             <h1
                                 className={`text-xl font-bold text-amber-900 ${playfair.className}`}
                             >
-                                Cita Nusa Resto
+                                Ao Sen Chú Sang
                             </h1>
                         </Link>
                     </div>
@@ -104,7 +104,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                     <h1
                         className={`text-lg font-bold text-amber-900 ${playfair.className}`}
                     >
-                        Cita Nusa Resto
+                        Ao Sen Chú Sang
                     </h1>
                 </Link>
                 <button
@@ -138,7 +138,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                                 <h1
                                     className={`text-xl font-bold text-amber-900 ${playfair.className}`}
                                 >
-                                    Cita Nusa Resto
+                                    Ao Sen Chú Sang
                                 </h1>
                             </Link>
                             <button

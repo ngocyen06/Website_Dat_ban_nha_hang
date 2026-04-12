@@ -26,10 +26,10 @@ const BookingSuccessPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Đặt chỗ thành công - Cita Nusa Resto</title>
+                <title>Đặt chỗ thành công - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Xác nhận đặt chỗ thành công tại Cita Nusa Resto"
+                    content="Xác nhận đặt chỗ thành công tại Ao sen chú Sang"
                 />
             </Head>
 
@@ -48,7 +48,7 @@ const BookingSuccessPage: NextPage = () => {
                         </h1>
 
                         <p className="text-gray-700 text-lg mb-8">
-                            Cảm ơn bạn đã đặt chỗ tại Cita Nusa Resto. Chúng tôi đã nhận được yêu cầu đặt chỗ của bạn và sẽ sớm xác nhận.
+                            Cảm ơn bạn đã đặt chỗ tại Ao sen chú Sang. Chúng tôi đã nhận được yêu cầu đặt chỗ của bạn và sẽ sớm xác nhận.
                         </p>
 
                         <BookingInfo />

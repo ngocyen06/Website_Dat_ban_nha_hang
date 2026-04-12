@@ -97,10 +97,10 @@ const MenuPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Menu - Cita Nusa Resto</title>
+                <title>Menu - Ao Sen Chú Sang</title>
                 <meta
                     name="description"
-                    content="Thực đơn món ăn và đồ uống từ nhà hàng Cita Nusa - Ẩm thực Indonesia chính gốc"
+                    content="Thực đơn món ăn và đồ uống từ nhà hàng Ao Sen Chú Sang - Ẩm thực Ao Sen"
                 />
             </Head>
 
@@ -120,7 +120,7 @@ const MenuPage: NextPage = () => {
                 >
                     <Image
                         src="/images/menu-hero.jpg"
-                        alt="Menu nhà hàng Cita Nusa "
+                        alt="Menu nhà hàng Ao Sen Chú Sang"
                         layout="fill"
                         objectFit="cover"
                         priority
@@ -142,7 +142,7 @@ const MenuPage: NextPage = () => {
                             transition={{ duration: 0.7, delay: 0.4 }}
                             className="text-lg md:text-xl text-white"
                         >
-                            Thưởng thức các món ăn chính thống Indonesia kích thích vị giác
+                            Thưởng thức các món ăn thơm ngon kích thích vị giác
                         </motion.p>
                     </div>
                 </div>

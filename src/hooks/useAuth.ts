@@ -1,4 +1,4 @@
-import { useAuthStore } from "../../store/authStore";
+import { useAuthStore } from "@/store/authStore";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 

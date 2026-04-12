@@ -44,18 +44,17 @@ export const BookingConfirmationEmail = ({
     return (
         <Html>
             <Head />
-            <Preview>Xác nhận đặt chỗ của bạn tại Cita Nusa Resto</Preview>
+            <Preview>Xác nhận đặt chỗ của bạn tại Ao sen chú Sang</Preview>
             <Body style={main}>
                 <Container style={container}>
-                    <Heading style={header}>Cita Nusa Resto</Heading>
+                    <Heading style={header}>Ao sen chú Sang</Heading>
                     <Section style={section}>
                         <Heading as="h2" style={subheader}>
                             Đặt chỗ của bạn đã được xác nhận!
                         </Heading>
                         <Text style={text}>Xin chào {customerName},</Text>
                         <Text style={text}>
-                            Chúng tôi muốn thông báo rằng đặt chỗ của bạn tại Cita
-                            Nusa Resto đã được xác nhận. Dưới đây là chi tiết
+                            Chúng tôi muốn thông báo rằng đặt chỗ của bạn tại Ao sen chú Sang đã được xác nhận. Dưới đây là chi tiết
                             đặt chỗ của bạn:
                         </Text>
 
@@ -95,25 +94,25 @@ export const BookingConfirmationEmail = ({
 
                         <Button
                             style={button}
-                            href="https://citanusaresto.com/reservasi"
+                            href="https://martin.com/reservasi"
                         >
                             Quản lý đặt chỗ của bạn
                         </Button>
 
                         <Text style={text}>
-                            Chúng tôi cảm ơn sự tin tưởng của bạn và háo hức chào đón bạn tại Cita Nusa Resto!
+                            Chúng tôi cảm ơn sự tin tưởng của bạn và háo hức chào đón bạn tại Ao sen chú Sang!
                         </Text>
 
                         <Text style={regards}>Trân trọng,</Text>
-                        <Text style={signature}>Đội ngũ Cita Nusa Resto</Text>
+                        <Text style={signature}>Đội ngũ Ao sen chú Sang</Text>
                     </Section>
                     <Hr style={hr} />
                     <Text style={footer}>
-                        Đường Nusa Indah số 123, Jakarta Selatan • 021-12345678
+                        Đường Nguyễn Tri Phương số 123, Biên Hòa, Đồng Nai • 0123456789
                     </Text>
                     <Text style={footer}>
-                        <Link href="https://citanusaresto.com">
-                            citanusaresto.com
+                        <Link href="https://martin.com">
+                            martin.com
                         </Link>
                     </Text>
                 </Container>

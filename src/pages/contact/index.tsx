@@ -94,10 +94,10 @@ const ContactPage: NextPage = () => {
     return (
         <Layout>
             <Head>
-                <title>Liên Hệ Chúng Tôi - Cita Nusa Resto</title>
+                <title>Liên Hệ Chúng Tôi - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Liên hệ Cita Nusa Resto để đặt chỗ, phản hồi, hoặc câu hỏi khác"
+                    content="Liên hệ Ao sen chú Sang để đặt chỗ, phản hồi, hoặc câu hỏi khác"
                 />
             </Head>
 
@@ -185,9 +185,9 @@ const ContactPage: NextPage = () => {
                                                 Địa Chỉ
                                             </h3>
                                             <p className="text-gray-600">
-                                                Jl. Raya Cita Nusa No. 123
+                                                đuong Nguyen Tri Phuong so 123, <br />
                                                 <br />
-                                                Denpasar, Bali
+                                                Biên Hòa, Đồng Nai
                                             </p>
                                         </div>
                                     </motion.div>
@@ -208,7 +208,7 @@ const ContactPage: NextPage = () => {
                                                 Điện Thoại
                                             </h3>
                                             <p className="text-gray-600">
-                                                0383997772
+                                                0123456789
                                             </p>
                                         </div>
                                     </motion.div>
@@ -229,7 +229,7 @@ const ContactPage: NextPage = () => {
                                                 Email
                                             </h3>
                                             <p className="text-gray-600">
-                                                info@citanusaresto.com
+                                                martin@gmail.com
                                             </p>
                                         </div>
                                     </motion.div>
