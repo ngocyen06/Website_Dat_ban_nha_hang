@@ -185,7 +185,7 @@ const ContactPage: NextPage = () => {
                                                 Địa Chỉ
                                             </h3>
                                             <p className="text-gray-600">
-                                                đuong Nguyen Tri Phuong so 123, <br />
+                                                đường Nguyễn Tri Phương số 123, <br />
                                                 <br />
                                                 Biên Hòa, Đồng Nai
                                             </p>
