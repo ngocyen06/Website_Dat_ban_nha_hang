@@ -7,12 +7,17 @@
 generator client {
   provider = "prisma-client-js"
 }
-
+// dùng sqlite nó tạo file lưu user ngay trong dự án luôn cho tiện
 datasource db {
-  provider = "mysql"
-//đổi cái provider(cái dùng tạo database á)
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = env("DATABASE_URL") 
 }
+
+//datasource db {
+//  provider = "mysql"
+//đổi cái provider(cái dùng tạo database á)
+//  url      = env("DATABASE_URL")
+//}
 
 model User {
   id              String    @id @default(uuid())
