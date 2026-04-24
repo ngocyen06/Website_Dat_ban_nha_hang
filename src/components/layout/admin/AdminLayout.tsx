@@ -2,9 +2,9 @@ import { ReactNode, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { LogOut, Menu as MenuIcon, X } from "lucide-react";
-import { useAuthStore } from "../../store/authStore";
-import { playfair } from "../../pages/_app";
-import { dashboardNavItems } from "../../constants";
+import { useAuthStore } from "@/store/authStore";
+import { playfair } from "@/pages/_app";
+import { dashboardNavItems } from "@/constants";
 
 interface AdminLayoutProps {
     children: ReactNode;

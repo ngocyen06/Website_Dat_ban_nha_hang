@@ -7,6 +7,17 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function main() {
+    console.log("清理中... (Cleaning up database)");
+    
+    // Xóa theo thứ tự để tránh lỗi ràng buộc (Foreign Key)
+    // Xóa cái nào có khóa ngoại trước (Menu, Booking...) rồi mới xóa Category, Table
+    await prisma.orderItem.deleteMany();
+    await prisma.order.deleteMany();
+    await prisma.booking.deleteMany();
+    await prisma.menu.deleteMany();
+    await prisma.menuCategory.deleteMany();
+
+    console.log("🌱 Seeding database...");
     console.log("🌱 Seeding database...");
 
     // Seed users
@@ -30,11 +41,11 @@ async function seedUsers() {
     // Create admin user
     const adminPassword = await hash('admin123', 10);
     await prisma.user.upsert({
-      where: { email: 'admin@citanusa.com' },
+      where: { email: 'admin@gmail.com' },
       update: {},
       create: {
         name: 'Bui Ngoc Yen',
-        email: 'Martin@gmail.com',
+        email: 'admin@gmail.com',
         password: adminPassword,
         phone: '0123456789',
         role: 'ADMIN',
@@ -44,13 +55,13 @@ async function seedUsers() {
     // Create staff user
     const staffPassword = await hash('staff123', 10);
     await prisma.user.upsert({
-      where: { email: 'staff@citanusa.com' },
+      where: { email: 'staff@gmail.com' },
       update: {},
       create: {
-        name: 'Staff Cita Nusa',
-        email: 'staff@citanusa.com',
+        name: 'Staff Ao sen chu Sang',
+        email: 'staff@gmail.com',
         password: staffPassword,
-        phone: '081234567891',
+        phone: '0123456789',
         role: 'STAFF',
       },
     });
@@ -61,7 +72,7 @@ async function seedUsers() {
       where: { email: 'customer@example.com' },
       update: {},
       create: {
-        name: 'Pelanggan Setia',
+        name: 'Khách hàng trung thành',
         email: 'customer@example.com',
         password: customerPassword,
         phone: '081234567892',
@@ -74,13 +85,11 @@ async function seedMenuCategories() {
     console.log("Seeding menu categories...");
 
     const categories = [
-        { name: "Makanan Pembuka" },
-        { name: "Hidangan Utama" },
-        { name: "Hidangan Nusantara" },
-        { name: "Hidangan Bali" },
-        { name: "Hidangan Laut" },
-        { name: "Minuman" },
-        { name: "Dessert" },
+        { name: "Món chính" },
+        { name: "Ẩm thực Ao sen" },
+        { name: "Món đồng quê" },
+        { name: "Đồ uống" },
+        { name: "Tráng miệng" },
     ];
 
     const categoryPromises = categories.map(async (category) => {
@@ -105,394 +114,231 @@ async function seedMenus(categories: MenuCategory[]) {
         return map;
     }, {} as Record<string, string>);
 
-    // Makanan Pembuka
-    const appetizers = [
-        {
-            name: "Lumpia Semarang",
-            description:
-                "Lumpia dengan isian rebung dan udang segar khas Semarang",
-            price: 35000,
-            image: "lumpia-semarang.jpg",
-            categoryId: categoryMap["Makanan Pembuka"],
-            isAvailable: true,
-        },
-        {
-            name: "Sate Lilit",
-            description: "Sate ikan khas Bali yang dibumbui rempah tradisional",
-            price: 45000,
-            image: "sate-lilit.jpg",
-            categoryId: categoryMap["Makanan Pembuka"],
-            isAvailable: true,
-        },
-        {
-            name: "Tahu Telor",
-            description:
-                "Tahu goreng dengan telur dan saus kacang khas Jawa Timur",
-            price: 30000,
-            image: "tahu-telor.jpg",
-            categoryId: categoryMap["Makanan Pembuka"],
-            isAvailable: true,
-        },
-        {
-            name: "Siomay Bandung",
-            description:
-                "Siomay ikan tenggiri dengan pelengkap kentang, pare, dan tahu",
-            price: 35000,
-            image: "siomay-bandung.jpg",
-            categoryId: categoryMap["Makanan Pembuka"],
-            isAvailable: true,
-        },
-        {
-            name: "Perkedel Jagung",
-            description: "Bakwan jagung manis dengan campuran bumbu dan rempah",
-            price: 25000,
-            image: "perkedel-jagung.jpg",
-            categoryId: categoryMap["Makanan Pembuka"],
-            isAvailable: true,
-        },
-        {
-            name: "Sambal Udang Petai",
-            description:
-                "Udang dan petai yang dimasak dengan sambal merah pedas",
-            price: 50000,
-            image: "sambal-udang-petai.jpg",
-            categoryId: categoryMap["Makanan Pembuka"],
-            isAvailable: true,
-        },
-    ];
+    // Khai vị
 
-    // Hidangan Utama
+    // Món chính
     const mainCourses = [
         {
-            name: "Nasi Goreng Kambing",
+            name: "Cơm rang cá mặn",
             description:
-                "Nasi goreng dengan daging kambing empuk dan rempah pilihan",
+                "Cơm rang với thịt cá mềm và gia vị chọn lọc",
             price: 65000,
-            image: "nasi-goreng-kambing.jpg",
-            categoryId: categoryMap["Hidangan Utama"],
+            image: "Com_chien_ca_man.jpg",
+            categoryId: categoryMap["Món chính"],
             isAvailable: true,
         },
         {
-            name: "Buntut Bakar",
-            description: "Buntut sapi bakar dengan bumbu khas dan sup kaldu",
-            price: 95000,
-            image: "buntut-bakar.jpg",
-            categoryId: categoryMap["Hidangan Utama"],
+            name: "Càng cua bách hoa",
+            description: "Càng cua tươi bọc lớp chả tôm thịt “bách hoa” đậm vị, chiên vàng giòn bên ngoài, mềm ngọt bên trong.",
+            price: 205000,
+            image: "Cang_cua_bach_hoa.jpg",
+            categoryId: categoryMap["Món chính"],
             isAvailable: true,
         },
         {
-            name: "Soto Ayam Lamongan",
-            description: "Soto ayam khas Lamongan dengan bumbu kuning dan koya",
+            name: "Gà nướng Tây Bắc",
+            description: "Gà Tây Bắc nướng với nước dùng vàng và bột cà ri",
             price: 45000,
-            image: "soto-ayam-lamongan.jpg",
-            categoryId: categoryMap["Hidangan Utama"],
+            image: "Ga_nuong_Tay_Bac.jpg",
+            categoryId: categoryMap["Món chính"],
             isAvailable: true,
         },
         {
-            name: "Mie Aceh",
-            description: "Mie tebal dengan bumbu rempah khas Aceh dan seafood",
+            name: "Lẩu hải sản bào ngư",
+            description: "Nước lẩu đậm đà ngọt thanh từ hải sản tươi, kết hợp bào ngư giòn mềm",
             price: 60000,
-            image: "mie-aceh.jpg",
-            categoryId: categoryMap["Hidangan Utama"],
+            image: "Lau_hai_san_bao_ngu.jpg",
+            categoryId: categoryMap["Món chính"],
             isAvailable: true,
         },
         {
-            name: "Bebek Goreng Sambal Matah",
-            description: "Bebek goreng renyah dengan sambal matah khas Bali",
+            name: "Tôm hùm cháy tỏi",
+            description: "Tôm hùm tươi chiên cháy tỏi, gia vị chua cay hài hòa",
             price: 75000,
-            image: "bebek-goreng.jpg",
-            categoryId: categoryMap["Hidangan Utama"],
+            image: "Tom_hum_chay_toi.jpg",
+            categoryId: categoryMap["Món chính"],
             isAvailable: true,
         },
         {
-            name: "Ikan Bakar Jimbaran",
-            description: "Ikan bakar segar dengan bumbu Jimbaran dan sambal",
+            name: "Gỏi cá mú",
+            description: "Cá mú tươi thái lát mỏng, trộn cùng rau thơm, hành tây và gia vị chua cay hài hòa",
             price: 85000,
-            image: "ikan-bakar-jimbaran.jpg",
-            categoryId: categoryMap["Hidangan Utama"],
+            image: "Goi_ca_mu.jpg",
+            categoryId: categoryMap["Món chính"],
             isAvailable: true,
         },
     ];
 
-    // Hidangan Nusantara
-    const nusantaraFood = [
+    // Ẩm thực Nusantara
+    const AmthucAoSen = [
         {
-            name: "Rendang Sapi",
+            name: "Tôm hấp dứa",
             description:
-                "Daging sapi yang dimasak dengan santan dan bumbu rendang khas Padang",
+                "Tôm tươi hấp cùng dứa chín thơm, giữ trọn vị ngọt tự nhiên, hòa quyện vị chua nhẹ thanh mát",
             price: 70000,
-            image: "rendang-sapi.jpg",
-            categoryId: categoryMap["Hidangan Nusantara"],
+            image: "Tom_hap_dua.jpg",
+            categoryId: categoryMap["Ẩm thực Ao sen"],
             isAvailable: true,
         },
         {
-            name: "Gudeg Jogja",
+            name: "Nem nướng",
             description:
-                "Nangka muda yang dimasak dengan santan dan gula merah khas Yogyakarta",
+                "Nem thịt heo xay tẩm ướp gia vị đậm đà, nướng vàng thơm trên than hồng",
             price: 55000,
-            image: "gudeg-jogja.jpg",
-            categoryId: categoryMap["Hidangan Nusantara"],
+            image: "Nem_Nuong.jpg",
+            categoryId: categoryMap["Ẩm thực Ao sen"],
             isAvailable: true,
         },
         {
-            name: "Pempek Palembang",
-            description: "Pempek ikan dengan kuah cuka khas Palembang",
+            name: "Tôm sống",
+            description: "Tôm tươi bóc vỏ, giữ nguyên độ ngọt tự nhiên,mang đến hương vị tươi mát, đậm đà và kích thích vị giác",
             price: 50000,
-            image: "pempek-palembang.jpg",
-            categoryId: categoryMap["Hidangan Nusantara"],
+            image: "Tom_song.jpg",
+            categoryId: categoryMap["Ẩm thực Ao sen"],
             isAvailable: true,
         },
         {
-            name: "Ayam Betutu",
-            description: "Ayam yang dimasak dengan bumbu betutu khas Bali",
-            price: 65000,
-            image: "ayam-betutu.jpg",
-            categoryId: categoryMap["Hidangan Nusantara"],
-            isAvailable: true,
-        },
-        {
-            name: "Rawon Surabaya",
-            description: "Sup daging dengan bumbu kluwek khas Surabaya",
+            name: "Súp cua",
+            description: "Súp cua tươi đậm đà ngọt thanh, kết hợp với rau thơm, hành tây và gia vị chua cay hài hòa",
             price: 60000,
-            image: "rawon-surabaya.jpg",
-            categoryId: categoryMap["Hidangan Nusantara"],
+            image: "Sup_cua.jpg",
+            categoryId: categoryMap["Ẩm thực Ao sen"],
             isAvailable: true,
         },
         {
-            name: "Sate Padang",
-            description: "Sate daging sapi dengan kuah kuning khas Padang",
+            name: "Mẹt chay",
+            description: "Tổng hợp các món chay hấp dẫn như rau củ, đậu hũ và món giả mặn được chế biến đa dạng",
             price: 55000,
-            image: "sate-padang.jpg",
-            categoryId: categoryMap["Hidangan Nusantara"],
+            image: "Met_chay.jpg",
+            categoryId: categoryMap["Ẩm thực Ao sen"],
             isAvailable: true,
         },
     ];
 
-    // Hidangan Bali
-    const baliFood = [
+    // Món Bali
+    const Mondongque = [
         {
-            name: "Babi Guling",
-            description: "Babi utuh yang dipanggang dengan bumbu khas Bali",
+            name: "Thịt trâu gác bếp",
+            description: "Thịt trâu tẩm ướp gia vị núi rừng, hun khói và sấy khô",
             price: 85000,
-            image: "babi-guling.jpg",
-            categoryId: categoryMap["Hidangan Bali"],
+            image: "Thit_trau_gac_bep.jpg",
+            categoryId: categoryMap["Món đồng quê"],
             isAvailable: true,
         },
         {
-            name: "Lawar",
+            name: "Ếch đồng rang muối",
             description:
-                "Campuran sayuran, daging, dan rempah tradisional Bali",
+                "Ếch đồng chiên giòn, rang cùng muối tỏi đậm đà, lớp ngoài vàng giòn",
             price: 60000,
-            image: "lawar.jpg",
-            categoryId: categoryMap["Hidangan Bali"],
+            image: "Ech_dong_rang_muoi.jpg",
+            categoryId: categoryMap["Món đồng quê"],
             isAvailable: true,
         },
         {
-            name: "Bebek Betutu",
+            name: "Cháo cá rau đắng",
             description:
-                "Bebek yang dimasak dengan bumbu betutu dan dibungkus daun pisang",
+                "Cháo nấu từ cá tươi ngọt thanh, kết hợp rau đắng đặc trưng tạo vị hơi đăng đắng nhẹ",
             price: 90000,
-            image: "bebek-betutu.jpg",
-            categoryId: categoryMap["Hidangan Bali"],
+            image: "Chao_ca_rau_dang.jpg",
+            categoryId: categoryMap["Món đồng quê"],
             isAvailable: true,
         },
         {
-            name: "Nasi Campur Bali",
+            name: "Châu chấu rang",
             description:
-                "Nasi dengan berbagai lauk khas Bali seperti ayam suwir, sate lilit, dan sambal matah",
+                "Châu chấu chiên giòn, tẩm gia vị đậm đà, có vị béo bùi, giòn rụm, thơm lừng",
             price: 65000,
-            image: "nasi-campur-bali.jpg",
-            categoryId: categoryMap["Hidangan Bali"],
-            isAvailable: true,
-        },
-        {
-            name: "Tum Ayam",
-            description: "Ayam bumbu yang dibungkus daun pisang dan dikukus",
-            price: 55000,
-            image: "tum-ayam.jpg",
-            categoryId: categoryMap["Hidangan Bali"],
-            isAvailable: true,
-        },
-        {
-            name: "Sate Plecing",
-            description: "Sate ikan dengan bumbu plecing khas Bali",
-            price: 60000,
-            image: "sate-plecing.jpg",
-            categoryId: categoryMap["Hidangan Bali"],
+            image: "Chau_chau_rang.jpg",
+            categoryId: categoryMap["Món đồng quê"],
             isAvailable: true,
         },
     ];
 
-    const seafood = [
-        {
-            name: "Cumi Bakar",
-            description: "Cumi yang dibakar dengan bumbu khas laut",
-            price: 70000,
-            image: "cumi-bakar.jpg",
-            categoryId: categoryMap["Hidangan Laut"],
-            isAvailable: true,
-        },
-        {
-            name: "Cumi Sambal Matah",
-            description:
-                "Cumi segar yang digoreng dengan sambal matah khas Bali",
-            price: 75000,
-            image: "cumi-sambal-matah.jpg",
-            categoryId: categoryMap["Hidangan Laut"],
-            isAvailable: true,
-        },
-        {
-            name: "Udang Bakar",
-            description: "Udang yang dibakar dengan bumbu khas laut",
-            price: 65000,
-            image: "udang-bakar.jpg",
-            categoryId: categoryMap["Hidangan Laut"],
-            isAvailable: true,
-        },
-        {
-            name: "Udang Saus Padang",
-            description:
-                "Udang segar dimasak dengan saus padang pedas dan aromatik",
-            price: 85000,
-            image: "udang-saus-padang.jpg",
-            categoryId: categoryMap["Hidangan Laut"],
-            isAvailable: true,
-        },
-        {
-            name: "Ikan Teri",
-            description: "Ikan teri yang dimasak dengan bumbu khas laut",
-            price: 60000,
-            image: "ikan-teri.jpg",
-            categoryId: categoryMap["Hidangan Laut"],
-            isAvailable: true,
-        },
-        {
-            name: "Kakap Bakar Jimbaran",
-            description:
-                "Ikan kakap segar dibakar dengan bumbu Jimbaran khas Bali",
-            price: 95000,
-            image: "kakap-bakar.jpg",
-            categoryId: categoryMap["Hidangan Laut"],
-            isAvailable: true,
-        },
-    ];
-
-    // Minuman
+    
+    // Đồ uống
     const drinks = [
         {
-            name: "Es Daluman",
+            name: "Trà hoa nhiệt đới",
             description:
-                "Minuman dingin khas Bali dengan cincau hijau dan sirup",
+                "Sự kết hợp hài hòa giữa trà thơm và các loại hoa quả nhiệt đới",
             price: 25000,
-            image: "es-daluman.jpg",
-            categoryId: categoryMap["Minuman"],
+            image: "tra_hoa_nhiet_doi.jpg",
+            categoryId: categoryMap["Đồ uống"],
             isAvailable: true,
         },
         {
-            name: "Jamu Kunyit Asam",
-            description: "Minuman tradisional dari kunyit dan asam jawa",
+            name: "Trà tắc",
+            description: "Đồ uống vị chua thanh hòa quyện chút ngọt dịu, hương thơm nhẹ",
             price: 20000,
-            image: "jamu-kunyit.jpg",
-            categoryId: categoryMap["Minuman"],
+            image: "tra_tac.jpg",
+            categoryId: categoryMap["Đồ uống"],
             isAvailable: true,
         },
         {
-            name: "Es Cendol",
-            description: "Minuman manis dengan cendol, santan, dan gula merah",
+            name: "Matcha lattete",
+            description: "Toi iu matchalatteeee",
             price: 22000,
-            image: "es-cendol.jpg",
-            categoryId: categoryMap["Minuman"],
+            image: "matcha_lattete.jpg",
+            categoryId: categoryMap["Đồ uống"],
             isAvailable: true,
         },
         {
-            name: "Kopi Bali",
-            description: "Kopi hitam kental khas Bali dengan aroma khas",
+            name: "Coffee latte",
+            description: "Cà phê kết hợp cùng sữa nóng béo mịn, vị đắng nhẹ hòa quyện với độ ngọt dịu",
             price: 18000,
-            image: "kopi-bali.jpg",
-            categoryId: categoryMap["Minuman"],
+            image: "coffee_latte.jpg",
+            categoryId: categoryMap["Đồ uống"],
             isAvailable: true,
         },
-        {
-            name: "Teh Tarik",
-            description: 'Teh susu yang "ditarik" hingga berbusa',
-            price: 20000,
-            image: "teh-tarik.jpg",
-            categoryId: categoryMap["Minuman"],
-            isAvailable: true,
-        },
-        {
-            name: "Wedang Jahe",
-            description: "Minuman jahe hangat dengan rempah dan gula merah",
-            price: 18000,
-            image: "wedang-jahe.jpg",
-            categoryId: categoryMap["Minuman"],
-            isAvailable: true,
-        },
+       
     ];
 
     // Dessert
-    const desserts = [
+    const trangmieng = [
         {
-            name: "Klepon",
-            description: "Kue bola dari tepung ketan dengan isian gula merah",
+            name: "Rau câu",
+            description: "Món tráng miệng mát lạnh với kết cấu dai giòn nhẹ, vị ngọt thanh",
             price: 25000,
-            image: "klepon.jpg",
-            categoryId: categoryMap["Dessert"],
+            image: "rau_cau.jpg",
+            categoryId: categoryMap["Tráng miệng"],
             isAvailable: true,
         },
         {
-            name: "Kue Dadar Gulung",
+            name: "Chè hạt sen",
             description:
-                "Dadar gulung hijau dengan isian kelapa dan gula merah",
+                "Hạt sen nấu mềm bùi, mang hương vị dịu nhẹ, thanh mát",
             price: 25000,
-            image: "dadar-gulung.jpg",
-            categoryId: categoryMap["Dessert"],
+            image: "Che_hat_sen.jpg",
+            categoryId: categoryMap["Tráng miệng"],
             isAvailable: true,
         },
         {
-            name: "Pisang Goreng",
-            description: "Pisang raja yang digoreng dengan tepung crispy",
+            name: "Chè thái",
+            description: "Món chè hấp dẫn với nước cốt dừa béo thơm, kết hợp trái cây tươi",
             price: 22000,
-            image: "pisang-goreng.jpg",
-            categoryId: categoryMap["Dessert"],
+            image: "che_thai.jpg",
+            categoryId: categoryMap["Tráng miệng"],
             isAvailable: true,
         },
         {
-            name: "Es Campur",
+            name: "Chè sâm bổ lượng",
             description:
-                "Campuran buah, cincau, dan jelly dengan sirup dan santan",
+                "Vị ngọt nhẹ, thơm dịu, giúp giải nhiệt và bồi bổ cơ thể",
             price: 30000,
-            image: "es-campur.jpg",
-            categoryId: categoryMap["Dessert"],
+            image: "che_sam_bo_luong.jpg",
+            categoryId: categoryMap["Tráng miệng"],
             isAvailable: true,
         },
-        {
-            name: "Bubur Sumsum",
-            description: "Bubur tepung beras dengan saus gula merah",
-            price: 20000,
-            image: "bubur-sumsum.jpg",
-            categoryId: categoryMap["Dessert"],
-            isAvailable: true,
-        },
-        {
-            name: "Kue Lapis",
-            description: "Kue lapis warna-warni dari tepung beras dan santan",
-            price: 20000,
-            image: "kue-lapis.jpg",
-            categoryId: categoryMap["Dessert"],
-            isAvailable: true,
-        },
+
     ];
 
     // Combine all menus
     const allMenus = [
-        ...appetizers,
         ...mainCourses,
-        ...nusantaraFood,
-        ...baliFood,
-        ...seafood,
+        ...AmthucAoSen,
+        ...Mondongque,
         ...drinks,
-        ...desserts,
+        ...trangmieng,
     ];
 
     // Seed menus
