@@ -124,7 +124,7 @@ const teamMembers = [
         id: 1,
         name: "Bùi Ngọc Yến",
         position: "Head Chef",
-        image: "chef-1.jpg?v=2",
+        image: "chef-1.png",
         bio: "Đầu bếp Ngọc Ýn có hơn 15 năm kinh nghiệm trong lĩnh vực ẩm thực Việt Nam. Cô ấy đã nấu ăn cho nhiều sự kiện quan trọng và giành được một số giải thưởng ẩm thực quốc gia.",
     },
     {
