@@ -1,9 +1,9 @@
 import { OrderItem } from "@/types";
 
-export function formatRupiah(amount: number): string {
-    return new Intl.NumberFormat("id-ID", {
+export function formatVND(amount: number): string {
+    return new Intl.NumberFormat("vi-VN", {
         style: "currency",
-        currency: "IDR",
+        currency: "VND",
         minimumFractionDigits: 0,
         maximumFractionDigits: 0,
     }).format(amount);

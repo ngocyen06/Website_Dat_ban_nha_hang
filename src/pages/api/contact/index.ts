@@ -8,10 +8,10 @@ const emailDev = process.env.EMAIL_DEV;
 
 // Validation schema
 const contactSchema = z.object({
-    name: z.string().min(2, "Nama harus minimal 2 karakter"),
-    email: z.string().email("Format email tidak valid"),
-    subject: z.string().min(3, "Subjek harus minimal 3 karakter"),
-    message: z.string().min(10, "Pesan harus minimal 10 karakter"),
+    name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
+    email: z.string().email("Định dạng email không hợp lệ"),
+    subject: z.string().min(3, "Chủ đề phải có ít nhất 3 ký tự"),
+    message: z.string().min(10, "Tin nhắn phải có ít nhất 10 ký tự"),
 });
 
 export default async function handler(
@@ -36,18 +36,18 @@ export default async function handler(
             subject: `[Contact Form] ${subject}`,
             html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #b45309;">Pesan dari Form Kontak Website</h2>
-          <p><strong>Nama:</strong> ${name}</p>
+          <h2 style="color: #b45309;">Tin nhắn từ biểu mẫu liên hệ website</h2>
+          <p><strong>Tên:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Subjek:</strong> ${subject}</p>
+          <p><strong>Chủ đề:</strong> ${subject}</p>
           <hr style="border: 1px solid #f3f4f6; margin: 20px 0;" />
           <div>
-            <p><strong>Pesan:</strong></p>
+            <p><strong>Tin nhắn:</strong></p>
             <p style="white-space: pre-line;">${message}</p>
           </div>
           <hr style="border: 1px solid #f3f4f6; margin: 20px 0;" />
           <p style="font-size: 12px; color: #6b7280;">
-            Pesan ini dikirim dari form kontak website Cita Nusa Resto.
+            Tin nhắn này được gửi từ biểu mẫu liên hệ của website Cita Nusa Resto.
           </p>
         </div>
       `,
@@ -56,21 +56,21 @@ export default async function handler(
         if (error) {
             console.error("Resend API Error:", error);
             return res.status(500).json({
-                message: "Gagal mengirim email. Silakan coba lagi nanti.",
+                message: "Gửi email thất bại. Vui lòng thử lại sau.",
                 error: error.message,
             });
         }
 
         // Success response
         return res.status(200).json({
-            message: "Pesan berhasil dikirim",
+            message: "Gửi tin nhắn thành công",
             id: data?.id,
         });
     } catch (error) {
         // Handle zod validation errors
         if (error instanceof z.ZodError) {
             return res.status(400).json({
-                message: "Validasi gagal",
+                message: "Xác thực thất bại",
                 errors: error.errors,
             });
         }
@@ -78,7 +78,7 @@ export default async function handler(
         // Handle other errors
         console.error("Contact form error:", error);
         return res.status(500).json({
-            message: "Terjadi kesalahan. Silakan coba lagi nanti.",
+            message: "Đã xảy ra lỗi. Vui lòng thử lại sau.",
         });
     }
 }

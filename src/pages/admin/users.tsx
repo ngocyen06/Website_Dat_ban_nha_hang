@@ -320,7 +320,7 @@ const UserManagementPage: NextPage = () => {
                                             <span className="text-sm text-gray-600">
                                                 {new Date(
                                                     user.createdAt
-                                                ).toLocaleDateString("id-ID", {
+                                                ).toLocaleDateString("vi-VN", {
                                                     day: "numeric",
                                                     month: "long",
                                                     year: "numeric",

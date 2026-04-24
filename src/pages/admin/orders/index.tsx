@@ -318,10 +318,10 @@ const AdminOrdersPage: NextPage = () => {
                                         </td>
                                         <td className="py-4 px-4 whitespace-nowrap">
                                             <div className="font-medium text-gray-900">
-                                                Rp{" "}
+                                                VND{" "}
                                                 {calculateOrderTotal(
                                                     order.items
-                                                ).toLocaleString("id-ID")}
+                                                ).toLocaleString("vi-VN")}
                                             </div>
                                         </td>
                                         <td className="py-4 px-4 whitespace-nowrap">

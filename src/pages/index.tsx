@@ -352,8 +352,8 @@ const Home: NextPage = () => {
                                             {menu.name}
                                         </h3>
                                         <span className="text-amber-600 font-bold">
-                                            {`Rp. ${menu.price.toLocaleString(
-                                                "id-ID"
+                                            {`VND. ${menu.price.toLocaleString(
+                                                "vi-VN"
                                             )}`}
                                         </span>
                                     </div>

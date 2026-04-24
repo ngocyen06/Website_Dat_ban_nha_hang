@@ -237,7 +237,7 @@ const AddOrderPage: NextPage = () => {
                                             {booking.table.tableNumber} -{" "}
                                             {new Date(
                                                 booking.dateTime
-                                            ).toLocaleString("id-ID")}
+                                            ).toLocaleString("vi-VN")}
                                         </option>
                                     ))}
                                 </select>
@@ -265,7 +265,7 @@ const AddOrderPage: NextPage = () => {
                                             <span className="text-gray-700">
                                                 {new Date(
                                                     selectedBooking.dateTime
-                                                ).toLocaleString("id-ID")}
+                                                ).toLocaleString("vi-VN")}
                                             </span>
                                         </div>
                                         <div className="flex items-center">
@@ -362,9 +362,9 @@ const AddOrderPage: NextPage = () => {
                                                                             {
                                                                                 menu.name
                                                                             }{" "}
-                                                                            - Rp{" "}
+                                                                            - VND{" "}
                                                                             {menu.price.toLocaleString(
-                                                                                "id-ID"
+                                                                                "vi-VN"
                                                                             )}
                                                                         </option>
                                                                     )
@@ -440,7 +440,7 @@ const AddOrderPage: NextPage = () => {
                                             <span className="text-sm text-gray-600">
                                                 Tính tạm: {" "}
                                                 <span className="font-medium">
-                                                    Rp{" "}
+                                                    VND{" "}
                                                     {calculateItemPrice(
                                                         watch(
                                                             `items.${index}.menuId`
@@ -448,7 +448,7 @@ const AddOrderPage: NextPage = () => {
                                                         watch(
                                                             `items.${index}.quantity`
                                                         ) || 0
-                                                    ).toLocaleString("id-ID")}
+                                                    ).toLocaleString("vi-VN")}
                                                 </span>
                                             </span>
                                         </div>
@@ -463,7 +463,7 @@ const AddOrderPage: NextPage = () => {
                                         Tổng Đơn hàng
                                     </span>
                                     <span className="text-lg font-bold text-amber-900">
-                                        Rp {totalPrice.toLocaleString("id-ID")}
+                                        VND {totalPrice.toLocaleString("vi-VN")}
                                     </span>
                                 </div>
                             </div>

@@ -173,7 +173,7 @@ const AdminMenusPage: NextPage = () => {
 
     // Format price to IDR
     const formatPrice = (price: number) => {
-        return new Intl.NumberFormat("id-ID", {
+        return new Intl.NumberFormat("vi-VN", {
             style: "currency",
             currency: "IDR",
         }).format(price);
@@ -377,7 +377,7 @@ const AdminMenusPage: NextPage = () => {
 
                     <div>
                         <label className="block text-sm font-medium text-gray-700">
-                            Giá (Rp)
+                            Giá (VND)
                         </label>
                         <input
                             type="number"

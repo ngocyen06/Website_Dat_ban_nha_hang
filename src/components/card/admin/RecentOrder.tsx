@@ -32,7 +32,7 @@ const RecentOrder = ({
                     <p className="text-sm font-medium text-gray-900">{name}</p>
                     <p className="text-xs text-gray-500">
                         {date} • {time} • {items} item •{" "}
-                        {total.toLocaleString("id-ID", {
+                        {total.toLocaleString("vi-VN", {
                             style: "currency",
                             currency: "IDR",
                         })}

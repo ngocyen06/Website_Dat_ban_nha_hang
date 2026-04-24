@@ -208,10 +208,10 @@ const AdminOrderDetailPage: NextPage = () => {
                                         Tổng giá
                                     </p>
                                     <p className="text-gray-900 font-medium">
-                                        Rp{" "}
+                                        VND{" "}
                                         {calculateOrderTotal(
                                             order?.items
-                                        ).toLocaleString("id-ID")}
+                                        ).toLocaleString("vi-VN")}
                                     </p>
                                 </div>
                             </div>
@@ -361,19 +361,19 @@ const AdminOrderDetailPage: NextPage = () => {
                                             </div>
                                         </td>
                                         <td className="py-4 px-4 text-center text-sm text-gray-900">
-                                            Rp{" "}
+                                            VND{" "}
                                             {item.menu.price.toLocaleString(
-                                                "id-ID"
+                                                "vi-VN"
                                             )}
                                         </td>
                                         <td className="py-4 px-4 text-center text-sm text-gray-900">
                                             {item.quantity}
                                         </td>
                                         <td className="py-4 px-4 text-right text-sm font-medium text-gray-900">
-                                            Rp{" "}
+                                            VND{" "}
                                             {(
                                                 item.menu.price * item.quantity
-                                            ).toLocaleString("id-ID")}
+                                            ).toLocaleString("vi-VN")}
                                         </td>
                                     </tr>
                                 ))}
@@ -387,10 +387,10 @@ const AdminOrderDetailPage: NextPage = () => {
                                         Tổng
                                     </td>
                                     <td className="py-4 px-4 text-right text-sm font-bold text-gray-900">
-                                        Rp{" "}
+                                        VND{" "}
                                         {calculateOrderTotal(
                                             order?.items
-                                        ).toLocaleString("id-ID")}
+                                        ).toLocaleString("vi-VN")}
                                     </td>
                                 </tr>
                             </tbody>

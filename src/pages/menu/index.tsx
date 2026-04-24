@@ -309,8 +309,8 @@ const MenuPage: NextPage = () => {
                                                     className="mt-4 flex items-center justify-between"
                                                 >
                                                     <span className="text-lg font-bold text-amber-700">
-                                                        {`Rp. ${menu.price.toLocaleString(
-                                                            "id-ID"
+                                                        {`VND. ${menu.price.toLocaleString(
+                                                            "vi-VN"
                                                         )}`}
                                                     </span>
                                                     <motion.span
