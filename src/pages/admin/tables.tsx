@@ -204,7 +204,7 @@ const AdminTablesPage: NextPage = () => {
                                             >
                                                 {table.isAvailable
                                                     ? "Có sẵn"
-                                                    : "Không có sẵn"
+                                                    : "Không có sẵn"}
                                             </span>
                                         </td>
                                         <td className="py-4 px-4 whitespace-nowrap space-x-2">
