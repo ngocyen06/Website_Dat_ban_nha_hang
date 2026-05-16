@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { Loader2, X } from "lucide-react";
 import { id } from "date-fns/locale";
-import { BookingDetail } from "../../types";
+import { BookingDetail } from "../../../types";
 import { Dispatch, SetStateAction } from "react";
 
 const CancelBookingModal = ({
