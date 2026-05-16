@@ -1,5 +1,5 @@
 import axiosInstance from "@/lib/axios";
-import { Table } from "../../pages/admin/tables";
+import { Table } from "@/pages/admin/tables";
 import { useMutation } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
