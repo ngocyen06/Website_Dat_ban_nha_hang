@@ -60,7 +60,7 @@ const AboutPage: NextPage = () => {
 
     const staggerContainerTeam = {
         hidden: { opacity: 0 },
-        show: {
+        visible: {
             opacity: 1,
             transition: {
                 staggerChildren: 0.2,
