@@ -1,4 +1,4 @@
-import axiosInstance from "../../lib/axios";
+import axiosInstance from "@/lib/axios";
 import { Table } from "@/pages/admin/tables";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
