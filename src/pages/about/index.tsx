@@ -6,7 +6,7 @@ import Layout from "@/components/layout/Layout";
 import { Award, Users, Calendar, Utensils } from "lucide-react";
 import { playfair } from "../_app";
 import { milestones, teamMembers } from "@/constants";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import TeamMemberCard from "@/components/card/about/TeamMemberCard ";
@@ -30,7 +30,7 @@ const AboutPage: NextPage = () => {
     const ctaInView = useInView(ctaRef, { once: true, amount: 0.5 });
 
     // Animation variants
-    const fadeIn = {
+    const fadeIn : Variants= {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
