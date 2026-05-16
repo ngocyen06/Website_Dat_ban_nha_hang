@@ -429,7 +429,7 @@ const AdminBookingsPage: NextPage = () => {
                         <p className="text-amber-800">
                             {bookings && bookings.length > 0
                                 ? "Không có đặt chỗ nào khớp với bộ lọc"
-                                : "Không có đặt chỗ nào có sẵn"}}
+                                : "Không có đặt chỗ nào có sẵn"}
                         </p>
                     </div>
                 )}
