@@ -22,7 +22,7 @@ const BookingPage: NextPage = () => {
         amount: 0.3,
     });
 
-    // Animation variants
+// Animation variants
     const fadeInUp = {
         hidden: { opacity: 0, y: 60 },
         visible: {
@@ -30,7 +30,7 @@ const BookingPage: NextPage = () => {
             y: 0,
             transition: { duration: 0.8, ease: "easeOut" },
         },
-    };
+    } as const; 
 
     const staggerContainer = {
         hidden: { opacity: 0 },
@@ -41,7 +41,7 @@ const BookingPage: NextPage = () => {
                 delayChildren: 0.3,
             },
         },
-    };
+    } as const;
 
     const cardVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -50,7 +50,7 @@ const BookingPage: NextPage = () => {
             y: 0,
             transition: { duration: 0.6, ease: "easeOut" },
         },
-    };
+    } as const;
 
     const buttonHover = {
         rest: { scale: 1 },
@@ -59,12 +59,12 @@ const BookingPage: NextPage = () => {
             transition: { duration: 0.2 },
         },
         tap: { scale: 0.98 },
-    };
+    } as const;
 
     return (
         <Layout>
             <Head>
-                <title>Đặt chỗ - Cita Nusa Resto</title>
+                <title>Đặt chỗ - Ao sen chú Sang</title>
                 <meta
                     name="description"
                     content="Đặt chỗ bàn tại Ao sen chú Sang - Món ăn Việt Nam chính gốc"

@@ -179,10 +179,10 @@ const AddOrderPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Thêm Đơn hàng - Cita Nusa Resto</title>
+                <title>Thêm Đơn hàng - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Thêm đơn hàng mới cho khách hàng tại Cita Nusa Resto"
+                    content="Thêm đơn hàng mới cho khách hàng tại Ao sen chú Sang"
                 />
             </Head>
 
@@ -278,7 +278,7 @@ const AddOrderPage: NextPage = () => {
                                             <Users className="h-4 w-4 text-amber-600 mr-2" />
                                             <span className="text-gray-700">
                                                 {selectedBooking.guestCount} người
-                                                orang
+                                                Người
                                             </span>
                                         </div>
                                     </div>

@@ -43,7 +43,7 @@ const MenuPage: NextPage = () => {
         setCurrentPage(1);
     }, [selectedCategory]);
 
-    // Animation variants
+// Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -58,7 +58,7 @@ const MenuPage: NextPage = () => {
                 duration: 0.3,
             },
         },
-    };
+    } as const;
 
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
@@ -72,7 +72,7 @@ const MenuPage: NextPage = () => {
             opacity: 0,
             transition: { duration: 0.3 },
         },
-    };
+    } as const;
 
     const fadeInVariant = {
         hidden: { opacity: 0 },
@@ -80,7 +80,7 @@ const MenuPage: NextPage = () => {
             opacity: 1,
             transition: { duration: 0.6 },
         },
-    };
+    } as const;
 
     const heroTextVariant = {
         hidden: { y: -30, opacity: 0 },
@@ -92,8 +92,7 @@ const MenuPage: NextPage = () => {
                 delay: 0.2,
             },
         },
-    };
-
+    } as const;
     return (
         <Layout>
             <Head>

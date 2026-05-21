@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Layout from "@/components/layout/Layout";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { format } from "date-fns";
-import { id as localeId } from "date-fns/locale";
+import { vi as localeId } from "date-fns/locale";
 import { toast } from "react-hot-toast";
 import {
     Loader2,

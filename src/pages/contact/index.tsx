@@ -28,7 +28,7 @@ const fadeInUp = {
         y: 0,
         transition: { duration: 0.6 }
     }
-};
+} as const;
 
 const staggerChildren = {
     hidden: { opacity: 0 },
@@ -38,7 +38,7 @@ const staggerChildren = {
             staggerChildren: 0.2
         }
     }
-};
+} as const;
 
 const heroTextVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -50,7 +50,7 @@ const heroTextVariants = {
             ease: "easeOut"
         }
     }
-};
+} as const;
 
 const pulseVariants = {
     idle: { scale: 1 },
@@ -58,11 +58,12 @@ const pulseVariants = {
         scale: 1.05,
         transition: {
             duration: 0.3,
-            yoyo: Infinity,
+            repeat: Infinity,        // Thay thế cho yoyo để tương thích bản mới
+            repeatType: "reverse",   // Giúp hiệu ứng lặp đảo chiều mượt mà
             ease: "easeInOut"
         }
     }
-};
+} as const;
 
 const ContactPage: NextPage = () => {
     const {

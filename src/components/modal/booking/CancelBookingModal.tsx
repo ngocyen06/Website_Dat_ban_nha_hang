@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import { Loader2, X } from "lucide-react";
-import { id } from "date-fns/locale";
+import { vi } from "date-fns/locale";
 import { BookingDetail } from "@/types";
 import { Dispatch, SetStateAction } from "react";
 
@@ -40,13 +40,13 @@ const CancelBookingModal = ({
                             {format(
                                 new Date(booking?.dateTime),
                                 "dd MMMM yyyy",
-                                { locale: id }
+                                { locale: vi }
                             )}
                         </p>
                         <p>
                             Thời gian:{" "}
                             {format(new Date(booking?.dateTime), "HH:mm", {
-                                locale: id,
+                                locale: vi,
                             })}{" "}
                             WIB
                         </p>

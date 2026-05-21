@@ -1,8 +1,5 @@
-import { MenuCategory } from "@prisma/client";
+import { MenuCategory, PrismaClient } from "@prisma/client";
 import { hash } from "bcryptjs";
-
-/* eslint-disable @typescript-eslint/no-require-imports */
-const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
@@ -10,14 +7,12 @@ async function main() {
     console.log("清理中... (Cleaning up database)");
     
     // Xóa theo thứ tự để tránh lỗi ràng buộc (Foreign Key)
-    // Xóa cái nào có khóa ngoại trước (Menu, Booking...) rồi mới xóa Category, Table
     await prisma.orderItem.deleteMany();
     await prisma.order.deleteMany();
     await prisma.booking.deleteMany();
     await prisma.menu.deleteMany();
     await prisma.menuCategory.deleteMany();
 
-    console.log("🌱 Seeding database...");
     console.log("🌱 Seeding database...");
 
     // Seed users
@@ -38,7 +33,6 @@ async function main() {
 async function seedUsers() {
     console.log('Seeding users...');
     
-    // Create admin user
     const adminPassword = await hash('admin123', 10);
     await prisma.user.upsert({
       where: { email: 'admin@gmail.com' },
@@ -52,7 +46,6 @@ async function seedUsers() {
       },
     });
   
-    // Create staff user
     const staffPassword = await hash('staff123', 10);
     await prisma.user.upsert({
       where: { email: 'staff@gmail.com' },
@@ -66,20 +59,19 @@ async function seedUsers() {
       },
     });
   
-    // Create customer user
     const customerPassword = await hash('customer123', 10);
     await prisma.user.upsert({
       where: { email: 'customer@example.com' },
       update: {},
       create: {
-        name: 'Khách hàng trung thành',
+        name: 'Khach hang chung thanh',
         email: 'customer@example.com',
         password: customerPassword,
         phone: '081234567892',
         role: 'CUSTOMER',
       },
     });
-  }
+}
 
 async function seedMenuCategories() {
     console.log("Seeding menu categories...");
@@ -108,20 +100,15 @@ async function seedMenuCategories() {
 async function seedMenus(categories: MenuCategory[]) {
     console.log("Seeding menus...");
 
-    // Mapping category names to IDs for easier reference
     const categoryMap = categories.reduce((map, category) => {
         map[category.name] = category.id;
         return map;
     }, {} as Record<string, string>);
 
-    // Khai vị
-
-    // Món chính
     const mainCourses = [
         {
             name: "Cơm rang cá mặn",
-            description:
-                "Cơm rang với thịt cá mềm và gia vị chọn lọc",
+            description: "Cơm rang với thịt cá mềm và gia vị chọn lọc",
             price: 65000,
             image: "Com_chien_ca_man.jpg",
             categoryId: categoryMap["Món chính"],
@@ -169,12 +156,10 @@ async function seedMenus(categories: MenuCategory[]) {
         },
     ];
 
-    // Ẩm thực Nusantara
     const AmthucAoSen = [
         {
             name: "Tôm hấp dứa",
-            description:
-                "Tôm tươi hấp cùng dứa chín thơm, giữ trọn vị ngọt tự nhiên, hòa quyện vị chua nhẹ thanh mát",
+            description: "Tôm tươi hấp cùng dứa chín thơm, giữ trọn vị ngọt tự nhiên, hòa quyện vị chua nhẹ thanh mát",
             price: 70000,
             image: "Tom_hap_dua.jpg",
             categoryId: categoryMap["Ẩm thực Ao sen"],
@@ -182,8 +167,7 @@ async function seedMenus(categories: MenuCategory[]) {
         },
         {
             name: "Nem nướng",
-            description:
-                "Nem thịt heo xay tẩm ướp gia vị đậm đà, nướng vàng thơm trên than hồng",
+            description: "Nem thịt heo xay tẩm ướp gia vị đậm đà, nướng vàng thơm trên than hồng",
             price: 55000,
             image: "Nem_Nuong.jpg",
             categoryId: categoryMap["Ẩm thực Ao sen"],
@@ -215,7 +199,6 @@ async function seedMenus(categories: MenuCategory[]) {
         },
     ];
 
-    // Món Bali
     const Mondongque = [
         {
             name: "Thịt trâu gác bếp",
@@ -227,8 +210,7 @@ async function seedMenus(categories: MenuCategory[]) {
         },
         {
             name: "Ếch đồng rang muối",
-            description:
-                "Ếch đồng chiên giòn, rang cùng muối tỏi đậm đà, lớp ngoài vàng giòn",
+            description: "Ếch đồng chiên giòn, rang cùng muối tỏi đậm đà, lớp ngoài vàng giòn",
             price: 60000,
             image: "Ech_dong_rang_muoi.jpg",
             categoryId: categoryMap["Món đồng quê"],
@@ -236,8 +218,7 @@ async function seedMenus(categories: MenuCategory[]) {
         },
         {
             name: "Cháo cá rau đắng",
-            description:
-                "Cháo nấu từ cá tươi ngọt thanh, kết hợp rau đắng đặc trưng tạo vị hơi đăng đắng nhẹ",
+            description: "Cháo nấu từ cá tươi ngọt thanh, kết hợp rau đắng đặc trưng tạo vị hơi đăng đắng nhẹ",
             price: 90000,
             image: "Chao_ca_rau_dang.jpg",
             categoryId: categoryMap["Món đồng quê"],
@@ -245,22 +226,18 @@ async function seedMenus(categories: MenuCategory[]) {
         },
         {
             name: "Châu chấu rang",
-            description:
-                "Châu chấu chiên giòn, tẩm gia vị đậm đà, có vị béo bùi, giòn rụm, thơm lừng",
+            description: "Châu chấu chiên giòn, tẩm gia vị đậm đà, có vị béo bùi, giòn rụm, thơm lừng",
             price: 65000,
             image: "Chau_chau_rang.jpg",
             categoryId: categoryMap["Món đồng quê"],
             isAvailable: true,
         },
     ];
-
     
-    // Đồ uống
     const drinks = [
         {
             name: "Trà hoa nhiệt đới",
-            description:
-                "Sự kết hợp hài hòa giữa trà thơm và các loại hoa quả nhiệt đới",
+            description: "Sự kết hợp hài hòa giữa trà thơm và các loại hoa quả nhiệt đới",
             price: 25000,
             image: "tra_hoa_nhiet_doi.jpg",
             categoryId: categoryMap["Đồ uống"],
@@ -290,10 +267,8 @@ async function seedMenus(categories: MenuCategory[]) {
             categoryId: categoryMap["Đồ uống"],
             isAvailable: true,
         },
-       
     ];
 
-    // Dessert
     const trangmieng = [
         {
             name: "Rau câu",
@@ -305,8 +280,7 @@ async function seedMenus(categories: MenuCategory[]) {
         },
         {
             name: "Chè hạt sen",
-            description:
-                "Hạt sen nấu mềm bùi, mang hương vị dịu nhẹ, thanh mát",
+            description: "Hạt sen nấu mềm bùi, mang hương vị dịu nhẹ, thanh mát",
             price: 25000,
             image: "Che_hat_sen.jpg",
             categoryId: categoryMap["Tráng miệng"],
@@ -322,17 +296,14 @@ async function seedMenus(categories: MenuCategory[]) {
         },
         {
             name: "Chè sâm bổ lượng",
-            description:
-                "Vị ngọt nhẹ, thơm dịu, giúp giải nhiệt và bồi bổ cơ thể",
+            description: "Vị ngọt nhẹ, thơm dịu, giúp giải nhiệt và bồi bổ cơ thể",
             price: 30000,
             image: "che_sam_bo_luong.jpg",
             categoryId: categoryMap["Tráng miệng"],
             isAvailable: true,
         },
-
     ];
 
-    // Combine all menus
     const allMenus = [
         ...mainCourses,
         ...AmthucAoSen,
@@ -341,7 +312,6 @@ async function seedMenus(categories: MenuCategory[]) {
         ...trangmieng,
     ];
 
-    // Seed menus
     for (const menu of allMenus) {
         await prisma.menu.upsert({
             where: {

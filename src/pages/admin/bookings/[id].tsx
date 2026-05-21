@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { format } from "date-fns";
-import { id as localeId } from "date-fns/locale";
+import { vi as localeId } from "date-fns/locale";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { BookingStatus } from "@prisma/client";
 import {
@@ -202,11 +202,11 @@ const AdminBookingDetailPage: NextPage = () => {
                                     </p>
                                     <p className="text-gray-900 font-medium">
                                         <span className="px-2 py-1 bg-amber-50 text-amber-800 rounded-md text-sm">
-                                            Meja #{booking?.table.tableNumber}
+                                            Bàn #{booking?.table.tableNumber}
                                         </span>
                                         <span className="text-gray-500 text-sm ml-2">
-                                            (Kapasitas:{" "}
-                                            {booking?.table.capacity} orang)
+                                            (Sức chứa:{" "}
+                                            {booking?.table.capacity} Người)
                                         </span>
                                     </p>
                                 </div>

@@ -29,8 +29,8 @@ const AboutPage: NextPage = () => {
     const teamInView = useInView(teamRef, { once: true, amount: 0.3 });
     const ctaInView = useInView(ctaRef, { once: true, amount: 0.5 });
 
-    // Animation variants
-    const fadeIn : Variants= {
+// Animation variants
+    const fadeIn: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -45,7 +45,7 @@ const AboutPage: NextPage = () => {
             y: 0,
             transition: { duration: 0.8, ease: "easeOut" },
         },
-    };
+    } as const; 
 
     const staggerContainer = {
         hidden: { opacity: 0 },
@@ -56,7 +56,7 @@ const AboutPage: NextPage = () => {
                 delayChildren: 0.3,
             },
         },
-    };
+    } as const;
 
     const staggerContainerTeam = {
         hidden: { opacity: 0 },
@@ -66,7 +66,7 @@ const AboutPage: NextPage = () => {
                 staggerChildren: 0.2,
             },
         },
-    };
+    } as const;
 
     const cardVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -75,7 +75,7 @@ const AboutPage: NextPage = () => {
             y: 0,
             transition: { duration: 0.6, ease: "easeOut" },
         },
-    };
+    } as const;
 
     const heroTextVariants = {
         hidden: { opacity: 0, y: 30 },
@@ -88,7 +88,7 @@ const AboutPage: NextPage = () => {
                 delay: 0.3,
             },
         },
-    };
+    } as const; 
 
     const imgScale = {
         hidden: { opacity: 0, scale: 0.8 },
@@ -100,7 +100,7 @@ const AboutPage: NextPage = () => {
                 ease: "easeOut",
             },
         },
-    };
+    } as const;
 
     const buttonHover = {
         rest: { scale: 1 },
@@ -109,7 +109,7 @@ const AboutPage: NextPage = () => {
             transition: { duration: 0.2 },
         },
         tap: { scale: 0.95 },
-    };
+    } as const;
 
     return (
         <Layout>

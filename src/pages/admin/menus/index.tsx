@@ -175,7 +175,7 @@ const AdminMenusPage: NextPage = () => {
     const formatPrice = (price: number) => {
         return new Intl.NumberFormat("vi-VN", {
             style: "currency",
-            currency: "IDR",
+            currency: "VND",
         }).format(price);
     };
 
@@ -190,7 +190,7 @@ const AdminMenusPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Quản lý Menu - Admin Cita Nusa Resto</title>
+                <title>Quản lý Menu - Admin Ao sen chú Sang</title>
             </Head>
 
             <div className="p-6 space-y-3 bg-white">
@@ -317,7 +317,7 @@ const AdminMenusPage: NextPage = () => {
                                                     }
                                                     className="text-red-600 hover:text-red-900"
                                                 >
-                                                    Hapus
+                                                    Delete
                                                 </button>
                                             </td>
                                         </tr>

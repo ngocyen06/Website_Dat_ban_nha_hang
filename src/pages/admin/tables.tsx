@@ -99,7 +99,7 @@ const AdminTablesPage: NextPage = () => {
                 <title>Quản lý Bàn - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Bảng điều khiển admin để quản lý bàn tại Cita Nusa Resto"
+                    content="Bảng điều khiển admin để quản lý bàn tại Ao sen chú Sang"
                 />
             </Head>
 

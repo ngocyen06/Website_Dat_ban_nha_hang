@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Layout from "@/components/layout/Layout";
 import { useQuery } from "@tanstack/react-query";
 import { format, isAfter } from "date-fns";
-import { id as localeId } from "date-fns/locale";
+import { vi as localeId } from "date-fns/locale";
 import { BookingStatus } from "@prisma/client";
 import Link from "next/link";
 import {

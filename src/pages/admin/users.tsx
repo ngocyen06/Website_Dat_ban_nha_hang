@@ -159,7 +159,7 @@ const UserManagementPage: NextPage = () => {
                 <title>Quản lý Người dùng - Ao sen chú Sang</title>
                 <meta
                     name="description"
-                    content="Bảng điều khiển admin để quản lý người dùng tại Cita Nusa Resto"
+                    content="Bảng điều khiển admin để quản lý người dùng tại Ao sen chú Sang"
                 />
             </Head>
 

@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { format } from "date-fns";
-import { id as localeId } from "date-fns/locale";
+import { vi as localeId } from "date-fns/locale";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import {
     ArrowLeft,

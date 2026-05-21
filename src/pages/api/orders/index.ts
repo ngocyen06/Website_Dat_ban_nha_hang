@@ -103,4 +103,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     }
 }
 
-export default withRole(["ADMIN", "STAFF"])(handler);
+export default withRole(["ADMIN", "STAFF","CUSTOMER"])(handler);

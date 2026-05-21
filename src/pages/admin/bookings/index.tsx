@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
-import { id } from "date-fns/locale";
+import { vi } from "date-fns/locale";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { BookingStatus } from "@prisma/client";
 import DatePicker from "react-datepicker";
@@ -151,7 +151,7 @@ const AdminBookingsPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Quản lý đặt chỗ - Cita Nusa Resto</title>
+                <title>Quản lý đặt chỗ - Ao sen chú Sang</title>
                 <meta
                     name="description"
                     content="Bảng điều khiển admin để quản lý đặt chỗ tại Cita Nusa Resto"
@@ -187,7 +187,7 @@ const AdminBookingsPage: NextPage = () => {
                                     selected={filterDate}
                                     onChange={(date) => setFilterDate(date)}
                                     dateFormat="dd MMMM yyyy"
-                                    locale={id}
+                                    locale={vi}
                                     className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 pl-10"
                                 />
                                 <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -315,12 +315,12 @@ const AdminBookingsPage: NextPage = () => {
                                         </td>
                                         <td className="py-4 px-4 whitespace-nowrap">
                                             <span className="px-2 py-1 bg-amber-50 text-amber-800 rounded-md text-sm">
-                                                Meja #
+                                                Bàn #
                                                 {booking.table.tableNumber}
                                             </span>
                                             <div className="text-sm text-gray-500 mt-1">
-                                                Kapasitas:{" "}
-                                                {booking.table.capacity} orang
+                                                Sức chứa:{" "}
+                                                {booking.table.capacity} Người
                                             </div>
                                         </td>
                                         <td className="py-4 px-4 whitespace-nowrap">
@@ -328,14 +328,14 @@ const AdminBookingsPage: NextPage = () => {
                                                 {format(
                                                     new Date(booking.dateTime),
                                                     "dd MMMM yyyy",
-                                                    { locale: id }
+                                                    { locale: vi }
                                                 )}
                                             </div>
                                             <div className="text-sm text-gray-500">
                                                 {format(
                                                     new Date(booking.dateTime),
                                                     "HH:mm",
-                                                    { locale: id }
+                                                    { locale: vi }
                                                 )}
                                             </div>
                                             <div className="text-xs text-gray-500">

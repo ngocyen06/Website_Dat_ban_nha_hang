@@ -2,6 +2,8 @@ import prisma from "@/lib/prisma";
 import { NextApiResponse } from "next";
 import { AuthenticatedRequest } from "../middleware/auth";
 
+
+
 async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
     if (req.method === "GET") {
         try {

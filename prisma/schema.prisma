@@ -7,11 +7,19 @@
 generator client {
   provider = "prisma-client-js"
 }
-// dùng sqlite nó tạo file lưu user ngay trong dự án luôn cho tiện
+
+// dùng postgresql lun đi
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL") 
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
+
+// dùng sqlite nó tạo file lưu user ngay trong dự án luôn cho tiện(thoi dùng postgresql cho đồng bộ nha)
+//datasource db {
+//  provider = "sqlite"
+//  url      = env("DATABASE_URL") 
+//}
 
 //datasource db {
 //  provider = "mysql"

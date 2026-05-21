@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { format } from "date-fns";
-import { id as localeId } from "date-fns/locale";
+import { vi as localeId } from "date-fns/locale";
 import {
     BookOpen,
     ChevronRight,
@@ -37,7 +37,7 @@ const AdminDashboardPage: NextPage = () => {
     return (
         <AdminLayout>
             <Head>
-                <title>Bảng Điều Khiển Admin - Cita Nusa Resto</title>
+                <title>Bảng Điều Khiển Admin - Ao sen chú Sang</title>
                 <meta
                     name="description"
                     content="Bảng điều khiển admin để quản lý Ao sen chú Sang"
@@ -52,7 +52,7 @@ const AdminDashboardPage: NextPage = () => {
                         Bảng Điều Khiển Admin
                     </h1>
                     <p className="text-gray-600">
-                        Chào mừng đến bảng điều khiển admin Cita Nusa Resto
+                        Chào mừng đến bảng điều khiển admin Ao sen chú Sang
                     </p>
                 </div>
                 <Link
@@ -166,7 +166,7 @@ const AdminDashboardPage: NextPage = () => {
                                     href="/admin/bookings"
                                     className="text-sm font-medium text-amber-600 hover:text-amber-800 flex items-center"
                                 >
-                                    <span>Lihat semua</span>
+                                    <span>Xem tất cả</span>
                                     <ChevronRight className="ml-1 h-4 w-4" />
                                 </Link>
                             </div>
@@ -215,7 +215,7 @@ const AdminDashboardPage: NextPage = () => {
                                     href="/admin/orders"
                                     className="text-sm font-medium text-amber-600 hover:text-amber-800 flex items-center"
                                 >
-                                    <span>Lihat semua</span>
+                                    <span>Xem tất cả</span>
                                     <ChevronRight className="ml-1 h-4 w-4" />
                                 </Link>
                             </div>

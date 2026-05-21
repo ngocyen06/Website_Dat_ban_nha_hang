@@ -9,7 +9,7 @@ import {
     ResponsiveContainer,
 } from "recharts";
 import { format, parseISO } from "date-fns";
-import { id as localeId } from "date-fns/locale";
+import { vi as localeId } from "date-fns/locale";
 
 interface BookingsChartProps {
     data: Array<{ date: string; count: number }>;

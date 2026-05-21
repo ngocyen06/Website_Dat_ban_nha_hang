@@ -7,7 +7,7 @@
     	"build": "next build",
     	"start": "next start",
     	"lint": "next lint",
-    	"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts",
+    	"seed": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" prisma/seed.ts",
     	"db:setup": "npx prisma generate && npx prisma db push && npm run seed",
     	"postinstall": "npx prisma generate"
   },
@@ -60,6 +60,6 @@
         "typescript": "^5"
     },
     "prisma": {
-    	"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    	"seed": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" prisma/seed.ts"
     }
 }

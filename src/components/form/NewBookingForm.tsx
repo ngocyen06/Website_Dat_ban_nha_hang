@@ -10,7 +10,7 @@ import { z } from "zod";
 import { format } from "date-fns";
 import { Table } from "@prisma/client";
 import { useMutation } from "@tanstack/react-query";
-import { id } from "date-fns/locale";
+import { vi } from "date-fns/locale";
 
 // Form schema validation
 const bookingSchema = z.object({
@@ -175,7 +175,7 @@ const NewBookingForm = ({
                                 }}
                                 dateFormat="dd MMMM yyyy"
                                 minDate={new Date()}
-                                locale={id}
+                                locale={vi}
                                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 text-black"
                                 placeholderText="Chọn ngày"
                             />

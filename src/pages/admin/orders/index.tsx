@@ -22,7 +22,7 @@ import axiosInstance from "@/lib/axios";
 import { useAuth } from "@/hooks/useAuth";
 import AdminLayout from "@/components/layout/admin/AdminLayout";
 import { format } from "date-fns";
-import { id } from "date-fns/locale";
+import { vi } from "date-fns/locale";
 import toast from "react-hot-toast";
 import { OrderStatus } from "@prisma/client";
 import { Order, OrderItem } from "@/types";
@@ -303,7 +303,7 @@ const AdminOrdersPage: NextPage = () => {
                                                             order.booking.dateTime
                                                         ),
                                                         "dd MMM yyyy, HH:mm",
-                                                        { locale: id }
+                                                        { locale: vi }
                                                     )}
                                                 </span>
                                             </div>
