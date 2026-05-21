@@ -3,14 +3,14 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-    	"dev": "next dev",
-    	"build": "next build",
-    	"start": "next start",
-    	"lint": "next lint",
-    	"seed": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" prisma/seed.ts",
-    	"db:setup": "npx prisma generate && npx prisma db push && npm run seed",
-    	"postinstall": "npx prisma generate"
-  },
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "seed": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" prisma/seed.ts",
+        "db:setup": "npx prisma generate && npx prisma db push && npm run seed",
+        "postinstall": "npx prisma generate"
+    },
     "dependencies": {
         "@hookform/resolvers": "^5.0.1",
         "@prisma/client": "^6.19.3",
@@ -29,11 +29,11 @@
         "jwt-decode": "^4.0.0",
         "lucide-react": "^0.501.0",
         "motion": "^12.9.4",
-        "next": "15.3.1",
+        "next": "15.1.7",
         "next-themes": "^0.4.6",
-        "react": "^19.0.0",
+        "react": "18.3.1",
         "react-datepicker": "^8.10.0",
-        "react-dom": "^19.0.0",
+        "react-dom": "18.3.1",
         "react-email": "^4.0.7",
         "react-hook-form": "^7.55.0",
         "react-hot-toast": "^2.5.2",
@@ -60,6 +60,6 @@
         "typescript": "^5"
     },
     "prisma": {
-    	"seed": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" prisma/seed.ts"
+        "seed": "ts-node --compiler-options \"{\\\"module\\\":\\\"CommonJS\\\"}\" prisma/seed.ts"
     }
 }
