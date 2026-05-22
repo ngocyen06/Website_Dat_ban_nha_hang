@@ -96,11 +96,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         } catch (error) {
             console.error("Error creating order:", error);
             return res.status(500).json({
-                message: "Terjadi kesalahan server",
+                message: "Server Error",
                 error: (error as Error).message,
             });
         }
     }
 }
 
-export default withRole(["ADMIN", "STAFF","CUSTOMER"])(handler);
+export default withRole(["ADMIN", "STAFF"])(handler);

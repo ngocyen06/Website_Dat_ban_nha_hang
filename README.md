@@ -1,84 +1,90 @@
-# Cita Nusa Resto
+Đề tài: Website đặt bàn nhà hàng - Ao sen chú Sang
 
-Sebuah aplikasi web fullstack untuk restoran "Cita Nusa Resto" dengan sistem reservasi meja. Proyek ini dibuat sebagai showcase pribadi menggunakan NextJS dengan Pages Router dan berbagai tech stack modern.
+Danh sách thành viên:
+1. Bùi Ngọc Yến - 124001493
+2. Vũ Đình Khôi Nguyên - 
+3. Trần Vũ Gia Kiệt - 124000658
 
-## 📋 Daftar Isi
+I.Mô tả ngắn về chức năng website
+Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ thống đặt bàn. Dự án này được tạo như một showcase cá nhân sử dụng NextJS với Pages Router và nhiều tech stack hiện đại.
+
+## 📋 Mục Lục
 
 - [Demo](#demo)
-- [Fitur](#fitur)
+- [Tính năng](#tính-năng)
 - [Tech Stack](#tech-stack)
-- [Instalasi](#instalasi)
-- [Penggunaan](#penggunaan)
-- [Struktur Proyek](#struktur-proyek)
+- [Cài đặt](#cài-đặt)
+- [Sử dụng](#sử-dụng)
+- [Cấu trúc dự án](#cấu-trúc-dự-án)
 - [API Endpoints](#api-endpoints)
 
 ## 🚀 Demo
 
-(https://cita-nusa-resto.vercel.app)
+(https://website-dat-ban-nha-hang.vercel.app)
 
-## ✨ Fitur
+## ✨ Tính năng
 
-- 🍽️ **Katalog Menu**: Tampilan menu makanan dan minuman yang menarik
-- 📅 **Sistem Pemesanan**: Reservasi meja dengan pilihan tanggal, waktu, dan jumlah tamu
-- 👤 **Manajemen Akun**: Registrasi, login, dan pengelolaan profil pengguna
-- 📧 **Notifikasi Email**: Konfirmasi pemesanan melalui email
-- 📱 **Responsif**: Tampilan yang optimal di berbagai perangkat
+- 🍽️ **Danh mục Menu**: Giao diện menu món ăn và đồ uống hấp dẫn
+- 📅 **Hệ thống đặt chỗ**: Đặt bàn với lựa chọn ngày, giờ và số lượng khách
+- 👤 **Quản lý tài khoản**: Đăng ký, đăng nhập và quản lý hồ sơ người dùng
+- 📧 **Thông báo Email**: Xác nhận đặt chỗ qua email
+- 📱 **Responsive**: Hiển thị tối ưu trên nhiều thiết bị
 - 🔐 **Admin Dashboard**:
-  - Manajemen pengguna
-  - Manajemen menu
-  - Manajemen reservasi
-  - Manajemen pesanan
-  - Manajemen meja
-  - Visualisasi data menggunakan Recharts untuk melihat insight harian reservasi dan pesanan
+  - Quản lý người dùng
+  - Quản lý menu
+  - Quản lý đặt chỗ
+  - Quản lý đơn hàng
+  - Quản lý bàn
+  - Trực quan hóa dữ liệu bằng Recharts để xem insight hằng ngày về đặt chỗ và đơn hàng
 
 ## 💻 Tech Stack
 
 ### Frontend
 
-- **Next.js** (Pages Router) - Framework React untuk rendering sisi server dan client
-- **TailwindCSS** - Framework CSS untuk desain yang cepat dan responsif
-- **React Hook Form & Zod** - Validasi dan pengelolaan formulir
-- **TanStack Query** - Manajemen state dan fetching data
-- **Zustand** - Manajemen state global
-- **React DatePicker** - Komponen pemilihan tanggal
-- **date-fns** - Utilitas manipulasi tanggal dan waktu
-- **Framer Motion** - Library untuk animasi UI
-- **Recharts** - Library untuk visualisasi data di dashboard admin
+- **Next.js** (Pages Router) - Framework React cho rendering phía server và client
+- **TailwindCSS** - Framework CSS cho thiết kế nhanh và responsive
+- **React Hook Form & Zod** - Validation và quản lý form
+- **TanStack Query** - Quản lý state và fetching data
+- **Zustand** - Quản lý state toàn cục
+- **React DatePicker** - Thành phần chọn ngày
+- **date-fns** - Tiện ích xử lý ngày và giờ
+- **Framer Motion** - Library cho animation UI
+- **Recharts** - Library để trực quan hóa dữ liệu trong dashboard admin
 
 ### Backend
 
 - **Next.js API Routes** - Endpoint API REST
-- **Prisma** - ORM untuk interaksi database
-- **PostgreSQL** - Database relasional
-- **JSON Web Token** - Otentikasi pengguna
-- **Resend** - Layanan pengiriman email
+- **Prisma** - ORM cho tương tác database
+- **PostgreSQL** - Database quan hệ
+- **JSON Web Token** - Xác thực người dùng
+- **Resend** - Dịch vụ gửi email
 
-## 🔧 Instalasi
+## 🔧 Cài đặt
 
-### Prasyarat
+### Điều kiện tiên quyết
 
-- Node.js (versi 18.x atau lebih tinggi)
-- NPM atau Yarn
+- Node.js (phiên bản 18.x hoặc cao hơn)
+- NPM 
 - PostgreSQL
 
-### Langkah-langkah
+### Các bước
 
-1. Clone repositori:
+1. Clone repository:
 
    ```bash
-   git clone https://github.com/username/cita-nusa-resto.git
-   cd cita-nusa-resto
+   git https://github.com/ngocyen06/Website_Dat_ban_nha_hang.git
+   cd Website_Dat_ban_nha_hang
    ```
 
-2. Install dependensi:
+2. Cài đặt dependencies:
 
    ```bash
    npm install
-   # atau
+   # hoặc
    yarn install
    ```
 
-3. Buat file .env dan konfigurasikan variabel lingkungan:
+3. Tạo file .env và cấu hình biến môi trường:
 
    ```
    DATABASE_URL="postgresql://username:password@localhost:5432/citanusadb"
@@ -89,63 +95,63 @@ Sebuah aplikasi web fullstack untuk restoran "Cita Nusa Resto" dengan sistem res
    NODE_ENV="development"
    ```
 
-4. Jalankan migrasi database:
+4. Chạy migration database:
 
    ```bash
    npx prisma migrate dev
    ```
 
-5. Isi database dengan data dummy:
+5. Seed database bằng dữ liệu dummy:
    ```bash
    npm run seed
    ```
 
-## 🚀 Penggunaan
+## 🚀 Sử dụng
 
-### Mode Development
+### Chế độ Development
 
 ```bash
 npm run dev
-# atau
+# hoặc
 yarn dev
 ```
 
-Buka [http://localhost:3000](http://localhost:3000) di browser untuk melihat aplikasi.
+Mở [http://localhost:3000](http://localhost:3000) trên trình duyệt để xem ứng dụng.
 
-### Build untuk Production
+### Build cho Production
 
 ```bash
 npm run build
 npm start
-# atau
+# hoặc
 yarn build
 yarn start
 ```
 
-## 📁 Struktur Proyek
+## 📁 Cấu trúc dự án
 
 ```
 cita-nusa-resto/
-├── .next/              # Build output dari Next.js
-├── node_modules/       # Dependensi
-├── prisma/             # Schema Prisma dan migrations
-│   └── seed.ts         # Script pengisian data dummy
-├── public/             # File statis
+├── .next/              # Build output của Next.js
+├── node_modules/       # Dependencies
+├── prisma/             # Prisma schema và migrations
+│   └── seed.ts         # Script seed dữ liệu dummy
+├── public/             # File tĩnh
 ├── src/                # Source code
-│   ├── components/     # Komponen React yang dapat digunakan kembali
-│   ├── constants/      # Konstanta aplikasi
+│   ├── components/     # Các component React có thể tái sử dụng
+│   ├── constants/      # Hằng số của ứng dụng
 │   ├── emails/         # Template email
 │   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utilitas dan helper functions
-│   ├── pages/          # Halaman dan API routes (Next.js Pages Router)
+│   ├── lib/            # Utilities và helper functions
+│   ├── pages/          # Trang và API routes (Next.js Pages Router)
 │   │   ├── api/        # Backend API endpoints
 │   │   └── ...         # Frontend pages
 │   ├── service/        # Service layer
-│   │   └── emailService.tsx # Service untuk pengiriman email
+│   │   └── emailService.tsx # Service gửi email
 │   ├── store/          # State management (Zustand)
-│   ├── styles/         # File CSS global dan utilitas
+│   ├── styles/         # File CSS global và utilities
 │   ├── types/          # Type definitions TypeScript
-│   └── utils/          # Fungsi utilitas
+│   └── utils/          # Hàm tiện ích
 ├── .env                # Environment variables
 ├── .gitignore
 ├── components.json
@@ -162,56 +168,50 @@ cita-nusa-resto/
 
 ## 📡 API Endpoints
 
-### Autentikasi
+### Xác thực
 
-- `POST /api/auth/register` - Registrasi pengguna baru
-- `POST /api/auth/login` - Login pengguna
+- `POST /api/auth/register` - Đăng ký người dùng mới
+- `POST /api/auth/login` - Đăng nhập người dùng
 
 ### Menu
 
-- `GET /api/menus` - Dapatkan semua menu
-- `POST /api/menus` - Tambah menu baru
-- `GET /api/menus/[id]` - Dapatkan detail menu berdasarkan ID
-- `PATCH /api/menus/[id]` - Update menu
-- `DELETE /api/menus/[id]` - Hapus menu
-- `GET /api/menus/categories` - Dapatkan semua kategori menu
+- `GET /api/menus` - Lấy tất cả menu
+- `POST /api/menus` - Thêm menu mới
+- `GET /api/menus/[id]` - Lấy chi tiết menu theo ID
+- `PATCH /api/menus/[id]` - Cập nhật menu
+- `DELETE /api/menus/[id]` - Xóa menu
+- `GET /api/menus/categories` - Lấy tất cả danh mục menu
 
-### Reservasi
+### Đặt chỗ
 
-- `POST /api/bookings` - Buat reservasi baru
-- `GET /api/bookings` - Dapatkan semua reservasi pengguna
-- `GET /api/bookings/[id]` - Dapatkan detail reservasi
-- `PATCH /api/bookings/[id]` - Update reservasi
-- `DELETE /api/bookings/[id]` - Batalkan reservasi
+- `POST /api/bookings` - Tạo đặt chỗ mới
+- `GET /api/bookings` - Lấy tất cả đặt chỗ của người dùng
+- `GET /api/bookings/[id]` - Lấy chi tiết đặt chỗ
+- `PATCH /api/bookings/[id]` - Cập nhật đặt chỗ
+- `DELETE /api/bookings/[id]` - Hủy đặt chỗ
 
-### Pesanan
+### Đơn hàng
 
-- `POST /api/orders` - Buat pesanan baru
-- `GET /api/orders` - Dapatkan semua pesanan pengguna
-- `GET /api/orders/[id]` - Dapatkan detail pesanan
-- `PATCH /api/orders/[id]` - Update pesanan
+- `POST /api/orders` - Tạo đơn hàng mới
+- `GET /api/orders` - Lấy tất cả đơn hàng của người dùng
+- `GET /api/orders/[id]` - Lấy chi tiết đơn hàng
+- `PATCH /api/orders/[id]` - Cập nhật đơn hàng
 
-### Meja
+### Bàn
 
-- `GET /api/tables` - Dapatkan semua data meja
-- `POST /api/tables` - Buat meja baru
-- `GET /api/tables/[id]` - Dapatkan detail meja
-- `PATCH /api/tables/[id]` - Update status meja
-- `DELETE /api/tables/[id]` - Hapus meja
-- `GET /api/tables/available` - Dapatkan meja yang tersedia
+- `GET /api/tables` - Lấy tất cả dữ liệu bàn
+- `POST /api/tables` - Tạo bàn mới
+- `GET /api/tables/[id]` - Lấy chi tiết bàn
+- `PATCH /api/tables/[id]` - Cập nhật trạng thái bàn
+- `DELETE /api/tables/[id]` - Xóa bàn
+- `GET /api/tables/available` - Lấy các bàn còn trống
 
 ### Admin
 
-- `GET /api/admin/dashboard-stats` - Dapatkan data untuk statistik dashboard
-- `GET /api/admin/users` - Dapatkan daftar pengguna
-- `PATCH /api/admin/users/[id]` - Update role pengguna
+- `GET /api/admin/dashboard-stats` - Lấy dữ liệu cho thống kê dashboard
+- `GET /api/admin/users` - Lấy danh sách người dùng
+- `PATCH /api/admin/users/[id]` - Cập nhật role người dùng
 
 ### PROFILE
 
-- `GET /api/profile` - Dapatkan data profil pengguna
-
-### KONTAK
-
-- `POST /api/contact` - Kirim pesan kontak
-
-Dibuat dengan ❤️ oleh ahmadahsin.dev, Claude, dan ChatGPT.
+- `GET /api/profile` - Lấy dữ liệu hồ sơ người dùng
