@@ -4,6 +4,7 @@ Danh sách thành viên:
 1. Bùi Ngọc Yến - 124001493
 2. Vũ Đình Khôi Nguyên - 
 3. Trần Vũ Gia Kiệt - 124000658
+4. Vũ Xuân Nam -
 
 I.Mô tả ngắn về chức năng website
 Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ thống đặt bàn. Dự án này được tạo như một showcase cá nhân sử dụng NextJS với Pages Router và nhiều tech stack hiện đại.
