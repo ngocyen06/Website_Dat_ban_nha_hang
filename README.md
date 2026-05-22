@@ -72,7 +72,7 @@ Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ th
 1. Clone repository:
 
    ```bash
-   git https://github.com/ngocyen06/Website_Dat_ban_nha_hang.git
+   git clone https://github.com/ngocyen06/Website_Dat_ban_nha_hang.git
    cd Website_Dat_ban_nha_hang
    ```
 
