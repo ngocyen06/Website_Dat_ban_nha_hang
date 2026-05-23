@@ -2,8 +2,9 @@
 
 Danh sách thành viên:
 1. Bùi Ngọc Yến - 124001493
-2. Vũ Đình Khôi Nguyên - 
+2. Vũ Đình Khôi Nguyên - 124001437
 3. Trần Vũ Gia Kiệt - 124000658
+4. Vũ Xuân Nam - 124001343
 
 I.Mô tả ngắn về chức năng website
 Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ thống đặt bàn. Dự án này được tạo như một showcase cá nhân sử dụng NextJS với Pages Router và nhiều tech stack hiện đại.
@@ -87,12 +88,21 @@ Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ th
 3. Tạo file .env và cấu hình biến môi trường:
 
    ```
+<<<<<<< HEAD
 	DATABASE_URL="postgresql://username:password@localhost:5432/aosenchusangdb"
 	JWT_SECRET="your-secret-key"
 	RESEND_API_KEY="your-resend-api-key"
 	EMAIL_FROM="onboarding@resend.dev"
 	EMAIL_DEV="youremail@example.com"
 	NODE_ENV="development"
+=======
+   DATABASE_URL="postgresql://username:password@localhost:5432/aosenchusangdb"
+   JWT_SECRET="your-secret-key"
+   RESEND_API_KEY="your-resend-api-key"
+   EMAIL_FROM="onboarding@resend.dev"
+   EMAIL_DEV="youremail@example.com"
+   NODE_ENV="development"
+>>>>>>> 25d075b2bb40a4eb7b66300912de9d6a61b978d6
    ```
 
 4. Chạy migration database:
