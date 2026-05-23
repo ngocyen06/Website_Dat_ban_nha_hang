@@ -88,16 +88,13 @@ Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ th
 3. Tạo file .env và cấu hình biến môi trường:
 
    ```
-3. Tạo file `.env` và cấu hình biến môi trường:
-
-```ini
 DATABASE_URL="postgresql://username:password@localhost:5432/aosenchusangdb"
 JWT_SECRET="your-secret-key"
 RESEND_API_KEY="your-resend-api-key"
 EMAIL_FROM="onboarding@resend.dev"
 EMAIL_DEV="youremail@example.com"
 NODE_ENV="development"
-
+  ```
 4. Chạy migration database:
 
    ```bash
