@@ -72,7 +72,7 @@ Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ th
 1. Clone repository:
 
    ```bash
-   git https://github.com/ngocyen06/Website_Dat_ban_nha_hang.git
+   git clone https://github.com/ngocyen06/Website_Dat_ban_nha_hang.git
    cd Website_Dat_ban_nha_hang
    ```
 
@@ -87,12 +87,12 @@ Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ th
 3. Tạo file .env và cấu hình biến môi trường:
 
    ```
-   DATABASE_URL="postgresql://username:password@localhost:5432/citanusadb"
-   JWT_SECRET="your-secret-key"
-   RESEND_API_KEY="your-resend-api-key"
-   EMAIL_FROM="noreply@citanusaresto.com"
-   EMAIL_DEV="youremail@example.com"
-   NODE_ENV="development"
+	DATABASE_URL="postgresql://username:password@localhost:5432/aosenchusangdb"
+	JWT_SECRET="your-secret-key"
+	RESEND_API_KEY="your-resend-api-key"
+	EMAIL_FROM="onboarding@resend.dev"
+	EMAIL_DEV="youremail@example.com"
+	NODE_ENV="development"
    ```
 
 4. Chạy migration database:
