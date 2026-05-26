@@ -1,4 +1,5 @@
 Đề tài: Website đặt bàn nhà hàng - Ao sen chú Sang
+> Học phần: Lập trình Front-End (Mã học phần: 111100)
 
 Danh sách thành viên:
 1. Bùi Ngọc Yến - 124001493
@@ -22,6 +23,10 @@ Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ th
 ## 🚀 Demo
 
 (https://website-dat-ban-nha-hang.vercel.app)
+
+🔐 Tài khoản Demo:
+Tài khoản admin: admin@gmail.com                            password: admin123
+Tài khoản user: martin@gmail.com                            password: 123456
 
 ## ✨ Tính năng
 
@@ -132,28 +137,29 @@ yarn start
 ## 📁 Cấu trúc dự án
 
 ```
-cita-nusa-resto/
-├── .next/              # Build output của Next.js
-├── node_modules/       # Dependencies
-├── prisma/             # Prisma schema và migrations
-│   └── seed.ts         # Script seed dữ liệu dummy
-├── public/             # File tĩnh
-├── src/                # Source code
-│   ├── components/     # Các component React có thể tái sử dụng
-│   ├── constants/      # Hằng số của ứng dụng
-│   ├── emails/         # Template email
-│   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utilities và helper functions
-│   ├── pages/          # Trang và API routes (Next.js Pages Router)
-│   │   ├── api/        # Backend API endpoints
-│   │   └── ...         # Frontend pages
-│   ├── service/        # Service layer
+Website_Dat_ban_nha_hang/
+├── .next/                # Build output của Next.js
+├── node_modules/         # Dependencies
+├── prisma/               # Prisma schema và migrations
+│   └── seed.ts           # Script seed dữ liệu dummy
+├── public/               # File tĩnh
+├── src/                  # Source code
+│   ├── components/       # Các component React có thể tái sử dụng
+│   ├── constants/        # Hằng số của ứng dụng
+│   ├── emails/           # Template email
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utilities và helper functions
+│   ├── pages/            # Trang và API routes (Next.js Pages Router)
+│   │   ├── api/          # Backend API endpoints
+        ├── tro-ly-ai.tsx # Trang giao diện Trợ lý AI 
+│   │   └── ...           # Frontend pages
+│   ├── service/          # Service layer
 │   │   └── emailService.tsx # Service gửi email
-│   ├── store/          # State management (Zustand)
-│   ├── styles/         # File CSS global và utilities
-│   ├── types/          # Type definitions TypeScript
-│   └── utils/          # Hàm tiện ích
-├── .env                # Environment variables
+│   ├── store/            # State management (Zustand)
+│   ├── styles/           # File CSS global và utilities
+│   ├── types/            # Type definitions TypeScript
+│   └── utils/            # Hàm tiện ích
+├── .env                  # Environment variables
 ├── .gitignore
 ├── components.json
 ├── eslint.config.mjs
