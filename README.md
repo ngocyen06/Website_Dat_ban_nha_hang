@@ -24,9 +24,12 @@ Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ th
 
 (https://website-dat-ban-nha-hang.vercel.app)
 
-🔐 Tài khoản Demo:
-Tài khoản admin: admin@gmail.com                            password: admin123
-Tài khoản user: martin@gmail.com                            password: 123456
+### 🔐 Tài khoản Demo :
+
+| Vai trò | Email | Mật khẩu |
+| :--- | :--- | :--- |
+| **Tài khoản ADMIN** | `admin@gmail.com` | `admin123` |
+| **Tài khoản USER** | `martin@gmail.com` | `123456` |
 
 ## ✨ Tính năng
 
