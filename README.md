@@ -94,6 +94,7 @@ Một ứng dụng web fullstack cho nhà hàng "Ao sen chú Sang" với hệ th
     EMAIL_FROM="onboarding@resend.dev"
     EMAIL_DEV="youremail@example.com"
     NODE_ENV="development"
+    GEMINI_API_KEY="your-gemini-api-key"
     ```
 4. Chạy migration database:
 
